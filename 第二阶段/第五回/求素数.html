@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+	<script>
+	for(var i=100;i<=200;i++){
+		for(var j=2;j<=i;j++){
+			if(i%j==0&&i!=j){
+				break;
+			}
+			if(i%j==0&&i==j){
+				document.write(i+" ");
+			}
+		}
+	}
+	/*var i=2;
+	while(i<=100){
+		var j=2;
+		while(j<=i){
+			if(i%j==0&&i!=j){
+			break;
+			}
+			if(i%j==0&&i==j){
+			document.write(i+" ");
+			}
+		j++;
+		}
+	i++;
+	}*/
+	/*var i=2;
+	do{
+		var j=2;
+		do{
+			if(i%j==0&&i!=j){
+			break;
+			}
+			if(i%j==0&&i==j){
+			document.write(i+" ");
+			}
+		j++;
+		}while(j<=i);
+	i++;
+	}while(i<=100);*/
+	/*for(var i=100;i<=200;i++){
+			var kaiguan=true;
+			for(var j=2;j<i;j++){
+				if(i%j==0){
+					kaiguan=false;
+					break;
+				}	
+			}
+			if(kaiguan){
+				document.write(i+" ");
+			}	
+		}*/
+	</script>
+</body>
+</html>

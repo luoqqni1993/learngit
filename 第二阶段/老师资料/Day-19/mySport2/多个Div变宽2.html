@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;background: red;margin-top: 10px;border: 2px solid black;}
+		</style>
+		<script type="text/javascript">
+			//var timer = null; 
+			window.onload = function(){
+				var oDiv = document.getElementsByTagName("div");
+				for(var i = 0; i < oDiv.length; i++){
+					oDiv[i].onmouseover = function(){
+						startMove(this,300);
+					}
+					oDiv[i].onmouseout = function(){
+						startMove(this,100);
+					}
+				}
+			}
+			function startMove(obj,target){
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function(){
+					var cur = parseInt(getStyle(obj,'width'));
+					var speed = (target - cur)/ 8;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+					if(cur == target){
+						clearInterval(obj.timer);
+					}else{
+						obj.style.width = cur + speed + 'px';
+					}
+					document.title = "offsetWidth" + obj.offsetWidth + ":cur" + cur ;
+				},30);
+			}
+			function getStyle(obj,attr){
+				if(obj.currentStyle){
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj,false)[attr];
+				}
+			}
+		</script>
+	</head>
+	<body>
+	<div></div>	
+	<div></div>
+	<div></div>
+	<div></div>
+	</body>
+</html>

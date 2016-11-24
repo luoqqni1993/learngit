@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	var str = "How Do You Do?";
+	var up = 0;
+	var low = 0;
+	for(var i = 0 ; i < str.length; i++){
+		if(str.charAt(i) >= 'a' && str.charAt(i) <= 'z'){
+			low++;
+		}
+		if(str.charAt(i) >= 'A' && str.charAt(i) <="Z"){
+			up++;
+		}
+	}
+	alert("大写字母有：" + up + "\n小写字母有：" + low);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

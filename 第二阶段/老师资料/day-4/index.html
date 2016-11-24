@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+		<script type="text/javascript">
+			/*
+				如何封装（定义）函数？
+				1.语句定义法
+				2.表达式定义法
+			*/
+			//封装函数，关键字是function
+			//print();
+			//无参无返回值的函数
+			function print() //给函数起个名称+标识函数的（）
+			{
+				alert("helloworld");
+			}
+			//调用函数
+			//一般调用
+			//print();
+			/*
+			for(var i = 1; i < 11; i++){
+				print();
+			}
+			*/
+			//mySum(); //表达式定义法不允许在定义前调用该函数
+			var mySum = function(){ //将一个匿名函数赋值给一个变量
+				var numOne = Number(prompt("请输入一个数："));
+				var numTwo = Number(prompt("请输入一个数："));
+				if(isNaN(numOne) || isNaN(numTwo)){
+					alert("您输入的是非法数字！");
+				}else {
+					alert(numOne + numTwo);
+				}
+			};  //将函数赋值给一个变量，是属于赋值语句，所以必须 加分号
+			
+			//alert(typeof mySum); //返回 "function" 属于Function类型
+			
+			/*
+			练习：设计一个按钮，当点击按钮，执行一个功能：判断一个数是素数还是合数？
+					素数（质数）：只能被1和它本身整除的数。
+					13  2  3  4  5  6 7 8 9 10 11 12 13
+					14  2  break;
+					var iNum = parseInt(prompt("请输入一个整数："));
+					if(isNaN(iNum)){
+						alert("您输入的是非法数字！");
+					}else {
+						if ( iNum == 0 || iNum == 1){
+							alert(iNum + "是非素非合的数字！");
+						}else {
+							for(var i = 2; i <= iNum; i++){
+								if(iNum % i == 0){
+									break;
+								}
+							}
+							if (iNum == i){
+								alert(iNum + "是素数！");
+							}else{
+								alert(iNum + "是合数！");
+							}
+						}
+					}
+				*/
+				
+				
+				/*
+					有参函数：
+					
+					
+				*/
+				
+				//求两数之和
+				//参数：负责函数之间数据传递的数
+				function yourSum(){
+					var a = Number(prompt("请输入一个数："));
+					var b = Number(prompt("请输入一个数："));
+					alert(a+b);
+				}
+				
+				function meSum(a,b){ //形式参数（形参）:定义函数时使用的参数
+				//负数接收数据
+					alert(a+b);
+				}
+				//var a = Number(prompt("请输入一个数："));
+				//var b = Number(prompt("请输入一个数："));
+				//meSum(a); 
+				//实际参数（实参）：调用函数时使用的参数
+				//给形参赋值的
+				
+				/*
+					【注】：
+					1.形参只能是（变）量
+					2.实参可以是常量、变量、表达式
+					3.当实参数量大于形参数量，多余的实参会被忽略
+					4.当实参数量小于形参数量，多余的形参会用undefined补全
+				*/
+				
+				//求两个数中的最大值（用有参函数实现）
+				/*
+				思路：
+				1.在舞台中设置三个文本框（第一个须要得到一个数字，第二个须要得到一个数字，第三个文本框放置处理后的结果），再设置两个按钮（第一个按钮绑定要执行的函数，第二个按钮清空三个文本框的内容）。
+				2.在后台中设置一个带参的最大值的函数，将结果显示到舞台第三个文本框中。
+				3.在后台中设置一个与第一个按钮绑定的执行函数，在此函数中获取到舞台中前两个文本框中的数字，再调用求最大值的函数，通过实参将两个数字赋值给形参。
+				4.在后台中设置一个与第二个按钮绑定的执行函数，在此函数中将舞台中三个文本框中的值清空。
+				*/
+				
+				//结合舞台设计一个简单计算器（有参函数）。
+				
+				
+				/*
+					返回值（return）
+					//求两个数中的最小值（用有参函数实现），再判断返回的最小值是奇数还是偶数。
+				*/
+				//求最小值
+				function min(a,b){
+					return a<b?a:b;
+				}
+				var numOne = Number(prompt("请输入一个数："));
+				var numTwo = Number(prompt("请输入一个数："));
+				if(isNaN(numOne) || isNaN(numTwo)){
+					alert("您输入的数字不合法！");
+				}else{
+					var myMin = min(numOne,numTwo);
+					alert(myMin % 2?myMin + "是奇数":myMin + "是偶数");
+				}
+				
+		</script>
+    </head>
+    <body>
+			请输入第一个数：<input type="text" id="text1" /><br/>
+			请输入第二个数：<input type="text" id="text2" />
+			<input type="button" value="调用函数" onclick="run()" />
+			</br>结果：<input type="text" id="result"/>
+			<input type="button" value="清空" onclick="myClear()"/>
+			<script type="text/javascript">
+				//封装求最大值的有参函数
+				function max(one,two){
+					//求出两数中的最大值
+						var myMax = one > two?one:two;
+						//将最大值放到页面中的结果文本框中
+						document.getElementById("result").value = myMax;
+				}
+				function run(){
+					//获取到第一个文本框中的值
+					var numOne = Number(document.getElementById("text1").value);
+					//获取到第二个文本框中的值
+					var numTwo = Number(document.getElementById("text2").value);
+					max(numOne,numTwo);
+				}
+				function myClear(){
+					document.getElementById("text1").value = "";
+					document.getElementById("text2").value = "";
+					document.getElementById("result").value = "";
+				}
+				
+				
+				
+				/*
+				作业：（要求：结合页面，有参有返回值函数实现）
+				2》设计一个简单的猜拳游戏(人机对战）
+
+				3》输入一个高考成绩，720分-清华，710-北大，
+				700-千锋，650-北科，630-南开，620-复旦，家里蹲大学
+				4》输入一个时间，输出它的下一秒时间。
+				*/
+			</script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		局部变量：在函数内部，用var声明的变量。
+		形参属性局部变量。
+		作用域：全局作用域、函数作用域
+		生存时间：局部变量当被使用时，开辟内存空间，使用完毕会立即释放。
+							全局变量当程序开始运行时，开辟内存空间，一直到网页被关闭时才释放。
+	*/
+	/*
+	var a = 3;
+	function fn(){
+		alert(a);  //undefined
+		var a = 6;
+		alert(a);  //6
+	}
+	fn();
+	*/
+	var a = 3; 
+	function fn(){
+		b = a + 3;
+		alert(a);  //3
+	}
+	fn();
+	alert(b);  //6
+	alert(a);  //3
+</script>
+</head>
+<body>
+    
+</body>
+</html>

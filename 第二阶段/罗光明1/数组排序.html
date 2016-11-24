@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var arr=[10,20,8,9,3,2,1,2,2,2,8];
+		var arr1=[];
+		function superSort(arr){
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[j]>arr[j+1]){
+					var t=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=t;
+					}
+				}
+			}
+			for(var i=0;i<arr.length-1;i++){
+				if(arr[i]!=arr[i+1]){
+					arr1.push(arr[i])
+				}
+				
+			}
+			return arr1
+		}
+		alert(superSort(arr));
+	};
+</script>

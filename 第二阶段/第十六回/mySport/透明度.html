@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		
+		</style>
+		<script>
+			window.onload=function(){
+				var oImg=document.getElementById("img1");
+				oImg.onmouseover=function(){
+					startTransparent(100);
+				};
+				oImg.onmouseout=function(){
+					startTransparent(30);
+				}
+			};
+			var timer=null;
+			var alpha=30;
+			function startTransparent(target){
+				var oImg=document.getElementById("img1");
+				clearInterval(timer);//取消计时器
+				//设置新的计时器
+				timer=setInterval(function(){
+					var speed=alpha<target ? 1 :-1;//设置速度
+					if(alpha==target){
+						clearInterval(timer);
+					}else{
+						alpha+=speed;//改变变量的值
+						oImg.style.filter="alpha(opacity="+alpha+")";//改变透明度的值
+						oImg.style.opacity=alpha/100;
+					}
+					document.title=alpha;
+				},30)
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/1.jpg" id="img1">
+	</body>
+</html>

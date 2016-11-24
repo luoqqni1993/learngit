@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+ 编写函数iseven,其功能为判断一个整数是否为偶数，若是偶数， 返回1，否则返回0，在程序中调用此函数，对输入的一个整数进 行判断，若是偶数，输出even，否则输出odd。
+ function iseven(n){
+	return n % 2 ?0 : 1;
+}
+function isEven(){
+	var iNum = parseInt(prompt("请输入一个整数："));
+	var re = iseven(iNum);
+	alert(re == 1 ? "even" : "odd");
+}
+isEven();
+
+编程求x的阶乘和y的阶乘的和，要求设计一个fac（n）函数求正整数n的阶乘。function fac(n){
+	var result = 1;
+	for(var i = 1; i <= n; i++){
+		result *= i;
+	}
+	return result;
+}
+function run(){
+	var x = parseInt(prompt("请输入一个正整数："));
+	var y = parseInt(prompt("请输入一个正整数："));
+	alert(fac(x) + fac(y));
+}
+run();
+ 利用函数实现面积计算器（计算长方形、三角形、圆形的面积）。Math.PI
+ function rectangle(l,w){
+	return l * w;
+}
+function triangle(b,h){
+	return b * h / 2;
+}
+function circle(r){
+	return Math.PI * r * r;
+}
+
+alert(Math.PI);
+
+e) 计算s=22!+32! （ 2的平方的阶乘+ 3 的平方的阶乘）
+function fac(n){
+	var re = 1;
+	for(var i = 1; i<= n; i++){
+		re *= i;
+	}
+	return re;
+}
+
+function square1(n){
+	return fac(n * n);
+}
+function sum(){
+	alert(square1(2) + square1(3));
+}
+sum();
+
+输出斐波那契数列的前20项（递归）
+1 1 2 3 5 8 13 21 
+*/
+function fib(n){
+	if(n == 1 || n == 2){
+		return 1;
+	}else{
+		return fib(n - 1) + fib(n - 2);
+	}
+}
+function run(){
+	for(var i = 1; i < 21;i++){
+		document.write(fib(i)+ " ");
+	}
+}
+run();
+</script>
+</head>
+<body>
+    
+</body>
+</html>

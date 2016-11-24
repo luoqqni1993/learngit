@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height: 100px;background: red;position: absolute;right: 0;}
+		</style>
+		<script type="text/javascript">
+			var timer = null; 
+			window.onload = function(){
+				var oDiv = document.getElementById("box");
+				//添加滚动事件
+				document.onscroll = function(){
+					
+					var scroll = document.documentElement.scrollTop || document.body.scrollTop; //计算滚动距离
+					//计算目标值 =（页面的可视高度 - 对象的相对高度）/ 2
+					var h = (document.documentElement.clientHeight - oDiv.offsetHeight) / 2 + scroll; 
+					startMove(Math.floor(h)); //消灭小数，为了防抖
+				}
+			}
+			//运动框架
+			function startMove(target){
+				var oDiv = document.getElementById("box");
+				clearInterval(timer);
+				timer = setInterval(function(){
+					var speed = (target - oDiv.offsetTop)/8;
+					speed = speed > 0? Math.ceil(speed) : Math.floor(speed);
+					
+					if(oDiv.offsetTop == target){
+						clearInterval(timer);
+					}else{
+						oDiv.style.top = oDiv.offsetTop + speed + 'px';
+					}
+					document.title = oDiv.offsetTop + ":" + target + ":" + speed;
+				},30);
+			}
+		</script>
+		
+	</head>
+	<body style="height: 5000px;">
+		<div id="box"></div>
+	</body>
+</html>

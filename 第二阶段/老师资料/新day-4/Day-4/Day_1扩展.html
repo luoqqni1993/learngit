@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	//输出 我爱你——\中国\"      \:转义符号
+	//\n:表示换行
+	//\t:表示横向跳8个空格
+	/*
+	alert('我爱你<br/>——           \\中国\\');
+	document.write("我爱你\n——         \"中国\"");
+	console.log('我爱你<br/>\n——\t\\中国\\');
+	*/
+	//匈牙利命名法：
+	/*
+		int  iNum:以i开头的变量存储整数
+		float  fNum:以f开头的变量存储小数
+		boolean bNum : 以b或bo开头的变量存储布尔变量
+		string  sStr : 以s开头的变量存储一个字符串
+		char    cCh : 以c开头的变量存储一个字符
+		object  obj : 以o开头的变量存储对象
+		Array   arr : 以arr开头的变量存储数组
+		Function  fn：以fn开对的变量存储函数 
+	*/
+	
+	//通过typeof返回的值都是字符串类型
+	/*
+	var iNum = 3;
+	var fNum = 3.2;
+	var iOne,iTwo,iThree;
+	//alert(typeof iOne);   //'undefined'   Undefined
+	alert(typeof typeof iNum);   //typeof iNum ('number')  'string'
+	alert(typeof iNum);  //返回值'number'  数据类型是：Number
+	*/
+	
+	iNumOne = 3;
+	//alert(iNumOne);
+	var obj = null;
+	var i = 0;
+	
+	//官方数据类型划分：
+	//简单数据类型：Number/String/Boolean/Null/Undefined
+	//复杂数据类型：Object
+	
+	var j = 3;
+	
+	/*
+	3 * 3
+	3 * '4'
+	3 * 'a'  "NaN:Not a Number  属于Number"
+	3 * null 
+	3 * false 
+	3 * true 
+	3 * undefined
+	3 * NaN
+
+	//alert('4' * ' ');
+	
+	console.log(0 / 3);
+	console.log(3 / 0);
+	console.log(0 / 0);	
+	
+	console.log(3 % 5);
+	console.log(3 % 6);
+	console.log(3.8 % 7);
+	console.log(10.8 % 7);
+	
+	var a = 3;
+	var b = 3.00000000000000000001;
+	alert(a == b);
+	var i = 3;
+	alert(++i);  //4
+	alert(i);*/
+	//alert(3 >= 3);
+	/*
+	*:乘  
+	规则：1.Number类型的数据相乘，正常相乘的结果
+	2.Number(不包含NaN）与字符串类型的数据相乘，先将字符串类型自动转成数字类型，然后再相乘,如果字符串数据可以正常转为数字，则正常相乘，如果字符串不能转为数字，则转成NaN，那么相乘的结果永远是NaN。
+	
+	3.Number(不包含NaN）与null/false/true 相乘时，将null/false 自动转为0计算，true自动转为1计算
+	4.Number与undefined/NaN相乘，结果为NaN
+	
+	
+	/:除
+	规则：同乘
+	注： 非零的数字 / 0 ：Infinity
+				 0  /  0 : NaN 
+				 
+	%:模（取余）
+	规则：同乘
+	
+	
+	++:
+	--:
+	var i = 3;
+	i++;
+	alert(i);
+	
+	
+	>
+	<
+	>=
+	<=
+	== : 比较的是值
+	！=:
+	=== ： 全等（恒等）  先比较数据类型，再比较结果
+	如： 3 == ‘3’
+			 3 === ‘3’
+	！==
+	
+	
+	赋值运算符：
+	1.简单赋值 ： = 
+	赋值号左边只能是变量；
+	赋值号右边可以变量、常量、表达式
+	2.复合算术赋值： +=  -=  *=  /=  %=
+	
+	
+	*/
+	/*
+	var a = b = c = 3;
+	console.log(a + "," + b + "," + c);
+	
+	
+	var a = 3;
+	a *= 5 -2;    // a = a * (5 - 2)
+	console.log(a); 
+	var oNumber = new Number(3);
+	var oStr = new String();
+	var oBoo = new Boolean();
+	var obj = {name:'zhangsan',age:18};
+	alert(typeof oNumber);*/
+	
+	//console.log(parseInt("23456.3a23a"));
+	//console.log(parseFloat("23.34.45a"));
+	//console.log(Number(" 2345"));
+	var aa = "alert('123')";
+	var bb = "2 + 2 * 3";
+	//alert(aa);
+	//eval(aa);
+;
+	alert(eval(bb));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

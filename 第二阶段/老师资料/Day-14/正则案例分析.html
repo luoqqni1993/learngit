@@ -1,0 +1,116 @@
+﻿var pattern = /(google){4,8}/; //匹配分组里的字符串 4-8 次
+var str = 'googlegoogle';
+alert(pattern.test(str));
+
+var pattern = /8(.*)8/; //获取 8..8 之间的任意字符
+var str = 'This is 8google8, dd 8ggg8';
+alert(str.match(pattern));
+alert(RegExp.$1); //得到第一个分组里的字符串内容
+
+var pattern = /8(.*)8/;
+var str = 'This is 8google8';
+var result = str.replace(pattern,'<strong>$1</strong>'); //得到替换的字符串输出
+document.write(result);
+
+var pattern = /(.*)\s(.*)/;
+var str = 'google baidu';
+var result = str.replace(pattern, '$2 $1'); //将两个分组的值替换输出
+document.write(result);
+
+var pattern = /google|baidu|bing/; //匹配三种其中一种字符串
+var str = 'google';
+alert(pattern.test(str));
+
+var pattern = /goo\sgle/; //\s 可以匹配到空格
+var str = 'goo gle';
+alert(pattern.test(str));
+
+var pattern = /google\b/; //\b 可以匹配是否到了边界
+var str = 'google';
+var str2= 'googleaa googlexx google dsdddd';
+alert(pattern.test(str));
+
+var pattern = /g\w*gle/; //\w*匹配任意多个所有字母数字_
+var str = 'google';
+alert(pattern.test(str));
+
+var pattern = /google\d*/; //\d*匹配任意多个数字
+var str = 'google444';
+alert(pattern.test(str));
+
+var pattern = /\D{7,}/; //\D{7,}匹配至少 7 个非数字
+var str = 'google8';
+alert(pattern.test(str));
+
+var pattern = /g[a-zA-Z_]*gle/; //[a-z]*表示任意个 a-z 中的字符
+var str = 'google';
+alert(pattern.test(str));
+
+var pattern = /g[^0-9]*gle/; //[^0-9]*表示任意个非 0-9 的字符
+var str = 'google';
+alert(pattern.test(str));
+
+var pattern = /[a-z][A-Z]+/; //[A-Z]+表示 A-Z 一次或多次
+var str = 'gOOGLE';
+alert(pattern.test(str));
+
+var pattern = /g.*gle/; //.匹配 0 到多个
+var str = 'google'; //*,?,+,{n,m}
+alert(pattern.test(str));
+
+var pattern = /^[a-z]+\s[0-9]{4}$/i;
+var str = 'google 2012';
+alert(pattern.exec(str)); //返回整个字符串
+ 
+var pattern = /^[a-z]+/i; //只匹配字母
+var str = 'google 2012';
+alert(pattern.exec(str)); //返回 google
+
+var pattern = /^([a-z]+)\s([0-9]{4})$/i; //使用分组
+var str = 'google 2012';
+alert(pattern.exec(str)[0]); //google 2012
+alert(pattern.exec(str)[1]); //google
+alert(pattern.exec(str)[2]); //2012
+
+var pattern = /\.\[\/b\]/; //特殊字符，用\符号转义即可
+var str = '.[/b]';
+alert(pattern.test(str));
+
+var pattern = /^\d+/mg; //启用了换行模式
+var str = '1.baidu\n2.google\n3.bing';
+var result = str.replace(pattern, '#');
+alert(result);
+
+
+检查邮政编码//共6位数字，第一位不能为0
+ /^[1-9]\d{5}$/
+检查文件压缩包//xxx.zip\xxx.gz\xxx.rar
+ /^\w+\.(zip|gz|rar)$/
+ 删除多余空格  //
+ str.replace(/\s+/,'');
+ 删除首尾空格
+ str.replace(/^\s+/,'');
+ str.replace(/\s+$/,'');
+电子邮件(xxxxx@xxxx(.xxxx)+)
+ /^\w+@\w+(\.\w+)+$/
+ 手机号
+ /^[1-3]\d{10}$/
+ 身份证
+ /^\d{17}(\d|X)$/
+日期(xxxx-xx-xx|xxxx/xx/xx|xxxx.xx.xx)
+/^\d{2}|\d{4}[-\/\.]\d{2}[-\/\.]\d{2}$/
+ 只能输入中文
+str.replace(/[^\u4e00-\u9fa5]/g,'');
+账户名只能使用数字字母下划线，且数字不能开头，长度在6-15之间
+ /^[a-zA-Z_]\w{5,14}$/
+ 验证IP
+ (xxx.)xxx.xxx.xxx|  
+ 254.245.255.255
+ 240.196.19.5
+/^((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)$/
+将所有的bag、beg、big和bog改为bug
+str.replace(/(bag|beg|big|bog)/g,'bug');
+将所有方法foo(a,b,c)的实例改为foo(b,a,c)
+str.replace(/foo\(([^,]+),([^,]+),([^,]+)\)/g,'foo($2,$1,$3)');
+
+身份证：/^[1-9]{1}\d{5}[1-9]{1}\d{3}(0[1-9]{1}|1[0-2]{1})(0[1-9]{1}|(1|2)\d{1}|3[01]{1})\d{3}(\d|x|X){1}$/

@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<p><input type="text"></p>
+<p><input type="button" value="输出11112222333344445555"></p>
+<p><input type="button" value="输出12341234123412341234"></p>
+<p><input type="button" value="输出1 23 123 1234"></p>
+<p><input type="button" value="输出1241342341234"></p>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		oInp=document.getElementsByTagName("input");
+		oInp[1].onclick=function(){
+			var str="1";
+			for(var i=1;i<4;i++){
+				str+="1";
+			}
+			for(var i=1;i<4;i++){
+				str+="2";
+			}
+			for(var i=1;i<4;i++){
+				str+="3";
+			}
+			for(var i=1;i<4;i++){
+				str+="4";
+			}
+			for(var i=1;i<4;i++){
+				str+="5";
+			}
+			oInp[0].value=str;
+		};
+		oInp[2].onclick=function(){
+			var str="1";
+			var str1="";
+			for(var i=2;i<=4;i++){
+				str+=i;
+			}
+			for(var i=1;i<=4;i++){
+				str1+=str;
+			}
+			oInp[0].value=str1;
+		};
+		oInp[3].onclick=function(){
+			var str="1";
+			str+=" ";
+			for(var i=1;i<=2;i++){
+				str+=i;
+			}
+			str+=" ";
+			for(var i=1;i<=3;i++){
+				str+=i;
+			}
+			str+=" ";
+			for(var i=1;i<=4;i++){
+				str+=i;
+			}
+			oInp[0].value=str;
+		};
+		oInp[4].onclick=function(){
+			str="";
+			for(var i=1;i<=4;i++){
+				if(i==3){
+					continue;
+				}else{
+					str+=i;
+				}
+				
+			}
+			for(var i=1;i<=4;i++){
+				if(i==2){
+					continue;
+				}else{
+					str+=i;
+				}
+				
+			}
+			for(var i=1;i<=4;i++){
+				if(i==1){
+					continue;
+				}else{
+					str+=i;
+				}
+				
+			}
+			for(var i=1;i<=4;i++){
+				str+=i;
+			}
+			oInp[0].value=str;
+		};
+	};
+</script>

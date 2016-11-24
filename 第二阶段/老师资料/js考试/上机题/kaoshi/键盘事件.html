@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		#box{ width:100px;height: 100px; background: red;position: absolute;
+		left: 0px; top: 0;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBox=document.getElementById("box");
+			
+			var speed=10;
+			
+			var num=10;
+			
+			var size=oBox.offsetWidth;
+			
+			document.onkeydown=function(ev){
+				ev=ev||event;
+				//alert(ev.keyCode);
+				if(!ev.ctrlKey){
+					switch(ev.keyCode){
+						case 37:oBox.style.left=oBox.offsetLeft-speed+"px";break;
+						case 38:oBox.style.top=oBox.offsetTop-speed+"px";break;
+						case 39:oBox.style.left=oBox.offsetLeft+speed+"px";break;
+						case 40:oBox.style.top=oBox.offsetTop+speed+"px";break;
+					}
+				}
+				if(ev.keyCode==97&&ev.ctrlKey){
+					oBox.style.background="green";
+				}else if(ev.keyCode==98&&ev.ctrlKey){
+					oBox.style.background="yellow";
+				}else if(ev.keyCode==99&&ev.ctrlKey){
+					oBox.style.background="blue";
+				}
+				
+				if(ev.keyCode==38&&ev.ctrlKey){
+					size+=num;
+					oBox.style.left=oBox.offsetLeft-num/2+"px";
+					oBox.style.top=oBox.offsetTop-num/2+"px";
+				}else if(ev.keyCode==40&&ev.ctrlKey){
+					size-=num;
+					oBox.style.left=oBox.offsetLeft+num/2+"px";
+					oBox.style.top=oBox.offsetTop+num/2+"px";
+				}
+				oBox.style.width=size+"px";
+				oBox.style.height=size+"px";
+			}
+			
+		};
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

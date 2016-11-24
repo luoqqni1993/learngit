@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<div id="box">
+	<input type="button" value="点击" id="btn">
+</div>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById("box");
+		var oBtn=document.getElementById("btn");
+		function me(evt){
+			var e=evt||window.event;
+			alert(this.nodeName);
+			//e.cancelBubble=true;
+			if(e.stopPropagation){
+				e.cancelBuble=true;
+			}
+		}
+		oBtn.onclick=me;
+		oDiv.onclick=me;
+		document.body.onclick=me;
+		document.documentElemnet.onclick=me;
+		document.onclick=me;
+	};
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ajax.js"></script>  <!--导入ajax的库-->
+		<script type="text/javascript">
+			//页面加载完成后执行JS代码
+			window.onload = function(){
+				//获取页面元素
+				var oUl = document.getElementById("ul1");
+				var oA = document.getElementsByTagName("a");
+				
+				//给按钮循环加事件
+				for(var i = 0; i < oA.length; i++){
+					oA[i].index = i;  //用一个自定义的属性将下标记录下来
+					/*
+					 * oA[0].index = 0
+					 * oA[1].index = 1
+					 * oA[2].index = 2
+					 */
+					//给每一个按钮加点击事件
+					oA[i].onclick = function(){
+						oUl.innerHTML = "";  //将ul列表清空
+						//调用ajax函数与服务器建立连接并将服务器上找到的文件通过回调的方法传递回来
+							//"page1.json"/"page2.json"/"page3.json"
+						ajax("page" + (this.index + 1) + ".json",function(str){
+							var arr = eval(str); //解析json
+							console.log(arr);
+							//遍历数组(3个json对象)
+							for(var j = 0; j < arr.length; j ++){
+								var li = document.createElement('li');  //创建li标签
+								//将键值对放入li标签中
+								console.log(arr[j] + ":" +arr[j].user + ":" + arr[j].pass);
+								li.innerHTML = "<strong>" + arr[j].user + "</strong><i>" + arr[j].pass + "</i>";
+								oUl.appendChild(li); //将li标签追加到UL列表的末尾
+							}
+						})
+					};
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<ul id="ul1">
+			
+		</ul>
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">2</a>
+		<a href="javascript:;">3</a>
+	</body>
+</html>

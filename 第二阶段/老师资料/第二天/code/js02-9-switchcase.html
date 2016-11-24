@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			//给定一个  1~7的整数,代表某一周的第几天,输出 是那天星期几
+			//break作用：结束当前switch case代码，
+			//不使用break代码会继续向下执行，贯穿执行
+			/*
+			var day = prompt("请输入一天所对应的数字:");
+			switch(day) {
+				case "1": alert("工作日");break;
+				case "2": alert("工作日");break;
+				case "3": alert("工作日");break;
+				case "4": alert("工作日");break;
+				case "5": alert("工作日");break;
+				case "6": alert("周六休息啦！");break;
+				case "7": alert("周天休息!");break;
+				default: alert("输入错误！");break;
+			}
+			alert("switch后面的代码");
+			*/
+			//利用贯穿，来优化代码,因为此时1,2,3,4,5执行的代码都一样
+			//default:相当于else,除了case这些之外的情况
+			var day = prompt("请输入一天所对应的数字:");
+			switch(day) {
+				case "1": 
+				case "2": 
+				case "3": 
+				case "4": 
+				case "5": alert("工作日");break;
+				case "6": alert("周六休息啦！");break;
+				case "7": alert("周天休息!");break;
+				default: alert("输入错误！");break; //不是1,2,3,4,5,6,7
+			}
+			alert("switch后面的代码");
+			//switch case可以完全被if else 取代
+		</script>
+	</body>
+</html>

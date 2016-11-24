@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height: 200px;background: #ccc;position: absolute;left:-100px;top:50px;}
+			#box span{width: 20px;height: 60px;background: #999;position: absolute;left: 100px;top: 70px;line-height: 20px;text-align: center;color: yellow;}
+		</style>
+		<script type="text/javascript">
+			var timer = null; 
+			window.onload = function(){
+				var oDiv = document.getElementById("box");
+				oDiv.onmouseover = function(){
+					startMove();
+				}
+				oDiv.onmouseout = function(){
+					startMove1();
+				}
+			}
+			function startMove(){
+				var oDiv = document.getElementById("box");
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if(oDiv.offsetLeft >=0){
+						clearInterval(timer);
+					}else{
+						oDiv.style.left = oDiv.offsetLeft + 5 + 'px';
+					}
+				},30);
+			}
+			function startMove1(){
+				var oDiv = document.getElementById("box");
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if(oDiv.offsetLeft <=-100){
+						clearInterval(timer);
+					}else{
+						oDiv.style.left = oDiv.offsetLeft - 5 + 'px';
+					}
+				},30);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<span>
+				分享到
+			</span>
+		</div>
+	</body>
+</html>

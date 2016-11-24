@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<input type="button" value="点击" id="btn">		
+</body>
+</html>  
+<script>
+	window.onload=function(){
+		oBtn=document.getElementById("btn");
+	
+		function fn1(){
+			alert("函数一");
+		}
+		function fn2(){
+			alert("函数二");
+		}
+		function fn3(){
+			alert("函数三");
+		}
+		function removeEvent(obj,event,fn,boo){
+			if(obj.addEventListener){
+				obj.addEventListener(event,fn,boo);
+			}else{
+				obj.attachEvent("on"+event,fn);
+			}
+		}
+		removeEvent(oBtn,"click",fn1,false);
+	};
+</script>

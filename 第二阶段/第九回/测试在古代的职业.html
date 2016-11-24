@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+table{width:400px;
+	height:300px;
+	border:1px solid black;
+	margin:20px auto;
+	border-spacing:0px;
+	background:#8080de;
+	
+
+}
+td{border:1px solid black;
+	
+
+}
+
+</style>
+</head>
+<body>
+<table>
+	<tr>
+		<td colspan=3>测测你在古代的职业</td>
+		
+	</tr>
+	<tr>
+		<td colspan=3>规则：将你的姓，名的首字母填写入对应的方框内，如果
+		姓名合起来只有2个字，那么只填姓，名2两个框，如果是复姓，那么选取
+		姓氏中的首个英文字母。如：王小二，对应的字母为w,x,e.</td>
+		
+	</tr>
+	<tr>
+		<td>姓(首字母):<input type="text" id="firstname"></td>
+		<td>名(首字母):<input type="text" id="secondname"></td>
+		<td>名2(首字母):<input type="text" id="lastname"></td>
+	</tr>
+	<tr>
+		<td><input type="button" id="test" value="开始测试"></td>
+		<td><input type="text" id="result"></td>
+		<td><input type="button" id="reset" value="重置"></td>
+	</tr>
+</table>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oFirstName=document.getElementById("firstname");
+		var oSecondName=document.getElementById("secondname");
+		var oLastName=document.getElementById("lastname");
+		var oResult=document.getElementById("result");
+		var oBtnTest=document.getElementById("test");
+		var oBtnReset=document.getElementById("reset");
+		var myStr="abcdefghijklmnopqrstuvwxyz";
+		var dynasty=["夏朝","商朝","周朝","春秋","战国","秦朝","汉朝","三国","五代",
+		"隋朝","唐朝","宋朝","元朝",];
+		var adv=["无敌的","英俊的","潇洒的","风流的","笨笨的","傻傻的","聪明的",
+		"有才的","无趣的","恶毒的","残忍的","温柔的","暴力的"];
+		var career=["商人","捕快","老鸨","小二","和尚","道士","皇帝","太监","大臣",
+		"王爷","丫鬟","媒婆","将军"];
+		oBtnTest.onclick=function(){
+			var str1="";
+			var str2="";
+			var str3="";
+			var iFirstName=oFirstName.value;
+			for(var i=0;i<iFirstName.length;i++){
+				for(var j=0;j<myStr.length;j++){
+					if(iFirstName.charAt(i)==myStr.charAt(j)){
+							if(j<=13){
+								str1=dynasty[j];
+							}else{
+								str1=dynasty[j-13];
+							}
+					}
+				}
+			}
+			var iSecondName=oSecondName.value;
+			for(var i=0;i<iSecondName.length;i++){
+				for(var j=0;j<myStr.length;j++){
+					if(iSecondName.charAt(i)==myStr.charAt(j)){
+						if(j<=13){
+								str2=adv[j];
+							}else{
+								str2=adv[j-13];
+							}
+					}
+				}
+			}
+			var iLastName=oLastName.value;
+			for(var i=0;i<iLastName.length;i++){
+				for(var j=0;j<myStr.length;j++){
+					if(iLastName.charAt(i)==myStr.charAt(j)){
+						if(j<=13){
+								str3=career[j];
+							}else{
+								str3=career[j-13];
+							}
+					}
+				}
+			}
+			oResult.value=str1+str2+str3;
+		};
+		oBtnReset.onclick=function(){
+			oFirstName.value="";
+			oSecondName.value="";
+			oLastName.value="";
+			oResult.value="";
+		}
+	};
+</script>

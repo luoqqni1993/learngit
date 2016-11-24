@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{width: 400px;height: 300px;background: #ccc;border: 1px solid red;}
+		</style>
+		<script src="ajax.js"></script>
+		<script type="text/javascript">
+			//页面加载完毕后执行JS代码
+			window.onload = function(){
+				//获取页面元素
+				var oBtn = document.getElementsByTagName("input");
+				var oDiv = document.getElementById("div1");
+				//循环给按钮添加点击事件
+				for(var i = 0; i < oBtn.length; i++){
+					oBtn[i].index = i; //给对象添加自定义属性记录当前的下标值
+					oBtn[i].onclick = function(){
+						//this.index : 代表当前所点击的对象的下标值
+						//调用ajax对象从服务器上获取指定的文件内容
+						ajax(this.index + 1 + ".txt",function(str){
+							//将从服务器上获取到的数据放入div中
+							oDiv.innerHTML = str;
+						});
+					};
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="" value="按钮一" />
+		<input type="button" name="" id="" value="按钮二" />
+		<input type="button" name="" id="" value="按钮三" />
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

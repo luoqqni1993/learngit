@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+	获取页面元素的方法：
+	1.document.getElementById("id名");根据指定的id获取页面中的元素，如果找到了，返回元素对象，如果没有找到，返回null
+	2.document.getElementsByTagName("标签名");根据标签名获取页面中的元素列表（数组）
+	3.document.getElementsByName("name属性值");根据name的属性值获取页面中的元素列表（数组);
+	4.document.getElementsByClassName("class属性值");根据class属性值获取页面中的元素列表（数组）；
+	5.id名获取页面中的元素（非标准）
+	6.通过name的路径获取页面中的元素（非标准）
+*/
+window.onload = function(){
+	var oDiv1 = document.getElementById("div1");
+	var oDiv2 = document.getElementsByTagName("div");
+	var oDiv3 = document.getElementsByName("box");
+	//var oDiv4 = document.getElementsByClassName("pox");
+	//console.log(oDiv1 + ":" + oDiv2[0] + ":" + oDiv3[0] + ":" + oDiv4[0]);
+	//alert(oDiv1.tagName);  //获取元素的标签名（元素名）
+	//alert(oDiv1.innerHTML); //获取或设置指定标签内的内容（包含HTML标签）
+	//alert(oDiv1.outerHTML); //获取标签及标签内的内容
+	//alert(oDiv1.innerText); //获取标签内的纯文本（不包含HTML标签）
+	//oDiv1.id = "div2";
+	//alert(oDiv1.id); //获取或设置指定标签内的id属性值
+	//alert(oDiv1.title); //获取或设置title的属性值
+	//alert(oDiv1.style.borderLeft); //如果是对象.style 获取到是样式表对象，如果想要获取某个具体样式时，对象.style.样式属性
+	//alert(oDiv1.className); //获取或设置class的属性值，因为class是保留字，所以不能直接使用，必须用className获取
+	//alert(oDiv1.getAttribute('me'));
+	//alert(oDiv1.getAttribute('className'));
+	if(oDiv1.getAttribute('class')== null){
+		alert(oDiv1.getAttribute("className"));
+	}else{
+		alert(oDiv1.getAttribute("class"));
+	}
+	//setAttribute();
+	//oDiv1.setAttribute("me","biaoti");
+	//oDiv1.removeAttribute("me");
+	var oA = document.getElementsByTagName('a');
+	oA[0].href = "javascript:;";
+	oA[0].innerHTML = "请点我吧";
+	oA[0].onclick = function(){
+		alert("我成功了");
+	};
+};
+</script>
+</head>
+<body>
+    <div id="div1" title="标题" name="box" class="pox" style="border-left:1px solid red;" me="you">我爱你<i>中国</i>你呢？</div>
+		<a></a>
+</body>
+</html>

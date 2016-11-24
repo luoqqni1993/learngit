@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+	有参无返回值函数
+	参数：负责函数之间数据的传递。
+	形式参数（形参）：定义函数时所使用的参数
+	实际参数（实参）：调用函数时所使用的参数
+	注：
+	参数传递
+	1.只能由实参传递给形参（实质上就是将实参的值赋值给形参），即单向传递
+	2.如果实参的数量大于形参时，多余的实参不参与运算（丢弃）
+	3.如果实参的数量小于形参时，多余的形参以undefined补全
+	
+	注：
+	形参的表示范围：只能是变量
+	实参的表示范围：可以是变量、常量、表达式
+*/
+//求两个数的和？
+/*
+function sum(a,b){   //形式参数（形参）
+	alert(a + b);
+}
+var a = prompt("请输入一个整数：");
+sum(a,3+a,5,7,9);  //实际参数（实参）
+*/
+</script>
+</head>
+<body>
+<p>1：A型 2:B型  3：AB型  4：O型；    1：男  2： 女</p>
+<p>请输入血型：<input type="text" id="text1"/></p>
+<p>请输入性别：<input type="text" id="text2"/></p>
+<p>结果：<input type="text" id="text3"/></p>
+<p><input type="button" value="测试"  onclick = "run()"><input type="button" value="清空"onclick = "cls()"/></p>
+    
+</body>
+
+<script>
+//7》根据血型与性别测试性格(要求：用if与switch分别实现一次）
+function run(){
+	var xue = parseInt(document.getElementById("text1").value);
+	var xing = parseInt(document.getElementById("text2").value);
+	test(xue,xing);
+}
+function cls(){
+	text1.value = "";
+	text2.value = "";
+	text3.value = "";
+}
+function test(xue,xing){
+	switch(xing){
+		case 1: switch(xue){
+							case 1: text3.value = "追求完美！";break;
+							case 2: text3.value = "花心";break;
+							case 3: text3.value = "极端";break;
+							case 4: text3.value = "软弱";break;
+							default : text3.value = "您来自火星！";
+						}break;
+		case 2: switch(xue){
+							case 1: text3.value = "女强人";break;
+							case 2: text3.value = "花痴";break;
+							case 3: text3.value = "个性鲜明";break;
+							case 4: text3.value = "温柔";break;
+							default : text3.value = "您来星星！";
+						}break;
+		default : alert("您来自泰国！");
+	}
+}
+</script>
+</html>

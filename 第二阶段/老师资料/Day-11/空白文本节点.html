@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	window.onload = function(){
+		var oDiv = document.getElementById("box");
+		removeSpace(oDiv);
+		var oDivChilds = oDiv.childNodes;
+		//alert(oDivChilds.length);
+		//alert(noSpace(oDivChilds).length);
+		//忽略空白文本节点
+		function noSpace(node){
+			var arr =[];
+			//遍历子节点
+			for(var i = 0; i < node.length;i ++){
+				//找出其中文本节点且值为空白的节点
+				if (node[i].nodeType == 3 && /^\s+$/.test(node[i].nodeValue)){
+					continue; 
+				}else{
+					arr.push(node[i]); //将非空白的节点添加到数组中
+				}
+			}
+			return arr;
+		}
+		
+		alert(oDivChilds.length);
+		//移除空白文本节点
+		function removeSpace(node){ //传过来的是父节点
+			var childs = node.childNodes; //获取父节点中所有子节点
+			//遍历子节点，找到空白文本节点
+			for(var i = 0; i < childs.length; i++){
+				if(childs[i].nodeType == 3 && /^\s+$/.test(childs[i].nodeValue)){
+					//通过父节点删除子节点。
+					childs[i].parentNode.removeChild(childs[i]);
+				}
+			}
+			return node;
+		}
+	};
+</script>
+</head>
+<body>
+  <div id="box">
+		<p>测试1</p>
+		<p>测试2</p>
+		<p>测试3</p>
+	</div>
+</body>
+</html>

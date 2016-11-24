@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+//找出子串在父串中所有出现的位置。
+var str = "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+var subStr = "啊啊";
+alert(find(str,subStr));
+function find(str,sub){
+	var myStr = "";
+	for(var i = 0;str.indexOf(sub,i)!=-1;){
+		myStr += str.indexOf(sub,i) + " ";
+		i = str.indexOf(sub,i) + sub.length;
+	}
+	return myStr;
+}
+*/
+//用两种方法实现字符串的逆序
+var str = "用两种方法实现字符串的逆序";
+
+//var arr = str.split("");
+//arr.reverse();
+//alert(arr.join(""));
+var myStr = "";
+for(var i = str.length -1; i >= 0; i--){
+	myStr += str.charAt(i);
+}
+alert(myStr);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

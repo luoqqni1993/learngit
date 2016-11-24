@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	window.onload = function(){
+		var oDiv = document.getElementById("box");
+		removeSpace(oDiv);
+
+		//创建一个元素节点
+		//createElement():创建元素节点
+		 oP = document.createElement("p");
+		//创建一个文本节点
+		//createTextNode():创建文本节点
+		var oText = document.createTextNode("测试4");
+		//将文本节点追加到p节点里
+		//appendChild():将一个节点追加到指定父节点的子节点列表的末尾。
+		oP.appendChild(oText);
+		oDiv.appendChild(oP);
+		
+		oP = document.createElement("p");
+		oP.innerHTML = "<b>测试5</b>";
+		
+		//父节点.insertBefore(要插入的节点，插入的位置）
+		//通过父节点，将一个节点插入到指定子节点的前面。要求：要有指定的子节点。如果没有子节点，就不能使用insertBefore;
+		oDiv.insertBefore(oP,oDiv.firstChild);
+		
+		//扩展：克隆：指定克隆的节点.cloneNode():复制节点；如果不加参数，只复制指定的元素节点，不复制元素节点里的子节点。如果加一个参数true，将复制指定的元素节点，包含里面的所有子节点。
+		var clP = oP.cloneNode(true);
+		oDiv.insertBefore(clP,oDiv.firstChild.nextSibling.nextSibling);
+		
+		//父节点.removeChild(子节点):通过父节点删除它里面的子节点。
+		
+		//oDiv.removeChild(clP);
+		//document.body.appendChild(oP);
+		//移除空白文本节点
+		function removeSpace(node){ //传过来的是父节点
+			var childs = node.childNodes; //获取父节点中所有子节点
+			//遍历子节点，找到空白文本节点
+			for(var i = 0; i < childs.length; i++){
+				if(childs[i].nodeType == 3 && /^\s+$/.test(childs[i].nodeValue)){
+					//通过父节点删除子节点。
+					childs[i].parentNode.removeChild(childs[i]);
+				}
+			}
+			return node;
+		}
+	};
+</script>
+</head>
+<body>
+  <div id="box">
+		<p>测试1</p>
+		<p>测试2</p>
+		<p>测试3</p>
+	</div>
+</body>
+</html>

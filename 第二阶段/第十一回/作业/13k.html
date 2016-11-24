@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var str="aaabbbbaaaadggff";
+		var str1="";
+		for( i=0;i<str.length;i++){
+			for(j=1;j<=str.length;j++){
+				if(str[i]!=str[j]){
+					str1+=str[i]+(j-i);
+					break;
+				}
+			}
+			break;
+		}
+		for(k=j;k<str.length;k++){
+			for(n=k+1;n<=str.length;n++){
+				if(str[k]!=str[n]){
+					str1+=str[k]+(n-k);
+					break;
+				}
+			}
+			break;
+		}
+		for(o=n;o<str.length;o++){
+			for(p=o+1;p<=str.length;p++){
+				if(str[o]!=str[p]){
+					str1+=str[o]+(p-o);
+					break;
+				}
+			}
+			break;
+		}
+		for(q=p;o<str.length;q++){
+			for(r=q+1;r<=str.length;r++){
+				if(str[q]!=str[r]){
+					str1+=str[q]+(r-q);
+					break;
+				}
+			}
+			break;
+		}
+		for(s=r;s<str.length;s++){
+			for(t=s+1;t<=str.length;t++){
+				if(str[s]!=str[t]){
+					str1+=str[s]+(t-s);
+					break;
+				}
+			}
+			break;
+		}
+		for(u=t;u<str.length;u++){
+			for(v=u+1;v<=str.length;v++){
+				if(str[u]!=str[v]){
+					str1+=str[u]+(v-u);
+					break;
+				}
+			}
+			break;
+		}
+		document.write(str1);
+	};
+</script>

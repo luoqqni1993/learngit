@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1{width:100px;height:100px;background:red;}
+			#box2{width:100px;height:100px;background:green;}
+			#box3{width:100px;height:100px;background:blue;font-size:14px;}
+			#box4{width:100px;height:100px;background:yellow;border:1px solid black;}
+			#box5{width:100px;height:100px;background:pink;}
+		</style>
+		<script src="js/完美框架.js"></script>
+		<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementsByTagName("div");
+			oDiv[0].onmouseover=function(){
+				startMove(this,"height",300);
+			};
+			oDiv[0].onmouseout=function(){
+				startMove(this,"height",100);
+			};
+			oDiv[1].onmouseover=function(){
+				startMove(this,"width",300);
+			};
+			oDiv[1].onmouseout=function(){
+				startMove(this,"width",100);
+			};
+			oDiv[2].onmouseover=function(){
+				startMove(this,"fontSize",50);
+			};
+			oDiv[2].onmouseout=function(){
+				startMove(this,"fontSize",14);
+			};
+			oDiv[3].onmouseover=function(){
+				startMove(this,"borderWidth",50);
+			};
+			oDiv[3].onmouseout=function(){
+				startMove(this,"borderWidth",2);
+			};
+			oDiv[4].onmouseover=function(){
+				startMove(this,"opacity",10);
+			};
+			oDiv[4].onmouseout=function(){
+				startMove(this,"opacity",100);
+			};
+		};
+		
+		</script>
+	</head>
+	<body>
+		<div id="box1">我要变高</div>
+		<div id="box2">我要变宽</div>
+		<div id="box3">字体要变大</div>
+		<div id="box4">边框变粗</div>
+		<div id="box5">透明度淡入淡出</div>
+	</body>
+</html>

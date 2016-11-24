@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	var oInp = document.getElementsByTagName("input");
+	
+	for(var i = 0 ;i < oInp.length; i++){
+		///console.log(i);
+		oInp[i].index = i; //通过给每一个对象添加一个自定义属性来记录当前的坐标。
+		oInp[i].onclick =function(){
+			alert(this.index);
+		};
+	}
+	//this代表谁？ 要看this所在的函数属于谁，this就代表谁。
+};
+</script>
+</head>
+<body>
+ <input type="button" value="按钮1">  
+<input type="button" value="按钮2">  
+<input type="button" value="按钮3">  
+<input type="button" value="按钮4">  
+<input type="button" value="按钮5">   
+</body>
+</html>

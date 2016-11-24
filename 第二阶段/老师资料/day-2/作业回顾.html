@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+    </head>
+    <body>
+    
+    </body>
+</html>
+<script type="text/javascript">
+	/*
+		编写程序，由用户输入一个三位正整数并求它的各位
+数字之和，如：用户输入123，输入123的各位之和是6.
+	几个未知数： iNum  iH  iT iG iSum
+	prompt():提示用户输入的一个弹框，接收到的数据都是String类型，
+	如果你想要得到数字，就须要强制转换（parseInt()/parseFloat()/Number());
+	1. var iNum = parseInt(prompt("请输入一个三位的正整数"));
+	2.分解百位、十位、个位
+	iH = parseInt(iNum / 100);
+	iT = parseInt(iNum % 100 / 10);
+	iG = iNum % 10;
+	3.求和
+	4.输出结果
+	设 x = 123;
+	*/
+	var iNum = parseInt(prompt("请输入一个三位的正整数："));
+	var iH = parseInt(iNum / 100);
+	var iT = parseInt(iNum % 100 / 10);
+	var iG = parseInt(iNum % 10);
+	var iSum = iH + iT + iG ;
+	alert(iSum);
+</script>

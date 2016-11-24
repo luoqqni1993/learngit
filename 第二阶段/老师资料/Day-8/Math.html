@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		Math.abs(): 求绝对值
+		Math.floor(): 向下取整
+		Math.ceil():  向上取整
+		Math.round(): 四舍五入(注：负数时，小于等于.5时，舍去；大于.5时，进一；）
+		Math.max();求最大值
+		Math.min();求最小值
+	*/
+	//alert(Math.abs(-4));
+	//alert(Math.floor(3.99));
+	//alert(Math.floor(-3.1));
+	//alert(Math.ceil(3.1));
+	//alert(Math.ceil(-3.9));
+	/*
+	alert(Math.round(3.5));   //4
+	alert(Math.round(3.4));   //3
+	alert(Math.round(-3.5));   //-3
+	alert(Math.round(-3.500001)); //-4
+	alert(Math.round(-3.49999));  //-3
+	
+	var arr = [];
+	alert(Math.min(3,6,8,4,5,9,2,3));*/
+	//alert(Math.floor(Math.random() * 10 + 1));
+	//alert(rand(10,50));
+	function rand(min,max){
+		if(min > max){
+			var t = min; 
+			min = max ;
+			max = t;
+		}
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+	
+	alert(Math.pow(4,5));
+	alert(Math.sqrt(10));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

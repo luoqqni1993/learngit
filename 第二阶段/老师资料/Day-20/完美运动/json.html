@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr = [1,2,3,4,5];
+			var obj = {"a":1,"b":2,"c":3,"d":4};
+			
+			for(var i in arr){
+				document.write(i + ":" + arr[i] + "<br/>");
+			}
+			//遍历数组，普通循环遍历，for in  建议：数组使用普通循环遍历
+			document.write("<br/>");
+			for(var i in obj){
+				document.write(i + ":" + obj[i] + "<br/>");
+			}
+			//遍历json（对象），只有一种方法，for in
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+div{height:200px;
+	width:300px;
+	background:red;
+}
+</style>
+</head>
+<script>
+	window.onload=function(){
+		var oText1=document.getElementById("text1");
+		var oText2=document.getElementById("text2");
+		var oBtnCal=document.getElementById("calculate");
+		var oBtnReset=document.getElementById("reset");
+		var myStr="abcdefghijkmlnopqrstuvwxyz";
+		oBtnCal.onclick=function(){
+			var youStr="";
+			var sum=0;
+			var oWord=oText1.value;
+			for(var i=0;i<oWord.length;i++){
+				for(var j=0;j<myStr.length;j++){
+					if(oWord.charAt(i)==myStr.charAt(j)){
+						youStr+='+'+j;
+						sum+=j;
+					}
+				}
+			}
+			oText2.value=youStr.substring(1)+"="+sum;
+		};
+		
+	};
+</script>
+<body>
+<div>
+<h3>影响职业的因素</h3>
+<p>请输入单词：<input type="text" id="text1"></p>
+<p>结果：<input type="text" id="text2"></p>
+<p><input type="button" id="calculate" value="计算"><input type="button" id="reset" value="清空"></p>
+</div>
+</body>
+</html>

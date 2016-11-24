@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;background: red;margin-top: 10px;border: 2px solid black;font-size: 14px;}
+		</style>
+		<script src="js/move2.js"></script>
+		<script type="text/javascript">
+		window.onload = function(){
+		
+			var oDiv = document.getElementsByTagName("div");
+			oDiv[0].onmouseover = function(){
+				startMove(this,'width',400);
+			}
+			oDiv[0].onmouseout = function(){
+				startMove(this,'width',100);
+			}
+			oDiv[1].onmouseover = function(){
+				startMove(this,'height',200);
+			}
+			oDiv[1].onmouseout = function(){
+				startMove(this,'height',100);
+			}
+			oDiv[2].onmouseover = function(){
+				startMove(this,'fontSize',88);
+			}
+			oDiv[2].onmouseout = function(){
+				startMove(this,'fontSize',14);
+			}
+			oDiv[3].onmouseover = function(){
+				startMove(this,'borderWidth',50);
+			}
+			oDiv[3].onmouseout = function(){
+				startMove(this,'borderWidth',2);
+			}
+			oDiv[4].onmouseover = function(){
+				startMove(this,'opacity',10);
+			}
+			oDiv[4].onmouseout = function(){
+				startMove(this,'opacity',100);
+			}
+		}
+	
+		</script>
+	</head>
+	<body>
+		<div>变宽</div>
+		<div>变高</div>
+		<div>字体要变大！</div>
+		<div>边框变粗</div>
+		<div>透明度淡入淡出</div>
+	</body>
+</html>

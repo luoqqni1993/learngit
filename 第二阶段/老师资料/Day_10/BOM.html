@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		window:顶级对象（宿主对象）
+		声明的全局变量，默认就是window的属性
+		声明的全局函数，默认就是window的方法
+		
+		
+		方法、函数 —— function （函数、方法）
+	
+	
+	var a = 5;
+	alert(window.a);
+	function aa(){
+		alert(a);
+	}
+	aa(); //调用函数
+	window.aa(); //调用方法
+	
+	location对象：
+	href:属性，可以设置或修改网页中地址栏的URL地址
+	reload():刷新   从缓冲中加载
+	reload(true):刷新  从服务器加载
+	*/
+	//console.log(window.location);
+	//location.href = "http://www.baidu.com";
+	//alert(location.href);
+	/*
+	window.onload = function(){
+		document.getElementById("btn1").onclick = function(){
+			location.reload(true);
+		};
+	};
+
+	alert(navigator.appName);
+	alert(navigator.appVersion);
+	alert(navigator.platform);
+	alert(navigator.userAgent);	*/
+	/*
+	a) alert()：用于显示带有一条指定消息和一个OK按钮的警告框。
+b) confirm():用于显示一个带有指定消息和OK及取消按钮的对话框。返回布尔值。
+if(confirm("你来自火星吗？")){
+		alert("是，我来自火星！");
+	}else{
+		alert("No，我来星星！");
+	}
+c) prompt():用于显示可提示用户进行输入的对话框。
+open():打开新窗口
+close():关闭当前窗口(火狐不支持）
+*/
+window.onload = function(){
+	var oInp = document.getElementsByTagName("input");  //数组
+	var opener = null;
+	oInp[0].onclick = function(){
+		opener = window.open();
+		opener.document.body.style.background = "yellow";
+		//alert(opener);
+	};
+	oInp[1].onclick = function(){
+		opener.close();
+	};
+	oInp[2].onclick = function(){
+		window.close();
+	};
+};
+	
+</script>
+</head>
+<body>
+	
+    <input type="button" value="打开新窗口" id="btn1">
+		<input type="button" value="关闭新窗口" id="btn2">
+		<input type="button" value="关闭窗口" id="btn3">
+</body>
+</html>

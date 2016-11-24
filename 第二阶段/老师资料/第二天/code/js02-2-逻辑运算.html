@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8' /> 
+	</head>
+	<body>
+		<script>
+			//一.关系运算
+			/*
+				var a = 100;
+				var b = 99;
+				var c = 99;
+				var d = "99";
+				alert((c==d)==false);
+				alert(a>b); //true
+				//赋值操作表达式 本身也是有值的,是最右边的值
+				alert(b=c); //赋值操作,结果是99;
+				alert(b==c) //true
+				alert(b<=c); //true
+				alert(c==d); //true,类型不一致时发生类型转换,只要值相等就返回true
+				alert(c===d); //false,类型相同,值也相同;不会发生类型转换
+				*/
+			//二.逻辑运算
+			//我要买车: 日本的豪华车
+			/*
+			//1.与运算   &&  
+			var country = "国产";
+			var kind = "豪华车";
+			var ifMeet =  (country == "日本" && kind == "豪华车");
+			alert(ifMeet);  //false ,不满足条件
+			*/
+			//短路原则:只要前面的表达式能确定最终的结果,那么后面的不再判断
+			/*
+			//2.或运算,  || 或者,只要有一个满足条件,则成立
+			//运动员挑战世界纪录,3次机会,只要有一次突破即是破纪录
+			var  first = 0;
+			var  second = 0;
+			var  third = 1;
+			var ifSuccess = (first == 1 || second == 1 || third == 1);
+			alert(ifSuccess);//3次只要有一次满足就是true
+			*/
+			
+			//3.非运算,取反,最后返回布尔值
+			//首先把!后面的转换为布尔值,
+			/*
+			var a = 100;
+			 alert(!a); //false
+			 alert(!"");//true
+			 alert(!undefined);//true
+			 alert(!null);//true
+			*/
+			//三.逻辑运算拓展
+			//360面试题
+			//短路原则,把符号两端的表达式转换为布尔值
+			//规律: 如果当前的表达式能确定最终结果(true或者false),直接返回该值,否则直接返回后面的值
+			/*
+			alert(1 && 2); //2
+			alert(true && undefined); //undefined
+			alert(null && 3); //null
+			alert(undefined && 2); //undefined
+			alert(undefined || 1 || 2);//1
+		     */
+			 //应用:获取事件对象,兼容不同浏览器的做法
+			 var event = event || window.event;  
+		   
+			//四.位运算  & | ,了解
+			// & 与运算,操作的数据会转换为二进制;只有全部为1该位的结果才为1
+			// | ,只要有一位为1,则该位的结果是1
+			//  1=>1   2 => 10  3 => 11
+			 // 3 | 2 位运算
+			 /*
+			    0011
+				0010
+				0011
+				*/
+			//alert(3 | 2);
+			
+			//五.输入 prompt('提示输入的语句'),该函数会返回的输入值,是一个string类型
+			//点击取消之后返回null 是 object类型
+			var num1 = prompt("请输入一个正整数");
+			// alert(typeof num1); //string
+			// alert(num1);
+			 //判断输入的数是否为奇数
+			 // % ,/ ,-,*会自动把该值转换number类型
+			 //if和else是互斥
+			 //说明: 括号中的条件最终会被转换为布尔类型,只要最后转换为true就会执行if中的代码
+			 if(num1%2==1) {
+				alert("是奇数");
+				alert(num1);
+			 }
+			 else {
+			    alert("不是奇数!");
+			 }
+			 
+		</script>
+	</body>
+</html>

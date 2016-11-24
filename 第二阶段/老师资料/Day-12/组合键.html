@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	document.onclick = function(evt){
+		alert(getKey(evt));
+		
+	};
+	function getKey(evt){
+		var e = evt || event;
+		var arr = [];
+		if(e.ctrlKey){
+			arr.push("ctrlKey");
+		}
+		if(e.shiftKey){
+			arr.push("shiftKey");
+		}
+		if(e.altKey){
+			arr.push("altKey");
+		}
+		return arr;
+	}
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

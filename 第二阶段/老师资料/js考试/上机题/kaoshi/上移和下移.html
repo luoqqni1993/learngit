@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		ul li{
+			margin-bottom: 10px;
+		}
+		input{margin-left:10px ;}
+	</style>
+	<script type="text/javascript">
+	//dom节点兼容性封装
+function first(ele){
+	var first=ele.firstElementChild || ele.firstChild;
+	if(!first||first.nodeType!=1){
+		return null;
+	}else{
+		return  first;
+	}
+}
+function last(ele){
+	var last=ele.lastElementChild||ele.lastChild;
+	if(!last||last.nodeType!=1){
+		return null;
+	}else{
+		return last;
+	}
+}						
+function next(ele){
+	var next=ele.nextElementSibling||ele.nextSibling;
+	if(!next||next.nodeType!=1){
+		return null;
+	}else{
+		return next;
+	}
+}
+function prev(ele){
+	var prev=ele.previousElementSibling||ele.previousSibling;
+	if(!prev||prev.nodeType!=1){
+		return null;
+	}else{
+		return prev;
+	}
+}
+	
+	
+	
+		window.onload=function(){
+			var oList=document.getElementById("list");
+			var aLi=oList.getElementsByTagName("li");
+			
+			var arrColor=["red","green","blue","pink","purple"];
+			
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].style.background=arrColor[i];
+				fn(aLi[i]);
+			};
+			
+			function fn(m){
+				var aInput=m.getElementsByTagName("input");
+				aInput[0].onclick=function(){
+					  //ul                                       当前的li             当前的li的前面一个元素节点
+					this.parentNode.parentNode.insertBefore(this.parentNode,prev(this.parentNode));
+				}
+				aInput[1].onclick=function(){
+					if(next(this.parentNode)){
+						this.parentNode.parentNode.insertBefore(this.parentNode,next(next(this.parentNode)));
+					}else{
+						this.parentNode.parentNode.insertBefore(this.parentNode,first(this.parentNode.parentNode));
+					}
+				}
+			}
+			
+		};
+	</script>
+</head>
+<body>
+	<ul id="list">
+		<li>哈哈哈哈<input type="button" value="上移" /><input type="button" value="下移" /></li>
+		<li>嘻嘻嘻嘻<input type="button" value="上移" /><input type="button" value="下移" /></li>
+		<li>呵呵呵呵<input type="button" value="上移" /><input type="button" value="下移" /></li>
+		<li>嘿嘿嘿嘿<input type="button" value="上移" /><input type="button" value="下移" /></li>
+		<li>呜呜呜呜<input type="button" value="上移" /><input type="button" value="下移" /></li>
+	</ul>	
+</body>
+</html>

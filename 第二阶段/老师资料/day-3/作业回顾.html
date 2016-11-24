@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+			<script type = "text/javascript">
+				/*
+					5.编程：求任意两个数中的最小数？（用三元做）
+					var numOne = Number(prompt("请输入第一个数："));
+					var numTwo = Number(prompt("请输入第二个数："));
+					?:
+					numOne > numTwo
+					numTwo(true)
+					numOne(false)
+					
+					
+					var numOne = Number(prompt("请输入第一个数："));
+					var numTwo = Number(prompt("请输入第二个数："));
+					alert(numOne > numTwo?numTwo:numOne);
+					6. 编程：求任意三个数中的最大数？（用三元和if的第一种形式）
+					var numOne,numTwo,numThree;
+					prompt()
+					Number()
+					var myMax = 0;
+					?:
+					numOne > numTwo
+					myMax = numOne
+					myMax = numTwo
+					
+					if(){}
+					numThree > myMax
+					myMax = numThree
+				*/
+				var numOne = Number(prompt("请输入第一个数："));
+				var numTwo = Number(prompt("请输入第二个数："));
+				var numThree = Number(prompt("请输入第三个数："));
+				var myMax = 0;
+				myMax = numOne > numTwo? numOne:numTwo;
+				if(numThree > myMax){
+					myMax = numThree;
+				}
+				alert(myMax);
+				
+			</script>
+    </head>
+    <body>
+    
+    </body>
+</html>

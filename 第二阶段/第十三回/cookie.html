@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>	
+</body>
+</html>
+<script>
+window.onload=function(){
+	var now=new Date();
+	now.setDate(now.getDate()+7);
+	document.cookie="name="+encodeURIComponent("于强")+';expires='+now;
+
+	document.cookie="url=1000phone.com;expires="+now;
+	alert(document.cookie);
+};
+</script>  

@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	/*var obj=new Object();
+	obj.name="zhangsan";
+	obj.age=18;
+	obj.showName=function(){
+		return this.name;
+	}
+	obj.showAge=function(){
+		return this.age;
+	}
+	alert(obj.name);
+	alert(obj.age);
+	alert(obj.showName());
+	alert(obj.showAge());*/
+	
+	//工厂模式
+	/*function createObject(name,age){
+		var obj=new Object();
+		obj.name=name;
+		obj.age=age;
+		obj.showName=function(){
+			return this.name;
+		}
+		obj.showAge=function(){
+			return this.age;
+		}
+		return obj;
+	}
+	var obj1=createObject("zhangsan",19);
+	alert(obj1.showName());
+	var obj2=createObject("lisi",40);
+	alert(obj2.showName());
+	var obj3=createObject("BigYellow",19);
+	alert(obj3.showName());
+	alert(typeof obj2);
+	alert(typeof obj3);
+	alert(obj2 instanceof Object);
+	alert(obj3 instanceof Object);*/
+	
+	
+	//构造函数
+	/*function Person(name,age){
+		this.name=name;
+		this.age=age;
+		this.showName=function(){
+			return this.name;
+		}
+		this.showAge=function(){
+			return this.age;
+		}
+	}
+	var ps1=new Person("xm",10);
+	alert(ps1.name);
+	alert(ps1.age);
+	alert(ps1.showName());
+	alert(ps1.showAge());
+	var ps2=new Person("xj",19);
+	
+	function Dog(name,age){
+		this.name=name;
+		this.age=age;
+		this.showName=function(){
+			return this.name;
+		}
+		this.showAge=function(){
+			return this.age;
+		}
+	}
+	var dog=new Dog("BigYellow",3);
+	alert(dog.name);
+	alert(dog.age);
+	alert(dog.showName());
+	alert(dog.showAge());
+	alert(ps1 instanceof Person);
+	alert(ps1 instanceof Dog);
+	alert(ps1 instanceof Object);
+	alert(dog instanceof Person);*/
+	
+	//构造函数的缺点，不是指向同一个地址
+	/*function Person(name,age){
+		this.name=name;
+		this.age=age;
+		this.showName=function(){
+			return this.name;
+		}
+		this.showAge=function(){
+			return this.age;
+		}
+	}
+	var ps1=new Person("xm",10);
+	var ps2=new Person("xm",10);
+	alert(ps1.name==ps2.name);
+	alert(ps1.age==ps2.age);
+	alert(ps1.showName()==ps2.showName());
+	alert(ps1.showAge()==ps2.showAge());
+	alert(ps1.showName==ps2.showName);
+	alert(ps1.showAge==ps2.showAge);*/
+	
+	//函数原型
+	/*function Person(){
+		
+	}
+	//原型属性
+	Person.prototype.name="xm";
+	Person.prototype.age=18;
+	//原型方法
+	Person.prototype.showName=function(){
+		return this.name;
+	}
+	Person.prototype.showAge=function(){
+		return this.age;
+	}
+	var ps1=new Person();
+	var ps2=new Person();
+	alert(ps1.name);
+	alert(ps1.age);
+	alert(ps1.showName());
+	alert(ps1.showAge());
+	alert(ps1.showName==ps2.showName)*/
+	//原型缺点：虽然可以多个对象共享同一个属性和方法，但是原型属性没办法传参，所以创建出来的对象都具有同一个属性值。
+	
+	//将属性放在构造函数内(实例属性)，将方法放在原型里(原型方法)
+	/*function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	Person.prototype.showName=function(){
+		return this.name;
+	}
+	Person.prototype.showAge=function(){
+		return this.age;
+	}
+	function Dog(name,age){
+		//实例属性
+		this.name=name;
+		this.age=age;
+	}
+	//原型方法
+	Dog.prototype.name="BigYellow";
+	Dog.prototype.showName=function(){
+		return this.name;
+	}
+	Dog.prototype.showAge=function(){
+		return this.age=age;
+	}
+	var ps=new Person("xm",18);
+	var dog=new Dog("BigYellow",5);
+	alert(dog.name);
+	delete(dog.name); //删除实例属性
+	alert(dog.name);
+	alert(ps.prototype);
+	alert(ps.__proto__);
+	alert(Person.prototype.isPrototypeOf(ps));
+	alert(Person.prototype.isPrototypeOf(dog));*/
+	
+	//继承
+	
+	/*function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	Person.prototype.showName=function(){
+		return this.name;
+	}
+	Person.prototype.showAge=function(){
+		return this.age;
+	}
+	
+	function Man(name,age){
+		Person.call(this,name,age);
+	}
+	for(var i in Person.prototype){
+		Man.prototype[i]=Person.prototype[i];
+	}
+	var man=new Man("xm",19);
+	alert(man.name);
+	alert(man.age);
+	alert(man.showName());
+	alert(man.showAge());*/
+	
+	//循环里匿名函数的取值问题一
+	/*function fn(){
+		var arr=[];
+		for(var i=0;i<5;i++){
+			arr[i]=function(){
+				return i;
+			}();
+		}
+		return arr;
+	}
+	alert(fn());
+	alert(fn()[0]);
+	var list=fn();
+	for(var i=0;i<list.length;i++){
+		alert(list[i]);
+	}*/
+	
+	//循环里匿名函数的取值问题二
+	
+	function fn(){
+		var arr=[];
+		for(var i=0;i<5;i++){
+			arr[i]=function(num){
+				return function(){
+					return num;
+				}
+			}();
+		}
+		return arr;
+	}
+	alert(fn());
+	alert(fn()[0]());
+	var list=fn();
+	for(var i=0;i<list.length;i++){
+		alert(list[i]);
+	}
+</script>
+</head>
+<body></body>
+</html>

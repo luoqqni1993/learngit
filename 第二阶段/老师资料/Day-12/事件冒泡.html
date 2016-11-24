@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	//事件冒泡：从触发事件的对象开始依次向它的父节点传递，一直到根节点结束。
+	//"由子节点向父节点传递的过程：叫做事件冒泡"
+	//"由父节点向子节延伸的过程：叫做事件捕获"
+	//系统默认是事件冒泡
+	
+	//一切具有本质特征和行为的事物，就叫做对象（物质）；
+	//本质特征：属性（静态的）
+	//行为： 方法（动态的）
+	var oDiv = document.getElementById("box");
+	var oBtn = document.getElementById("btn");
+	function me(evt){
+		var e = evt || window.event;
+		alert(this.nodeName);
+		//e.cancelBubble = true;
+		//阻止冒泡的兼容写法
+		if(e.stopPropagation){
+			e.stopPropagation();
+		}else{
+			e.cancelBubble = true;
+		}
+		
+	}
+	oBtn.onclick =me;
+	oDiv.onclick = me;
+	document.body.onclick = me;
+	document.documentElement.onclick = me;
+	document.onclick = me;
+};
+</script>
+</head>
+<body style="border:1px solid yellow;">
+  <div id="box" style="width:100px;height:100px;background:red;">
+		<input type="button" value="点击" id="btn">
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	window.onload = function(){
+		//获取页面元素
+		var oText = document.getElementById("text1");
+		var oBtnGuess = document.getElementById("btn1");
+		var oBtnStart = document.getElementById("btn2");
+		var num = 0;
+		var count = 0;
+		oBtnStart.onclick = function(){
+			num = Math.floor(Math.random() * 10 + 1);
+			count = 1;
+			oText.value = "游戏开始";
+		};
+		oBtnGuess.onclick = function(){
+			if(count > 3){
+				oText.value = "GameOver!";
+			}else{
+				var n = parseInt(oText.value);
+				if(n > num){
+					alert("您猜大了！");
+				}else if(n < num){
+					alert("您猜小了！");
+				}else {
+					alert("恭喜您，你猜中了!");
+				}
+			}
+			count ++;
+		};
+		oText.onfocus = function(){
+			oText.value = "";
+		};
+	};
+</script>
+</head>
+<body>
+    <input type="text" id="text1"><input type="button" id="btn1" value="请猜数"><br/>
+		<input type="button" value="游戏开始" id="btn2">
+</body>
+</html>

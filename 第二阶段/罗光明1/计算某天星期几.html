@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+td{border:1px solid black}
+table{background:blue;}
+</style>
+</head>
+<body>
+<table>
+	<tr>
+		<td colspan=3>计算某天星期几</td>
+		
+		
+	</tr>
+	<tr>
+		<td>请输入年</td>
+		<td><input type="text"></td>
+		<td rowspan=4><input type="button" value="计算"><input type="button" value="重置"></td>
+	</tr>
+	<tr>
+		<td>请输入月</td>
+		<td><input type="text"></td>
+		
+	</tr>
+	<tr>
+		<td>请输入日</td>
+		<td><input type="text"></td>
+		
+	</tr>
+	<tr>
+		<td>计算结果</td>
+		<td><input type="text"></td>
+		
+	</tr>
+</table>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementsByTagName("input");
+		var arr=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+		oInp[1].onclick=function(){
+			var iYear=Number(oInp[0].value);
+			var iMonth=Number(oInp[3].value);
+			var iDate=Number(oInp[4].value);
+			var re1=/^[1-9]{1}\d{3}$/g
+			if(!re1.test(iYear)){
+				alert("您输入年份不合法");
+			}
+			var re2=/^([1-9]{1}|(1[0-2]{1}))$/g
+			if(!re2.test(iMonth)){
+				alert("请输入正确的月份");
+			}
+			var re3=/^([1-9]{1}|((1|2){1}\d{1})|(3[01]{1}))$/g
+			if(!re3.test(iDate)){
+				alert("请输入正确的日");
+			}
+			var now=new Date(iYear,iMonth-1,iDate);
+			oInp[5].value=arr[now.getDay()];
+		};
+		oInp[2].onclick=function(){
+			oInp[0].value="";
+			oInp[3].value="";
+			oInp[4].value="";
+			oInp[5].value="";
+		};
+	};
+</script>

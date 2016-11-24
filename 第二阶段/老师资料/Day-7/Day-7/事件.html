@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	//获取页面中所有元素
+	var oText1 = document.getElementById("text1");
+	var oText2 = document.getElementById("text2");
+	var oText3 = document.getElementById("text3");
+	var oBtn1 = document.getElementById("btn1");
+	var oBtn2 = document.getElementById("btn2");
+	
+	//给按钮添加事件
+	oBtn1.onclick = function(){
+		var iOne = Number(oText1.value);
+		var iTwo = Number(oText2.value);
+		oText3.value = iOne > iTwo ? iOne : iTwo;
+	};
+	oBtn2.ondblclick = function(){
+		oText1.value = "";
+		oText2.value = "";
+		oText3.value = "";
+	};
+	//给文本框添加得焦、失焦事件
+	oText1.onfocus = function(){
+		oText1.value = "";
+		oText1.style.background = "green";
+	};
+	oText1.onblur = function(){
+		if(isNaN(Number(oText1.value))){
+			alert("您输入的不是合法数字！");
+		}
+	};
+	oText2.onfocus = function(){
+		oText2.value = "";
+		oText2.style.background = "yellow";
+	};
+	oText2.onblur = function(){
+		if(isNaN(Number(oText2.value))){
+			alert("您输入的不是合法数字！");
+		}
+	};
+};
+</script>
+</head>
+<body>
+   <p>请输入第一个整数：<input type="text" value="如：33" id="text1"></p>
+   <p>请输入第二个整数：<input type="text" value="如：44" id="text2"></p>
+   <p>最大值是：<input type="text" id="text3"></p>
+   <p><input type="button" value="max" id="btn1"><input type="button" value="clear" id="btn2"></p>
+</body>
+</html>

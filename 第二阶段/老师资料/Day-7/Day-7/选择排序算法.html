@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+	选择排序算法（取数组中第一数与数组中其它的所有元素进行比较）
+	9 6 15 4 2
+	2 6 15 4 9
+	  4 15 6 9
+	     6 15 9
+		     9  15
+			 
+			 
+			 
+	9 6 15 4 2
+	2 9 15 6 4
+	  4 15 9 6
+	    6 15 9
+		     9 15
+*/
+var arr = [9,6,15,4,2];
+for(var i = 0; i < arr.length - 1; i++){
+	for(var j = i + 1;j < arr.length; j++){
+		if(arr[i] > arr[j]){
+			var t = arr[i] ;
+			arr[i] = arr[j];
+			arr[j] = t;
+		}
+	}
+} 
+alert(arr);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

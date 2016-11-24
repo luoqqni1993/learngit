@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+td{border:1px solid black}
+table{background:blue;}
+</style>
+</head>
+<body>
+<table>
+	<tr>
+		<td colspan=3>计算该日是一年中的第几天</td>
+		
+		
+	</tr>
+	<tr>
+		<td>请输入年份</td>
+		<td><input type="text"></td>
+		<td rowspan=3><input type="button" value="计算"><input type="button" value="重置"></td>
+	</tr>
+	<tr>
+		<td>请输入月份</td>
+		<td><input type="text"></td>
+		
+	</tr>
+	<tr>
+		<td>请输入日</td>
+		<td><input type="text"></td>
+		
+	</tr>
+	<tr>
+		<td>计算结果</td>
+		<td colspan=2><input type="text"></td>
+		
+	</tr>
+</table>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementsByTagName("input");
+		oInp[1].onclick=function(){
+		var iYear=oInp[0].value;
+		var iMonth=oInp[3].value;
+		var iDate=oInp[4].value;
+		var re1=/^[1-9]{1}\d{3}$/g
+		if(!re1.test(iYear)){
+			alert("只能输入四位数字");
+		}
+		var re2=/^([1-9]{1}|(1[0-2]{1}))$/g
+		if(!re2.test(iMonth)){
+			alert("只能输入1-12位数字");
+		}
+		var re3=/^([1-9]{1}|((1|2){1}\d{1})|(3[01]{1}))$/g
+		if(!re3.test(iDate)){
+			alert("只能输入1-31位数字");
+		}
+			var now1=new Date(Number(iYear),Number(iMonth)-1,Number(iDate));
+			var now2=new Date(Number(iYear),0,0);
+			var cha=now1-now2;
+			var sec=Math.floor(cha/1000);
+			var min=Math.floor(sec/60);
+			var ho=Math.floor(min/60);
+			var date=Math.floor(ho/24);
+			oInp[5].value=date;
+				
+			
+		};
+		oInp[2].onclick=function(){
+			oInp[0].value="";
+			oInp[3].value="";
+			oInp[4].value="";
+			oInp[5].value="";
+		};
+	};
+</script>

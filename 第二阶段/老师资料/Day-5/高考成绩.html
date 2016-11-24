@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+	<script>
+	   var score=Number(prompt("请输入高考成绩"));
+	   if(isNaN(score)){
+	   alert("输入不合法");
+	   }
+	   else if(score>750){
+	   alert("请输入有效的分数范围");
+	   }
+	   else if(score<=750&&score>=720){
+	   alert("清华");
+	   }
+	   else if(score>=710&&score<720){
+	   alert("北大");
+	   }
+	   else if(score>=700&&score<710){
+	   alert("千锋");
+	   }
+	   else if(score>=650&&score<700){
+	   alert("北科");
+	   }
+	   else if(score>=630&&score<650){
+	   alert("南开");
+	   }
+	   else if(score>=620&&score<630){
+	   alert("复旦");
+	   }
+	   else{
+	   alert("家里蹲大学");
+	   }
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!--结合舞台设计一个简单计算器（有参函数）。-->
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+    </head>
+    <body>
+		请输入第一个数字：<input type="text" id="text1"/><br/>
+		请输入一个算术运算符：<input type="text" id="text2"/><br/>
+		请输入第二个数字：<input type="text" id="text3"/>
+		<input type ="button" id="btn" value="计算" onclick = "run()"/><br/>
+		运算结果：<input type="text" id="text4"/>
+		<input type="button" id="cls" value="清空" onclick="myClear()"/>
+    </body>
+		<script type="text/javascript">
+			//实现计算器
+			function calculater(num1,ch,num2){
+				var str = "";
+				switch ( ch){
+					case '+': str = num1 + num2;break;
+					case '-': str = num1 - num2;break;
+					case '*': str = num1 * num2;break;
+					case '/': str = num2 == 0 ? "除数不能为零！":num1/num2;break;
+					case '%':str = num2 == 0 ? "除数不能为零！":num1%num2;break;
+					default : str = "您输入的运算符不合法！";
+				}
+				document.getElementById("text4").value = str;
+			}
+			function run(){
+				var numOne = Number(document.getElementById("text1").value);
+				var ch = document.getElementById("text2").value;
+				var numTwo = Number(document.getElementById("text3").value);
+				if(isNaN(numOne) || isNaN(numTwo)){
+					document.getElementById("text4").value = "您输入的数字不合法！";
+				}else{
+					calculater(numOne,ch,numTwo);
+				}
+			}
+			function myClear(){
+				document.getElementById("text1").value = "";
+				document.getElementById("text2").value = "";
+				document.getElementById("text3").value = "";
+				document.getElementById("text4").value = "";
+			}
+		</script>
+</html>

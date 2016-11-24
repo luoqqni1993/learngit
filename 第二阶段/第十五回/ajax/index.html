@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//var ajax=new ActiveXOBject("Microsoft.XMLHTTP");
+		//alert(ajax);
+		var ajax=null;
+		if(window.XMLHttpRequest){
+			ajax=new XMLHttpRequest();
+		}else{
+			ajax=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		alert(ajax.readyState);
+		//连接服务器
+		ajax.open("GET","abc.txt",true);
+		alert(ajax.readyState);
+		//发送请求
+		ajax.send();
+		//alert(ajax.status);
+		alert(ajax.readyState);
+		//返回数据
+		ajax.onreadystatechange=function(){
+				alert(ajax.readyState);
+			if(ajax.readyState==4){
+				//alert(ajax.status);
+				if(ajax.status==200){
+					alert(ajax.responseText);
+				}else{
+					alert("失败了");
+				}
+			}
+		};
+		</script>
+	</body>
+</html>

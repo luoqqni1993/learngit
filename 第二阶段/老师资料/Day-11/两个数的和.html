@@ -1,0 +1,74 @@
+﻿
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+//通过DOM操作，完成求两个数的和。要求：页面中有三个文本框，两个按钮。
+window.onload = function(){
+	var oBody = document.getElementsByTagName("body")[0]; //获取body
+	//removeSpace(oBody); //移除body下的空白文本节点
+	//创建五个input元素
+	var oInput1 = document.createElement("input");
+	var oInput2 = document.createElement("input");
+	var oInput3 = document.createElement("input");
+	var oInput4 = document.createElement("input");
+	var oInput5 = document.createElement("input");
+	oInput1.type = "text";
+	oInput2.type = "text";
+	oInput3.type = "text"; //给input 添加属性type 值为text
+	oInput4.type = "button"; //给input 添加属性type 值为button
+	oInput4.value = "求和"; //给input 添加属性value 值
+	oInput5.type = "button";
+	oInput5.value = "清空";
+	//创建文本节点
+	var oText1 = document.createTextNode("请输入第一个数字：");
+	var oText2 = document.createTextNode("请输入第二个数字：");
+	var oText3 = document.createTextNode("结果为：");
+	//var oBr = document.createElement("br");
+	//var oBr1 = oBr.cloneNode();
+	//给body元素添加子节点
+	oBody.appendChild(oInput1);
+	oBody.appendChild(oInput2);
+	oBody.appendChild(oInput3);
+	oBody.appendChild(oInput4);
+	oBody.appendChild(oInput5);
+	oBody.insertBefore(oText1,oBody.firstChild);
+	oBody.insertBefore(oText2,oBody.firstChild.nextSibling.nextSibling);
+	oBody.insertBefore(oText3,oBody.lastChild.previousSibling.previousSibling);
+	
+	
+	//获取页面元素
+	/*var oInp = document.getElementsByTagName("input");
+	oInp[3].onclick = function (){
+		var num1 = Number(oInp[0].value);
+		var num2 = Number(oInp[1].value);
+		if(isNaN(num1)||isNaN(num2)){
+			alert("您输入的不合法！");
+		}else{
+			oInp[2].value = num1 + num2;
+		}
+	};
+	oInp[4].onclick = function(){
+		for(var i = 0; i < oInp.length - 2; i++){
+				oInp[i].value = "";
+		}
+	};
+	//移除空白文本节点
+	function removeSpace(node){
+		var childs = node.childNodes;
+		for(var i = 0; i < childs.length; i++){
+			if(childs[i].nodeType == 3 && /^\s+$/.test(childs[i].nodeValue)){
+				childs[i].parentNode.removeChild(childs[i]);
+			}
+		}
+		return node;
+	}*/
+};
+</script>
+</head>
+<body>
+
+</body>
+</html>

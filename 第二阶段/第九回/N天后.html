@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<input type="text" id="text"><input type="button" id="btn" value="计算">
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oText=document.getElementById("text");
+		var oBtn=document.getElementById("btn");
+		oBtn.onclick=function(){
+			var now=new Date();
+			var num=parseInt(oText.value);
+			console.log(now.toLocaleString());
+			now.setDate(now.getDate()+num);
+			console.log(now.toLocaleString());
+			oText.value=now.getFullYear()+ "-" +(now.getMonth()+1)+ '-' +now.getDate();
+		};
+	};
+</script>

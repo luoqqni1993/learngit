@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	/*
+		childNodes: 获取指定元素的所有子节点（只有元素节点和文本节点）列表（数组）。
+		
+	*/
+	var oDiv = document.getElementById("box"); //获取元素
+	var oDivChilds = oDiv.childNodes;  //获取指定元素中的所有子节点（数组）
+	//alert(oDivChilds.length);
+	//节点名称，nodeName    节点类型：nodeType   节点值： nodeValue
+	console.log(oDiv.nodeName + "" + oDiv.nodeType + oDiv.nodeValue);
+
+/*	//判断oDiv中的所有子节点，如果是元素节点，则输出它nodeName,如果是文本节点，则输出它的nodeValue
+	
+	//遍历子节点
+	for(var i = 0; i < oDivChilds.length; i++){
+		if(oDivChilds[i].nodeType == 1){ //判断节点类型是否是1
+			console.log(oDivChilds[i].nodeName); //输出元素节点的节点名称
+		}else if(oDivChilds[i].nodeType == 3){//判断节点类型是否是3
+			console.log(oDivChilds[i].nodeValue); //输出文本节点的值
+		}
+	}
+*/
+
+		//如何获取第一个子节点
+		//元素节点.firstChild  //获取指定元素的第一个子节点
+		//元素节点.lastChild  //获取指定元素的最后一个子节点
+		/*
+		console.log(oDivChilds[0].nodeName);
+		console.log(oDivChilds[0].nodeType);
+		console.log(oDivChilds[0].nodeValue);
+		console.log(oDivChilds[oDivChilds.length - 1].nodeName);
+		console.log(oDivChilds[oDivChilds.length - 1].nodeType);
+		console.log(oDivChilds[oDivChilds.length - 1].nodeValue);
+		
+		console.log(oDiv.firstChild.nodeType);
+		console.log(oDiv.lastChild.nodeValue);
+		*/
+		//节点.ownerDocument :从当前节点直接返回到文档根节点
+		//alert(oDiv.lastChild.ownerDocument);
+		//alert(document);
+		//子节点.parentNode: 返回当前节点的父节点
+		//节点.previousSibling: 返回当前节点的前一个兄弟节点，如果前面没有兄弟节点，会报错。
+		//节点.nextSibling:返回当前节点的后一个兄弟节点，如果后面没有兄弟节点，会报错。
+		//console.log(oDiv.lastChild.parentNode.lastChild.previousSibling.nodeName);
+		
+		//元素节点.attributes: 返回[object NamedNodeMap]：返回属性列表（数组）
+		var oDivAttr = oDiv.attributes;
+		//alert(oDivAttr.length);
+		console.log(oDivAttr["title"].nodeName);
+		console.log(oDivAttr["title"].nodeType);
+		console.log(oDivAttr["title"].nodeValue);
+		
+		
+		//innerHTML与nodeValue的区别
+		//innerHTML:可以设置或获取指定元素之前的所有内容（包含HTML标签）可以正确解析标签的含义
+		//nodeValue:可以设置或获取指定节点的值（指纯文本）不会正确解析标签的含义，把标签转义成普通文本。
+		oDiv.firstChild.nextSibling.innerHTML = "<i>我家</i>";
+		oDiv.lastChild.nodeValue = "<i>我的朋友</i>";
+};
+</script>
+</head>
+<body>
+ <div id="box" title="标题" style="width:100px;height:100px;background:red;">我爱你<b>中国</b>你呢？</div>   
+</body>
+</html>

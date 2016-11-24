@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+p{margin:0px;
+	padding:0px;}
+table{border:1px solid black;
+	border-spacing:0px;
+	background:yellow;
+
+}
+td{border:1px solid black;
+
+}
+</style>
+</head>
+<body>
+<h1>计算到X年X月X日的倒计时</h1>
+<table>
+	<tr>
+		<td colspan=3><input type="text"></td>
+		
+	</tr>
+	<tr>
+		<td><input type="text"><p>年</p></td>
+		<td><input type="text"><p>月</p></td>
+		<td><input type="text"><p>日</p></td>
+	</tr>
+	<tr>
+		<td colspan=3><input type="text"><input type="text">天
+		<input type="text">小时<input type="text">分钟
+		<input type="text">秒</td>
+		
+	</tr>
+	<tr>
+		<td colspan=3><input type="button" value="开始">
+		<input type="button" value="清空"></td>
+		
+	</tr>
+</table>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		oInp=document.getElementsByTagName("input");
+		oInp[9].onclick=function(){
+		setInterval(function time(){
+			var str=oInp[0].value;
+			var now=new Date();
+			var iYear=Number(oInp[1].value);
+			var iMonth=Number(oInp[2].value);
+			var iDate=Number(oInp[3].value);
+			var festival=new Date(iYear,iMonth-1,iDate);
+			var time=festival-now;
+			var second=Math.floor(time/1000);
+			var minute=Math.floor(second/60);
+			var hour=Math.floor(minute/60);
+			var date=Math.floor(hour/24);//天
+			var second1=second%60;//秒
+			var minute1=minute%60;//分钟
+			var hour1=hour%24;//小时
+			oInp[4].value=str;
+			oInp[5].value=date;
+			oInp[6].value=get(hour1);
+			oInp[7].value=get(minute1);
+			oInp[8].value=get(second1);
+			},1000)
+		};
+		oInp[10].onclick=function(){
+			oInp[0].value="";
+			oInp[1].value="";
+			oInp[2].value="";
+			oInp[3].value="";
+			oInp[4].value="";
+			oInp[5].value="";
+			oInp[6].value="";
+			oInp[7].value="";
+			oInp[8].value="";
+		};
+		function get(t){
+			if(t<10){
+				return "0"+t;
+			}else{
+				return t;
+			}
+		}
+	};
+</script>

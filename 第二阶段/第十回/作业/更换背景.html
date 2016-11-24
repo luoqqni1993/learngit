@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="css2.css">
+<style>
+</style>
+</head>
+<body>
+<dl>
+<dt>可以换肤的提交框：<input type="button" value="皮肤一"><input type="button" value="皮肤二"></dt>
+<dd>输入姓名:<input type="text" class="text"></dd>
+<dd>输入密码:<input type="text" class="text"></dd>
+<dd>请您留言:<textarea></textarea></dd>
+<dd class="center"><input type="button" value="提交" class="btn"></dd>
+</dl>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementsByTagName("input");
+		var oDl=document.getElementsByTagName("dl");
+		var oDt=document.getElementsByTagName("dt");
+		var oDd=document.getElementsByTagName("dd");
+		var oBody=document.getElementsByTagName("body");
+		var oTextarea=document.getElementsByTagName("textarea");
+		oInp[0].onclick=function(){
+			oBody[0].style.marginTop="40px";
+			oBody[0].style.background="url(bg1.jpg) no-repeat center center";
+			oDl[0].style.width="400px";
+			oDl[0].style.border="2px solid #ccc";
+			oDl[0].style.background="#FFFFCC";
+			oDl[0].style.padding="20px";
+			oDl[0].style.margin="0px auto";
+			oDl[0].style.filter="alpha(opacity: 70)";
+			oDl[0].style.opacity="0.7";
+			oDt[0].style.fontSize="18px";
+			oDt[0].style.color="#009933";
+			oDt[0].style.borderBottom="1px solid #ccc";
+			oDt[0].style.paddingLeft="10px";
+			oDt[0].style.paddingBottom="10px";
+			oDt[0].style.marginBottom="20px";
+			oDd[0].style.marginLeft="0px";
+			oDd[0].style.paddingBottom="10px";
+			oDd[0].style.fontSize="14px";
+			oDd[0].style.paddingLeft="10px";
+			oDd[0].style.color="black";
+			oDd[1].style.marginLeft="0px";
+			oDd[1].style.paddingBottom="10px";
+			oDd[1].style.fontSize="14px";
+			oDd[1].style.paddingLeft="10px";
+			oDd[1].style.color="black";
+			oDd[2].style.marginLeft="0px";
+			oDd[2].style.paddingBottom="10px";
+			oDd[2].style.fontSize="14px";
+			oDd[2].style.paddingLeft="10px";
+			oDd[2].style.color="black";
+			oDd[3].style.marginLeft="0px";
+			oDd[3].style.paddingBottom="10px";
+			oDd[3].style.fontSize="14px";
+			oDd[3].style.color="black";
+			oDd[3].style.paddingLeft="10px";
+			oInp[2].style.width="300px";
+			oInp[2].style.height="30px";
+			oInp[2].style.lineHeight="30px";
+			oInp[3].style.width="300px";
+			oInp[3].style.height="30px";
+			oInp[3].style.lineHeight="30px";
+			oTextarea[0].style.width="300px";
+			oTextarea[0].style.height="120px";
+			oTextarea[0].style.overflow="auto";
+			oInp[4].style.width="120px";
+			oInp[4].style.height="40px";
+		};
+		oInp[1].onclick=function(){
+			oBody[0].style.marginTop="40px";
+			oBody[0].style.background="url(bg.gif)";
+			oDl[0].style.width="600px";
+			oDl[0].style.border="4px solid #fff";
+			oDl[0].style.background="#669999";
+			oDl[0].style.padding="20px";
+			oDl[0].style.margin="0px auto";
+			oDl[0].style.filter=" alpha(opacity: 90)";
+			oDl[0].style.opacity="0.9";
+			oDt[0].style.fontSize="18px";
+			oDt[0].style.color="#fff";
+			oDt[0].style.borderBottom="1px solid #ccc";
+			oDt[0].style.paddingLeft="10px";
+			oDt[0].style.paddingBottom="10px";
+			oDt[0].style.marginBottom="20px";
+			oDd[0].style.marginLeft="0px";
+			oDd[0].style.paddingBottom="10px";
+			oDd[0].style.fontSize="14px";
+			oDd[0].style.paddingLeft="10px";
+			oDd[0].style.color="#fff";
+			oDd[1].style.marginLeft="0px";
+			oDd[1].style.paddingBottom="10px";
+			oDd[1].style.fontSize="14px";
+			oDd[1].style.paddingLeft="10px";
+			oDd[1].style.color="#fff";
+			oDd[2].style.marginLeft="0px";
+			oDd[2].style.paddingBottom="10px";
+			oDd[2].style.fontSize="14px";
+			oDd[2].style.paddingLeft="10px";
+			oDd[2].style.color="#fff";
+			oDd[3].style.marginLeft="0px";
+			oDd[3].style.paddingBottom="10px";
+			oDd[3].style.fontSize="14px";
+			oDd[3].style.paddingLeft="10px";
+			oDd[3].style.color="#fff";
+			oInp[2].style.width="500px";
+			oInp[2].style.height="30px";
+			oInp[2].style.lineHeight="30px";
+			oInp[3].style.width="500px";
+			oInp[3].style.height="30px";
+			oInp[3].style.lineHeight="30px";
+			oTextarea[0].style.width="500px";
+			oTextarea[0].style.height="120px";
+			oTextarea[0].style.overflow="auto";
+			oTextarea[0].style.fontWeight="bold";
+			oTextarea[0].style.fontSize="14px";
+			oTextarea[0].style.fontFamily="arial";
+			oInp[4].style.width="120px";
+			oInp[4].style.height="40px";
+		};
+	};
+</script>

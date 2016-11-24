@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 400px;height: 300px;background: #ccc;border: 1px solid red;}
+			}
+		</style>
+		<script src="ajax.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = document.getElementById("btn");
+				var oDiv = document.getElementById("div1");
+				oBtn.onclick = function (){
+					ajax("abc1.txt",function(str){
+						oDiv.innerHTML = str;
+					},function(){
+						alert("失败了！");
+					});
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>通Ajax与服务器建立连接，访问服务器上的abc.txt文件</p>
+		<input type="button" name="btn" id="btn" value="访问abc.txt" />
+		<div id="div1"></div>
+	</body>
+</html>

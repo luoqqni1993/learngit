@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+#box{width: 500px;
+     height: 200px;
+     border: solid 1px #f00;
+     margin: 100px auto;}
+#txt2{width: 496px;
+     height: 196px;
+     border: none;}
+#div{width: 400px;
+     height: 200px;
+     border: solid 1px blue;
+     display: none;
+     position: absolute;
+     background: #fff;}
+.aa{width: 400px;
+    height: 30px;
+    background: #0597c6;
+    color: #fff;}
+#bb{width: 380px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    float:left;}
+#cc{width: 20px;
+    height: 20px;
+    text-align:center;
+    font-size: 20px;
+    float: right;}
+#cc input{width: 20px;
+	      height: 20px;
+	      font-size: 18px;
+	      background: #0597c6;
+	      color: #fff;
+	      border: none;}
+.ee{width: 400px;
+    height: 30px;}
+.ee span{color: #000;
+         margin: 15px 0 0 15px;}
+#txt1{width: 350px;
+      height: 80px;
+      border: solid 1px #f00;
+      margin: 20px 0 0 22px;}
+#ff{width: 250px;
+    height: 30px;
+    margin: 15px 0 0 65px;}
+#ff input{width: 110px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          color: #000;
+          border: none;}
+#ff input:hover{background: #ff6634;
+                color: #fff;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<textarea id="txt2"></textarea>
+	</div>
+	<div id="div">
+		<div class="aa">
+			<div id="bb">
+			    <span>发布微博</span>
+			</div>
+			<div id="cc">
+				<input type="button" value="X" id="btn2">
+			</div>
+			<div class="ee">
+				<span>请输入您要发布的内容</span>
+			</div>
+			
+			<div id="dd">
+				<textarea id="txt1"></textarea>
+			</div>
+			<div id="ff">
+				<input type="button" value="确定" id="btn">
+				<input type="button" value="取消" id="btn1">
+			</div>
+		</div>
+	</div>
+
+<script>
+	oBox = document.getElementById('box')
+    oDiv = document.getElementById('div')
+    oBtn2 = document.getElementById('btn2')
+    oBtn1 = document.getElementById('btn1')
+    oBtn = document.getElementById('btn')
+    oTxt1 = document.getElementById('txt1')
+    oTxt2 = document.getElementById('txt2')
+
+    oBox.onclick = function(){
+
+    	oDiv.style.display='block'
+
+    	//alert(1)
+    }
+
+    oBtn2.onclick = function(){
+
+    	oDiv.style.display='none'
+
+    }
+
+    oBtn1.onclick = function(){
+
+    	oDiv.style.display='none'
+
+    }
+
+    oBtn.onclick = function(){
+
+    	oTxt2.value = oTxt1.value
+
+    	oDiv.style.display='none'
+       
+    }
+
+     oDiv.onmousedown = function nnn(event){
+
+    	var evt = event || window.event;
+
+    	var x = evt.offsetX;
+
+    	var y = evt.offsetY;
+
+    	document.onmousemove = function(event){
+
+    		var evt = event || window.event;
+
+    		oDiv.style.left = evt.clientX - x + 'px';
+
+    		oDiv.style.top = evt.clientY - y + 'px';
+
+    	}
+
+        
+        oDiv.onmouseup=function(){
+
+        	document.onmousemove = null
+        }
+            
+           // return false
+
+        //oDiv.removEventListener(onmousedown,nnn,false)
+    /*    if(evt.stopPropagation){
+
+          evt.stopPropagation()
+
+        }else{
+
+          evt.cancelBubble = true
+        }*/
+}
+
+
+
+ 
+
+</script>
+
+
+</body>
+</html>

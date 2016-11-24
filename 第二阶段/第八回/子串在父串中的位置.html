@@ -1,0 +1,21 @@
+<!dovtype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	var str="找出子串在父串中出现的位置找出子串在父串中出现的位置找出子串在父串中出现的位置。";
+	var subStr="子串";
+	function find(str,sub){
+		var myStr="";
+		for(var i=0;str.indexOf(sub,i)!=-1;){
+			myStr+=str.indexOf(sub.i)+" ";
+			i=str.indexOf(sub,i)+sub.length;
+		}
+		return myStr;
+	}
+	alert(find(str,subStr));
+</script>
+</head>
+<body>
+</body>
+</html>

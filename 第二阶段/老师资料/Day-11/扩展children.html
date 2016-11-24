@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	//children:获取指定节点的所有元素子节点。(不包含文本节点）
+	var oDiv = document.getElementById("box");
+	var child = oDiv.children;
+	alert(child[0]);
+};
+</script>
+</head>
+<body>
+	<div id="box">
+		adsfasfa;slfdasdf<p>测试1</p>asfdasdf
+		afd<p>测试2</p>
+		<p>测试3</p>
+	</div>
+</body>
+</html>

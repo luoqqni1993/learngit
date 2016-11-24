@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;background: red;margin-top: 10px;filter:alpha(opacity=10);opacity:0.1;}
+		</style>
+		<script src="js/move1.js"></script>
+		<script type="text/javascript">
+		window.onload = function(){
+			alert(getStyle)
+			var oDiv = document.getElementsByTagName("div");
+			for(var i = 0; i < oDiv.length ; i ++){
+				oDiv[i].onmouseover = function(){
+					startMove(this,'opacity',100);
+				}
+				oDiv[i].onmouseout = function(){
+					startMove(this,'opacity',10);
+				}
+			}
+		}
+	
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

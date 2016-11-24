@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		body,li,ul,p{padding:0px;margin:0px;}
+			li{list-style-type:none;font-size:10px;height:18px;line-height:18px;}
+			#box{height:136px;width:170px;background:#eaecf0;position:absolute;
+			left:-170px;}
+			a{text-decoration:none;}
+			p{font-size:10px;height:18px;line-height:18px;background:#eaecf0;width:170px;}
+		</style>
+		<script>
+			window.onload=function(){
+				var oP=document.getElementById("p1");
+				var oDiv=document.getElementById("box");
+				oP.onmouseover=function(){
+					oDiv.style.left=0+'px';
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<p id="p1">播放列表</p>
+		<div id="box">
+		<ul>
+			<li><a href="javascript:;">玩爱之徒-蔡依林</a></li>
+			<li><a href="javascript:;">原谅我就是这样的女生-戴佩妮</a></li>
+			<li><a href="javascript:;">猜不透-丁当</a></li>
+			<li><a href="javascript:;">自导自演-周杰伦</a></li>
+			<li><a href="javascript:;">浪漫窝-弦子</a></li>
+			<li><a href="javascript:;">流年-王菲</a></li>
+		</ul>
+		</div>
+	</body>
+</html>

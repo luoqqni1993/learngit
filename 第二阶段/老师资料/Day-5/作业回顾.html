@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+1.var k = -2;  //-1 + -1 +1 + 1
+alert(++k + k++ + ++k + k);
+2.编写程序，由用户输入一个三位正整数并求它的各位
+数字之和，如：用户输入123，输入123的各位之和是6.
+分析：iNum   iH  iT  iS  iSum
+			iH = parseInt(iNum / 100);
+			iT = parseInt(iNum % 100 / 10);
+			iS = iNum % 10;
+var iNum = parseInt(prompt("请输入一个三位数："));
+if(isNaN(iNum)){
+	alert("您输入的数字有误！");
+}else{
+	if(iNum >= 100 && iNum <= 999){
+		 var iH = parseInt(iNum / 100);
+		 var iT = parseInt(iNum % 100 / 10);
+		 var iS = iNum % 10;
+		 var iSum = iH + iT + iS;
+		 alert( iSum);
+		}
+	}
+}
+3.var i=5;
+var a=3;
+//  6 + 7 - 7  +  8         i = 9;   a = 17
+a+=++i + ++i - i++ + i++;
+//    17 +  9   +   19 + 19 + "a++"                       a = 20   i = 10
+var b=a++ + i++ + ++a + a++ + "a++";    b= '64a++'
+求：i、a、b的值分别是多少？
+4.输入任意两个数，然后交换位置输出（如：a=4,b=5  输出   a=5,b=4）
+5.输入任意三个数，由大到小输出
+分析：iOne ,iTwo ,iThree   ,t    比较：1.？：  2.if  3.switch
+
+var iOne = parseInt(prompt("请输入第一个整数："));
+var iTwo = parseInt(prompt("请输入第二个整数："));
+var iThree = parseInt(prompt("请输入第三个整数："));
+var t = 0;
+if(isNaN(iOne)||isNaN(iTwo)||isNaN(iThree)){
+	alert("您输入的数字有误！");
+}else{
+	if(iOne < iTwo){
+		t = iOne;
+		iOne = iTwo;
+		iTwo = t;
+	}
+	if(iOne < iThree){
+		t = iOne;
+		iOne = iThree;
+		iThree = t;
+	}
+	if(iTwo < iThree){
+		t = iTwo;
+		iTwo = iThree;
+		iThree = t;
+	}
+	alert( iOne + " > " + iTwo + " > " + iThree);
+}
+6.求两个数的最大值
+7.求三个数的最大值
+8.输入一个成绩，判断是升班还是重修
+9.输入一个数，判断是正数还是负数
+10.输入一个数，判断是偶数还是奇数。
+11.输入一个数，输出这个数的绝对值
+12.输入一个数，判断这个数能否同时被3和5整除，可以输出yes不可以输出no
+*/
+
+var iOne = parseInt(prompt("请输入第一个整数："));
+var iTwo = parseInt(prompt("请输入第二个整数："));
+var iThree = parseInt(prompt("请输入第三个整数："));
+var t = 0;
+if(isNaN(iOne)||isNaN(iTwo)||isNaN(iThree)){
+	alert("您输入的数字有误！");
+}else{
+	if(iOne < iTwo){
+		t = iOne;
+		iOne = iTwo;
+		iTwo = t;
+	}
+	if(iOne < iThree){
+		t = iOne;
+		iOne = iThree;
+		iThree = t;
+	}
+	if(iTwo < iThree){
+		t = iTwo;
+		iTwo = iThree;
+		iThree = t;
+	}
+	alert( iOne + " > " + iTwo + " > " + iThree);
+}
+</script>
+</head>
+<body>
+    
+</body>
+</html>

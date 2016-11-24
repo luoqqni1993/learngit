@@ -1,0 +1,197 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+</head>
+<script>
+/*
+	while 当型循环
+	格式：
+	
+	表达式1;
+	while(表达式2){
+		语句组;
+		表达式3;
+	}
+	
+	表达式1：从哪里开始（给循环变量赋初值）
+	表达式2：到哪里结束（循环结束条件）
+	表达式3：步长（步进）（促使循环条件结束）
+	
+	逻辑：先执行表达式1，再计算表达式2的值，值true：则执行循环体（先执行语句组，再执行表达式3），再计算表达式2 的值，直到值为false时，退出循环体，结束循环。
+
+	do while :直到型循环
+	格式：
+	表达式1;
+	do{
+		语句组;
+		表达式3;
+	}while(表达式2);
+	
+	逻辑：先执行表达式1，再执行循环体，再计算表达式2的值，值为true:继续执行循环体，直到值为false时，退出循环体，结束循环。
+
+	
+	
+var i = 1;
+while(i < 11){
+	alert(i);
+	i++;
+}*/
+/*
+1》输出1-100的整数
+var i = 1;
+while(i < 101){
+	document.write(i + " ");
+	i++;
+}
+2》输出m-n的整数
+var m = parseInt(prompt("请输入一个整数："));
+var n = parseInt(prompt("请输入一个整数："));
+if(isNaN(m) || isNaN(n)){
+	alert("您输入错误！");
+}else{
+	if(m < n){
+		var i = m;
+		while(i <= n){
+			document.write(i + " ");
+			i++;
+		}
+	}else{
+		var i = m;
+		while ( i >= n){
+			document.write(i + " ");
+			i--;
+		}
+	}
+}
+3》求5！(阶乘：从1乘到它本身）
+
+var i = 1;
+var fac = 1;
+while(i < 6){
+	fac *= i;
+	i++;
+}
+alert(fac);
+
+1》求1+2+3+……+100的和
+var sum = 0;
+var i = 1;
+do{
+	sum += i;
+	i++;
+}while(i < 101);
+alert(sum);
+2》输出1-100中(7的倍数和带7的数除外）的数。
+分析：i = 1    i <= 100  i++
+		!(i % 7 == 0 || i % 10 ==7 || parseInt(i / 10) == 7)
+		i % 7 && i % 10 != 7 && parseInt(i / 10) != 7
+var i = 1;
+do{
+	if(i % 7 && i % 10 != 7 && parseInt(i / 10) != 7){
+		document.write(i + " ");
+	}
+	i ++;
+}while ( i < 101);
+3》输出m至n的自然数中的偶数和与奇数和
+并统计偶数与奇数的个数分别是多少？
+分析：m ,n evenSum ,oddSum,evenCount,oddCount,i,t;
+i = m   i <= n  i++
+i % 2
+
+var m = parseInt(prompt("请输入一个整数："));
+var n = parseInt(prompt("请再输入一个整数："));
+var evenSum = 0,oddSum = 0,evenCount = 0,oddCount = 0;
+if(isNaN(m) || isNaN(n)){
+	alert("您输入的不合法！");
+}else{
+	//确保m < n
+	if( m > n){
+		var t = m;
+		m = n; 
+		n = t;
+	}
+	var i = m;  //表达式1
+	do{
+		//奇数
+		if(i % 2){
+			oddSum += i;
+			oddCount ++;
+		}else{  //偶数
+			evenSum += i;
+			evenCount ++;
+		}
+		i ++;  // 表达式3
+	}while( i <= n); //表达式2
+	document.write("偶数和：" + evenSum + "<br/>偶数个数：" + evenCount + "<br/>奇数和：" + oddSum + "<br/>奇数个数：" + oddCount);
+}
+*/
+
+/*
+while(1){}
+do{}while(1);
+for(;1;){};
+
+while与dowhile的区别
+1.while是先判断条件，后执行语句；dowhile是先执行语句，后判断条件。
+2.当第一次条件为假时，while一次都不执行，dowhile至少执行一次
+var i = 2;
+while ( i == 3){
+	
+	i ++;
+}
+alert( i );
+var i = 2;
+do{
+	
+	i ++;
+}while( i == 3);
+alert( i );
+*/
+/*
+//for(变量 in 集合){}  作用：遍历集合
+var arr = [1,2,3,4,5,6]; //数组
+for(var i in arr){
+	alert(i + ":" + arr[i]);
+}
+
+*/
+
+
+
+
+/*
+	break:1.终止switch
+				2.终止一层循环
+	continue:终止一次循环
+	for(var i = 1; i < 10; i++){
+	if(i == 3 || i == 5){
+		break;
+	}else{
+		document.write(i + " ");
+	}
+}
+for(var i = 1; i < 10; i++){
+	if(i == 3 || i == 5){
+		continue;
+	}else{
+		document.write(i + " ");
+	}
+}
+*/
+for(var i = 1; i < 5; i++){
+	for(var j = 1; j < 5; j++){
+		if (i == 3&& j == 3){
+			break;
+		}
+		document.write(i + ' ');
+	}
+	
+}
+
+</script>
+<body>
+    
+</body>
+</html>

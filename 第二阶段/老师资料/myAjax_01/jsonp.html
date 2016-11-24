@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//得到航班信息查询结果后的回调函数
+			var flight = function(data){
+				alert("你查询的航班信息结果是：票价" + data.price + "元,余票" + data.tickets + "张。");
+			};
+			//提供jsonp服务的url地址
+			var url = "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998&callback=flight";
+			//创建script标签，设置其属性
+			var script = document.createElement("script");
+			script.setAttribute("src",url);
+			//将script标签加入head中，此时调用开始
+			document.getElementsByTagName("head")[0].appendChild(script);
+			
+			
+			flight({
+				"code":"CA1998",
+				"price":1775,
+				"tickets":5
+			})
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

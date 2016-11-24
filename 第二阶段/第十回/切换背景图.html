@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<input type="button" value="切换" id="btn1">
+<input type="button" value="停止" id="btn2">
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oChange=document.getElementById("btn1");
+		var oStop=document.getElementById("btn2");
+		var arr=["url(jpg/1.jpg)","url(jpg/2.jpg)","url(jpg/3.jpg)","url(jpg/4.jpg)",
+		"url(jpg/5.jpg)","url(jpg/6.jpg)","url(jpg/7.jpg)","url(jpg/8.jpg)","url(jpg/9.jpg)"];
+		var i=0;
+		var timer=null;
+		oChange.onclick=function(){
+			clearInterval(timer);
+			timer=setInterval(me,1000);
+			function me(){
+				document.body.style.background=arr[i%arr.length];
+				i++;
+			}
+		};
+		oStop.onclick=function(){
+			clearInterval(timer);
+		};
+	}
+</script>

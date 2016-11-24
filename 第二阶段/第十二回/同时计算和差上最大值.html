@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+请输入第一个数：<input type="text"><br>
+请输入第二个数：<input type="text"><br>
+和：<input type="text"><br>	
+差：<input type="text"><br>
+积：<input type="text"><br>
+商：<input type="text"><br>
+余：<input type="text"><br>
+最大值：<input type="text"><br>
+<input type="button" value="计算" id="btn">
+	
+</body>
+</html>  
+<script>
+window.onload=function(){
+	var oInp=document.getElementsByTagName("input");
+	function fn1(){
+		var iOne=Number(oInp[0].value);
+		var iTwo=Number(oInp[1].value);
+		oInp[2].value=iOne+iTwo;
+	}
+	function fn2(){
+		var iOne=Number(oInp[0].value);
+		var iTwo=Number(oInp[1].value);
+		oInp[3].value=iOne-iTwo;
+	}
+	function fn3(){
+		var iOne=Number(oInp[0].value);
+		var iTwo=Number(oInp[1].value);
+		oInp[4].value=iOne*iTwo;
+	}
+	function fn4(){
+		var iOne=Number(oInp[0].value);
+		var iTwo=Number(oInp[1].value);
+		oInp[5].value=iOne/iTwo;
+	}
+	function fn5(){
+		var iOne=Number(oInp[0].value);
+		var iTwo=Number(oInp[1].value);
+		oInp[6].value=iOne%iTwo;
+	}
+	function fn6(){
+		var iOne=Number(oInp[0].value);
+		var iTwo=Number(oInp[1].value);
+		oInp[7].value=iOne>iTwo ? iOne : iTwo;
+	}
+	addEvent(oInp[8],"click",fn1,false);
+	addEvent(oInp[8],"click",fn2,false);
+	addEvent(oInp[8],"click",fn3,false);
+	addEvent(oInp[8],"click",fn4,false);
+	addEvent(oInp[8],"click",fn5,false);
+	addEvent(oInp[8],"click",fn6,false);
+	function addEvent(obj,event,fn,boo){
+		if(obj.addEventListener){
+			obj.addEventListener(event,fn,boo);
+		}else{
+			obj.attachEvent("on"+event,fn);
+		}
+	}
+};
+</script>

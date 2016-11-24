@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		onload = function(){
+			var btn = document.getElementById("sub");
+			btn.onclick = function(){
+				var req = new XMLHttpRequest();
+				var url = "http://127.0.0.1:8080/JDBC/jdbc?type=insert";
+				
+				url += "&name="+document.getElementsByName("name")[0].value;
+				url += "&age="+document.getElementsByName("age")[0].value;
+				var sex = document.getElementsByName("sex");
+				url += "&sex="+(sex[0].checked?sex[0].value:sex[1].value);
+				url += "&password=" + document.getElementsByName("password")[0].value;
+				
+				req.open("get",url, true);
+				req.onreadystatechange = function(){
+					if(req.readyState == 4 && req.status == 200) {
+						alert("数据添加成功！");
+					}
+				}
+				req.send();
+			}
+		}
+	</script>
+	<body>
+		<input type="text" name="name" id="name" placeholder="请输入姓名" /><br>
+		<input type="text" name="age" id="age" placeholder="请输入年龄" /><br>
+		男<input type="radio" name="sex" value="男" checked="checked"/>
+		女<input type="radio" name="sex" value="女" /><br>
+		<input type="password" name="password" id="" placeholder="请输入密码" /><br>
+		<input id="sub" type="button" value="提交"/>
+	</body>
+</html>

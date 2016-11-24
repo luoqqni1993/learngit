@@ -1,0 +1,68 @@
+<!dovtype>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+</body>
+</html>
+<script>
+window.onload=function(){
+	var oBody=document.getElementsByTagName("body")[0];
+	removeSpace(oBody);
+	alert(oBody.childNodes.length)
+	var oInput1=document.createElement("input");
+	oInput1.type="text";
+	var oInput2=document.createElement("input");
+	oInput2.type="text";
+	var oInput3=document.createElement("input");
+	oInput3.type="text";
+	var oInput4=document.createElement("input");
+	oInput4.type="button";
+	oInput4.value="计算";
+	var oInput5=document.createElement("input");
+	oInput5.type="button";
+	oInput5.value="清空";
+	
+	var oText1=document.createTextNode("请输入第一个数字");
+	var oText2=document.createTextNode("请输入第二个数字");
+	var oText3=document.createTextNode("结果为");
+	var oBr=document.createElement("br");
+	var oBr1=oBr.cloneNode();
+	
+	oBody.appendChild(oInput1);
+	oBody.appendChild(oInput2);
+	oBody.appendChild(oInput3);
+	oBody.appendChild(oInput4);
+	oBody.appendChild(oInput5);
+	oBody.insertBefore(oText1,oBody.firstChild);
+	oBody.insertBefore(oText2,oBody.firstChild.nextSibling.nextSibling.nextSibling);
+	oBody.insertBefore(oText3,oBody.lastChild.previousSibling.previousSibling);
+	oBody.insertBefore(oBr,oBody.firstChild.nextSibling.nextSibling.nextSibling);
+	oBody.insertBefore(oBr1,oBody.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling);
+	var oInp=document.getElementsByTagName("input");
+	oInp[3].onclick=function(){
+		var num1=Number(oInp[0].value);
+		var num2=Number(oInp[1].value);
+		if(isNaN(num1)||isNaN(num2)){
+			alert("您输入不合法");
+		}else{
+			oInp[2].value=num1+num2;
+		}
+	};
+	oInp[4].onclick=function(){
+		oInp[0].value="";
+		oInp[1].value="";
+		oInp[2].value="";
+	};
+	function removeSpace(node){
+		var childs=node.childNodes;
+		for(var i=0;i<childs.length;i++){
+			if(childs[i].nodeType==3&&/^\s+$/.test(childs[i].nodeValue)){
+				childs[i].parentNode.removeChild(childs[i])
+			}
+		}
+		return node;
+	}
+};
+</script>

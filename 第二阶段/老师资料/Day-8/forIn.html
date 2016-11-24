@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		for(变量名 in 集合){}
+		作用：遍历数组、字符串、对象
+
+		遍历对象只能用for in
+
+	*/
+	var arr = [1,2,3,4,5,6];
+	var str = "abcdefg";
+	var obj = {name:"zhangsan",age:29};
+
+	for(var i in arr){
+		document.write(i + ":" + arr[i] + "<br/>");
+	}
+	
+	for(var a in str){
+		document.write(a + ":" + str.charAt(a) + "<br/>");
+	}
+
+	for(var b in obj){
+		document.write(b + ":" + obj[b] + "<br/>");
+	}
+</script>
+</head>
+<body>
+    
+</body>
+</html>

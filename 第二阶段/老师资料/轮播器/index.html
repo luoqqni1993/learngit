@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/move.js"></script>
+		<script type="text/javascript">
+			var currentImgIndex = 0;  //当前图片下标
+			var maxZindex = 1; //层级
+			window.onload = function(){
+				//获取所有的元素
+				var btnPrev = document.getElementById("btn_prev"); //左按钮
+				var btnNext = document.getElementById("btn_next"); //右按钮
+				var markLeft = document.getElementById("mark_left"); //左区域
+				var markRight = document.getElementById("mark_right"); //右区域
+				
+				//按钮区域的移入移出事件
+				//左边按钮移入事件
+				btnPrev.onmouseover = markLeft.onmouseover = function(){
+					startMove(btnPrev,{opacity:100});  //左边按钮的透明度设为100
+				};
+				//左边按钮移出事件
+				btnPrev.onmouseout = markLeft.onmouseout = function(){
+					startMove(btnPrev,{opacity:0});  //左边按钮的透明度设为0
+				};
+				//右边按钮输入事件
+				btnNext.onmouseover = markRight.onmouseover = function(){
+					startMove(btnNext,{opacity:100});  //右边按钮的透明度设为100
+				};
+				//右边按钮输出事件
+				btnNext.onmouseout = markRight.onmouseout = function(){
+					startMove(btnNext,{opacity:0});  //右边按钮的透明度设为0
+				};
+				
+				//获取小图Div中的li
+				var smallLi = document.getElementById("small_pic").getElementsByTagName('li');
+				//获取大图Div中的li
+				var bigLi = document.getElementById("big_pic").getElementsByTagName("li");
+				//获取小图的UL
+				var smallUl = document.getElementById("small_UL");
+				
+				//给smallUl的宽度赋值 = 一个小图的宽度 * 小图的数量
+				smallUl.style.width = smallLi[0].offsetWidth * smallLi.length + 'px';
+				
+				//遍历小图，给小图添加事件
+				for(var i = 0; i < smallLi.length; i++){
+					smallLi[i].index = i; //给每一个缩略图加index属性
+					smallLi[i].onmouseover = function(){  //给每一个小图添加鼠标移入事件
+						startMove(this,{opacity:100});  //移入后当前的图片透明度为100
+					};
+					smallLi[i].onmouseout = function(){ //给每一个小图添加鼠标移出事件
+						if(this.index == currentImgIndex) { //如果是当前图片，则退出函数
+							return;
+						}
+						startMove(this,{opacity:50}); //如果不是当前图片，则透明度为50
+					};
+					
+					//给每一个小图添加点击事件
+					smallLi[i].onclick = function(){
+						currentImgIndex = this.index;  //改变当前的下标
+						//切换图片
+						tabImg();
+					};
+				}
+				
+				//给左边按钮添加点击事件
+				btnPrev.onclick = function(){
+					currentImgIndex --; //当前的下标递减
+					if(currentImgIndex < 0){  //如果当前下标小于0
+						currentImgIndex = smallLi.length -1;  //将数组中最后一个下标赋给当前下标变量
+					}
+					//切换图片
+					tabImg();
+				};
+				
+				//给右边按钮添加点击事件
+				btnNext.onclick = function(){
+					currentImgIndex ++; //当前下标递增
+					if(currentImgIndex > (smallLi.length -1)){ //如果当前下标大于最大下标
+						currentImgIndex = 0; //将0下标赋给当前下标变量
+					}
+					//切换图片
+					tabImg();
+				};
+				
+				function tabImg(){
+					//根据currentImgIndex 来决定切到哪张图片显示
+					//显示大图
+					bigLi[currentImgIndex].style['z-index'] = ++ maxZindex;
+					
+					//遍历小图
+					for(var i = 0; i < smallLi.length; i ++){
+						startMove(smallLi[i],{opacity:50}); //小图的透明度为50
+					}
+					startMove(smallLi[currentImgIndex],{opacity:100}); //当前的小图透明度为100
+					
+					//移动缩略图
+					if(currentImgIndex == 0){ //如果当前下标为0
+						startMove(smallUl,{left:0});  //将小图的UL的left值设为0
+					}else if (currentImgIndex == (smallLi.length - 1)){ //如果当前下标 ==最后一个下标
+						startMove(smallUl,{left:-(smallLi.length - 3) * smallLi[0].offsetWidth}); //取最后三张小图的宽度
+					}else{  //取当前小图和左右、共三张小图的宽度
+						startMove(smallUl,{left: - (currentImgIndex - 1) * smallLi[0].offsetWidth});
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>	
+		<div id="playimages" class="play">
+			<ul id="big_pic" class="big_pic">
+				<div id="btn_prev" class="prev"></div>
+				<div id="btn_next" class="next"></div>
+				
+				<a id="mark_left" class="mark_left" href="javascript:;"></a>
+				<a id="mark_right" class="mark_right" href="javascript:;"></a>
+				
+				<li style="z-index: 1;"><img src="img/1.jpg" /></li>
+				<li><img src="img/2.jpg" /></li>
+				<li><img src="img/3.jpg" /></li>
+				<li><img src="img/4.jpg" /></li>
+				<li><img src="img/5.jpg" /></li>
+				<li><img src="img/6.jpg" /></li>
+			</ul>
+			<div id="small_pic" class="small_pic">
+				<ul id="small_UL" style="width:390px;">
+					<li style="filter:100;opacity: 1;"><img src="img/1.jpg" /></li>
+					<li><img src="img/2.jpg" /></li>
+					<li><img src="img/3.jpg" /></li>
+					<li><img src="img/4.jpg" /></li>
+					<li><img src="img/5.jpg" /></li>
+					<li><img src="img/6.jpg" /></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

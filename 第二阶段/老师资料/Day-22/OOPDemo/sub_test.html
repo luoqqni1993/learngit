@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height: 100px;background: red;position: absolute;}
+			#box2{width: 100px;height: 100px;background: green;position: absolute;top:50px;}
+		</style>
+		<script src="js/Drag_OOP.js"></script>
+		<script src="js/Sub_Drag_OOP.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				new Drag("box");
+				new SubDrag("box2");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box2"></div>
+	</body>
+</html>

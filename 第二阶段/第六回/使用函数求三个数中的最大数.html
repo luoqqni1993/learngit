@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script>
+	function run(){
+	var a=parseInt(prompt("请输入a"));
+	var b=parseInt(prompt("请输入b"));
+	var c=parseInt(prompt("请输入c"));
+	num(a,b,c);
+	}
+	function compare(a,b,c){
+	 return (a>b ? a : b) > c ? (a>b ? a : b) : c;
+	}
+	function num(a,b,c){
+	var large=compare(a,b,c);
+	alert(large);
+	}
+	</script>
+</head>
+<body>
+<input type="button" value="比较" onclick="run()">
+</body>
+</html>

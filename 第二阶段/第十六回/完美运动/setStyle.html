@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{width:100px;height:100px;background:red;}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+			var oDiv=document.getElementById("box");
+			var oBtn=document.getElementById("btn");
+			oBtn.onclick=function(){
+				setStyle(oDiv,{"width":"200px","height":"200px","background":"yellow"});
+			};
+		};
+		function setStyle(obj,json){
+			for(var attr in json){
+			obj.style[attr]=json[attr];
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="开始变化" />
+		<div id="box"></div>
+	</body>
+</html>

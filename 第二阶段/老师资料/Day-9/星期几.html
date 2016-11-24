@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	var oYear = document.getElementById("year");
+	var oMonth = document.getElementById("month");
+	var oDate = document.getElementById("date");
+	var oDay = document.getElementById("day");
+	var oBtnSubmit = document.getElementById("submit");
+	var oBtnReset = document.getElementById("reset");
+	var arr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+	oBtnSubmit.onclick = function(){
+		var iYear = parseInt(oYear.value);
+		var iMonth = parseInt(oMonth.value)- 1;
+		var iDate = parseInt(oDate.value);
+		var now = new Date(iYear,iMonth,iDate);
+		console.log(now);
+		oDay.value = arr[now.getDay()];
+	};
+	oBtnReset.onclick = function(){
+		oYear.value = "";
+		oMonth.value = "";
+		oDate.value = "";
+		oDay.value = "";
+	};
+};
+</script>
+</head>
+<body>
+ 年：<input type="text" id="year"><br/>
+ 月:<input type="text" id="month"><br/>
+ 日：<input type="text" id="date"><br/>
+ 星期几：<input type="text" id="day"><br/>
+ <input type="button" value="计算" id="submit"><input type="button" value="清空" id="reset">
+</body>
+</html>

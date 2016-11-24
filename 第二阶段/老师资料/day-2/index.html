@@ -1,0 +1,190 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+		<script>
+			/*
+				进制及进制转换
+				十进制：逢十进一  0 - 9
+				二进制：逢二进一  0 1
+				八进制：逢八进一  0  7
+				十六进制：逢十六进一  0-9 abcdef
+				
+				十进制转二进制：除2取余法
+				二进制转十进制：
+				二进制转八进制：
+				八进制转二进制：
+				二进制转十六进制：
+				
+				
+				逻辑运算符：0:表示假，其它非0的数据表示真
+				！：非真即假，非假即真
+				alert(!0); //true
+				alert(!1); //false
+				alert(!-2); //false
+				alert(!null); //true
+				alert(!undefined); //true
+				alert(!NaN); //true
+				alert(!"中"); //false
+			
+			alert(!(3>='3'));  //false
+			alert(!3 === '0'); //false
+			alert(!0 !==1);  //true
+			alert(!(null == undefined)); //***** false
+			alert(!(null == ""));  //*** true
+			alert(!(null == 0));  //*** true
+			
+			//切记：
+			alert(null == undefined);  //true
+			alert(null == ""); //false
+			alert(null == 0);  //false
+			alert(null == false);  //false
+			
+			alert(null === undefined); // false
+			
+			
+			&&:与（并且） 逻辑关系：先判断&&左边的表达式，
+			如果表达式的值为false,则返回左边表达式的值（此时为&&的短路问题）。
+			如果表达式的值为true，则继续判断右边表达式的值，
+			返回右边表达式的值。
+			alert(3-3&&8); //值为0
+			alert(3===3&&8); //值为8
+			var a = 3;
+			alert(!(3===3)&&(a = 8)); //false
+			console.log(a);  //3
+			var a = 3;
+			alert(!(3==='3')&&(a = 8)); //8
+			console.log(a);  //8
+			
+			||:或（或者） 逻辑关系：先判断||左边的表达式，
+			如果表达式值为true时，
+			则返回左边表达式的值（此时，为|| 的短路问题)。
+			如果表达式值为false时，继续判断右边表达式的值，
+			返回右边表达式的值。
+			var a = 3;
+			alert(!(3==='3')||(a = 8));  //true
+			console.log(a); //3
+			var a = 3;
+			console.log(!(3===3)||(a = 8)); //8
+			console.log(a); //8
+			
+			1》输出下列表达式的值。
+			 a:(100>3)&&(‘a’>’c’)
+			 false
+			 b:(100>3)||(‘a’>’c’)
+			 true
+			 c:!(100<3)
+			 true
+			2》构造一个表达式来表示下列条件： a:number等于或大于90，
+			但小于100  
+			number >= 90 && number < 100   
+			b:ch不是字符q也不是字符k  
+			ch != 'q' && ch != 'k'
+			!(ch == 'q'||ch == 'k')
+			c:number界于1到9之间（包括1不包括9），但是不等于5
+			number >= 1 && number < 9 && number != 5
+			 d:number不在1到9之间
+			 number <= 1 || number >=9
+			 !(number >1 &&number <9)
+			3》判断这个字符是空格，是数字，是字母
+				
+				ch == " "
+				ch >= 0 && ch <= 9
+				ch >= 'a' && ch <= 'z'||ch>='A' && ch <= 'Z'
+			4》有3个整数a,b,c，判断谁最大，列出所有可能
+				a > b && a > c    
+				b > c && b > a
+				c > a && c > b
+			5》判断year表示的某一年是否为闰年，用逻辑表达式表示。
+			闰年的条件是符合下面二者之一：
+			a:能被4整除但不能被100整除   year % 4 == 0 && year % 100 != 0
+			b:能被400整除 year % 400 == 0
+			year % 4 == 0 && year % 100 != 0 || year %400 == 0
+			!(year %4) && year % 100 || !(year % 400)
+			
+			
+			
+			三元运算符（三目运算符、条件运算符）
+			（二元运算符、双目运算符）  1+1  2>1
+			（一元运算符、单目运算符）   i++   !0 
+			?:
+			格式：（条件）？表达式1：表达式2
+						如果（条件成立）？则执行表达式1；否则：执行表达式2
+			逻辑关系：先计算条件的值，值为true时，执行？后面的表达式1，
+			值为false时，执行：后面的表达式2
+			根据成绩判断是否可以升班？
+			
+			
+			练习：
+			1》求一个三位数的和
+			2》判断一个年份是闰年还是平年
+			var iYear = parseInt(prompt("请输入一个年份：")); //输入年份
+			alert(!(iYear % 4)&&iYear % 100||!(iYear%400)?"闰年":"平年");
+			3》判断一个数是偶数还是奇数
+			var iNum = parseInt(prompt("请输入一个整数："));
+			iNum % 2?alert("奇数"):alert("偶数");
+			//alert(iNum%2?"奇数":"偶数");
+			4》判断一个数是正数还是负数
+			var num = Number(prompt("请输入一个数："));
+			//alert(num == 0?"非正非负":num > 0?"正数":"负数");
+			
+			alert(isNaN(num)?"您输入的是非法数字！":num?(num>0?"正数":"负数"):"非正非负");
+			
+			
+			
+			选择结构
+			1.？：
+			2.if
+			1》格式
+				if(表达式){
+					语句组;
+				}
+				如果if中条件成立时，后面只有一条语句，大括号可以省略，
+				但是如果大于1条语句时，必须加大括号。（建议无论多少条
+				语句，都要加上大括号（潜规则））
+				
+				逻辑关系：当程序执行到if时，先计算表达式的值，如果值为true，
+				则执行后面大括号中的语句；如果值为false时，执行if语句后面的
+				其它语句
+				
+				根据成绩判断是否发放清华大学的通知书？
+				var score = Number(prompt("请输入一个成绩"));
+				if(score >= 720){
+					alert("恭喜你，你被清华录取了！");
+				}
+				
+				
+				
+				作业：
+				1.我上课的代码敲两遍
+				2.var a=true;
+				alert(typeof (!(0/0 )!=NaN ? a : "a"));
+				3.alert(typeof ( 3/0+3%5+true+null+false+""));
+				4.alert(typeof  (!"a"? false : null));
+				5.编程：求任意两个数中的最小数？（用三元做）
+				6. 编程：求任意三个数中的最大数？（用三元和if的第一种形式）
+			*/
+			
+		</script>
+    </head>
+    <body>
+			请输入一个成绩：<input type="text" id="text1"/> <input type="button" id="btn" value="提交"/>
+			<br/>结果是：<input type="text" id="text2"/>
+    </body>
+	<!--
+		<script type = "text/javascript">
+		//document.getElementById("id名称"):通过id名称获取到页面中指定的元素（标签）
+			var oText = document.getElementById("text1");
+			var oBtn = document.getElementById("btn");
+			var oResult = document.getElementById("text2");
+			//对象.事件 = 函数
+			oBtn.onclick = function(){
+				//alert(oText.value);
+				var score = Number(oText.value);
+				//alert(typeof score);
+				oResult.value = score >= 60 ? "升班" : "重休";
+			};
+		</script>
+		-->
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+</style>
+<script>
+	var now=new Date();
+	var later=new Date(2016,8,1);
+	var cha=now-later;
+	var millisecond=cha%1000;//毫秒
+	var second=Math.floor(cha/1000);
+	var minute=Math.floor(second/60);
+	var second1=second%60;//秒
+	var hour=Math.floor(minute/60);
+	var minute1=minute%60; //分钟
+	var date=Math.floor(hour/24);
+	var hour1=hour%24;//小时
+	document.write("我活了"+date+"天"+hour1+"小时"+minute1+"分钟"+second1+"秒"+millisecond+"毫秒");
+</script>
+<body>
+</body>
+</html>

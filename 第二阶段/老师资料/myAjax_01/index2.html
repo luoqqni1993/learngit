@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ajax.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = document.getElementById("btn");
+				oBtn.onclick = function(){
+					//document.title = 'abc.txt?t=' + new Date().getTime();
+					ajax('abc.txt?t=' + new Date().getTime(),function(str){
+						alert(str);
+					})
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>请求服务器，访问服务器中的abc.txt文件</p>
+		<input type="button" name="btn" id="btn" value="读取文件" />
+	</body>
+</html>

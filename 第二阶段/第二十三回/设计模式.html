@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function(){
+	/*String.prototype.reverseStr=function(str){
+		var str="";
+		for(var i=str.length-1;i>=0;i--){
+			if(str.indexOf(str[i])==-1){
+				list.push(arr[i]);
+			}
+		}
+	}
+	var str="dsafdsds";
+	alert(str.reverseStr());*/
+	
+	
+	
+	/*var obj={
+	name:"张三",
+	age:18,
+		showName:function(){
+			return name;
+		},
+		showAge:function(){
+			return age;
+		}
+	}
+	alert(obj.name);
+	alert(obj.showName());*/
+
+
+	/*function Box(){
+		var age=10;
+	}
+	Box();
+	function Dog(){
+		this.age=19;//共有的实例属性
+		this.showAge=function(){
+			alert("谷歌");
+		}
+	}
+	var dog=new Dog();
+	alert(dog.age);*/
+	
+	//共享的私有变量
+	/*(function(){
+		var age=0;
+		var name="";
+		//function Box(){}
+		Box=function(value,num){
+			var age=num;
+			var name=value;
+			this.getAge=function(){
+				return age;
+			}
+			this.setAge=function(value){
+				age=value;
+			}
+		}//全局构造函数
+	})();
+	var box=new Box();
+	//box.setAge(18);
+	alert(box.getAge());
+	var box1=new Box("xh",20);
+	alert(box1.getAge());*/
+	
+	
+	//共享私有变量和方法
+	/*(function(){
+		var age=0;//私有变量
+		Box=function(value){
+			age=value;//可以共享的私有变量
+		}
+		Box.prototype.getAge=function(){//可以共享的原型方法
+			return age;
+		}
+	})();
+	var box=new Box(18);
+	alert(box.getAge());*/
+	
+	//构造函数传参
+	/*function Box(name,age){
+		var name=name;
+		var age=age;
+		//提供访问接口
+		this.getName=function(){
+			return name;
+		}
+		this.getAge=function(){
+			return age;
+		}
+		this.setName=function(value){
+			name=value;
+		}
+		this.setAge=function(value){
+			age=value;
+		}
+	}
+	var box=new Box("xm",18);
+	alert(box.getName());
+	alert(box.getAge());
+	box.setName("xh");
+	alert(box.getName());
+	var box1=new Box("xh");
+	alert(box.getName());*/
+	
+	
+	//构造函数的私有变量
+	/*function Box(){
+		var name="xm";
+		var age="18";
+		function run(){
+			return "奔跑";
+		}
+		this.publicGo=function(){
+			return name+age+run();
+		}
+		this.showAge=function(){
+			return age;
+		}
+	}
+	var box=new Box();
+	alert(box.publicGo());
+	alert(box.showAge());*/
+	
+	//静态函数的私有变量(单例)
+	
+	/*var dog={age:8,run:function(){
+		"跑步";
+	}}
+	var box=function(){
+		var age=8;//私有变量
+		function run(){//私有函数
+			return "跑步";
+		}
+		return {//返回一个对象，这个对象是对外的公共接口
+			getAge:age,
+			run:run
+		}
+	}();//匿名函数的自我执行
+	alert(box.getAge);
+	alert(box.run());
+	
+	var box=function(){
+		var age=8;
+		function run(){
+			return "跑步";
+		}
+		var obj={
+			getAge:age,
+			run:run	
+		}
+	}();*/
+	
+	var arr=[1,2,2,3,4,4,5,1,4];
+	var list=[];
+	for(var i=0;i<arr.length;i++){
+		if(list.indexOf(arr[i])==-1){
+			list.push(arr[i]);
+		}
+	}
+	alert(list);
+	
+}
+</script>
+</head>
+<body>
+</body>
+</html>

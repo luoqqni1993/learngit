@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+		/*
+			var obj = new Object();
+			obj.name = 'zhangsan';
+			obj.age = 18;
+			obj.showName = function (){
+				return this.name;
+			}
+			obj.showAge = function(){
+				return this.age;
+			}
+			alert(obj.name);
+			alert(obj.age);
+			alert(obj.showName());
+			alert(obj.showAge());
+			
+			*/
+			
+			
+			//工厂模式（批量生产）
+		function createObject(name,age){
+			//1.原料
+			var obj = new Object();
+			//2.加工
+			obj.name = name;
+			obj.age = age;
+			obj.showName = function (){
+				return this.name;
+			}
+			obj.showAge = function(){
+				return this.age;
+			}
+			//3.出厂
+			return obj;
+		}
+		
+		//工厂模式缺点：
+		//1.无法识别对象的类别
+		//2.没有用new创建对象，看起来和调用普通函数一样，无法直观的看出这个变量是对象。
+		var obj1 = createObject('zhang',18);
+		alert(obj1.showName());
+		var obj2 = createObject('li',18);
+		alert(obj2.showName());
+		var obj3 = createObject('bigYellow',3);
+		alert(typeof obj2);
+		alert(typeof obj3);
+		alert(obj2 instanceof Object);
+		alert(obj3 instanceof Object);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

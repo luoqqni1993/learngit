@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//js调试技巧,浏览器上看console控制台
+			//<1>.在控制台上可以查看错误信息，可以定位到错误所在的代码行数
+			/*
+			   var  abc = 100;
+			   alert(abcd);//Reference Error: abcd is not defined  错误位置
+			   js代码遇到错误之后，后面的代码不再执行。	
+			*/ 
+			//<2>.控制台上可以运行js代码：类似于在script标签中写代码
+			/*
+				控制台可以运行任何js代码，
+				技巧： 使用tab键提示/补全
+			*/
+			//<3>.控制台输出语句
+			/*
+			var a = 3721;
+			console.log(a);//把变量打印到控制台，在循环
+
+			console.dir(window);//一般用于打印对象
+			*/
+			//<4>.控制台的断点调试：
+			//方法1：找到Source下面的js代码，单击行号设置断点
+			//检测代码的运行过程
+			//检测某个变量可以在Watch中添加这个变量
+			//设置断点，方法2： debugger;代码会停在此处
+			//主要用于研究代码运行过程，调错
+			var c = 0;
+				c++;
+				//debugger; //自动设置了一个断点，需要刷新
+				c++;
+				c++;
+			console.log(c);	
+			
+			//parseInt  parseFloat
+		
+		</script>
+	</body>
+</html>

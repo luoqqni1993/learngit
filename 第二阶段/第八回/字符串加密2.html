@@ -1,0 +1,31 @@
+<!dovtype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	window.onload=function(){
+	var oText=document.getElementById("text");
+	var oBtn=document.getElementById("btn");
+	var oDiv=document.getElementById("div1");
+		oBtn.onclick=function(){
+			var str=oText.value;
+			oDiv.innerHTML=cur(str);
+			oText.value="";
+		};
+		function cur(str){
+			var str1="";
+			for(var i=0;i<str.length;i++){
+				str1+=String.fromCharCode(str.charCodeAt(i)+521)+" ";
+			}
+			return str1;
+		}
+	};
+</script>
+</head>
+<body>
+<input type="text" id="text" value="">
+<input type="button" id="btn" value="加密">
+<div id="div1" value="加密"></div>
+<div>
+</body>
+</html>

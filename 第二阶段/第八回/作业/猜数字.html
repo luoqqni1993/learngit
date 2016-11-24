@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	window.onload=function(){
+		var oText=document.getElementById("text");
+		var oBtn1=document.getElementById("btn1");
+		var oBtn2=document.getElementById("btn2");
+		var pc=Math.floor(Math.random()*10+1);
+		oText.onfocus=function(){
+			oText.value="";
+		};
+		oBtn1.onclick=function(){
+			if(count>3){
+				oText.value="您输了";
+			}else{
+				var str=oText.value;
+				if(str==pc){
+					oText.value="您赢了!";
+				}
+				if(str>pc){
+					oText.value="您输入的数大了";
+				}
+				if(str<pc){
+					oText.value="你输入的数小了";
+				}
+				count++;
+			}
+		};
+		oBtn2.onclick=function(){
+			pc=Math.floor(Math.random()*10+1);
+			count=0;
+		};
+	};
+</script>
+</head>
+<body>
+<input type="text" id="text" value="">
+<input type="button" id="btn1" value="输入">
+<input type="button" id="btn2" value="开始游戏">
+</body>
+</html>

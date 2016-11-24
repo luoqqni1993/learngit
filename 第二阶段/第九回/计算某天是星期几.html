@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+p,h2{margin:0px;
+	padding:0px;
+
+}
+#ch{width:400px;
+	height:130px;
+	background:yellow;
+	border:2px solid #4b9fd5;
+	margin:20px auto;
+}
+p{border-bottom:1px solid  #4b9fd5;
+	float:left;
+}
+h2{border-bottom:1px solid  #4b9fd5;
+	text-align:center;
+}
+.shuru{border:1px solid  #4b9fd5;
+	float:left;
+	width:300px;
+}
+.anniu{border:1px solid  #4b9fd5;
+	float:left;
+	width:95px;
+	height:95px;
+
+}
+</style>
+<script>
+	window.onload=function(){
+		var oYear=document.getElementById("year");
+		var oMonth=document.getElementById("month");
+		var oDate=document.getElementById("date");
+		var oDay=document.getElementById("day");
+		var oBtnSubmit=document.getElementById("submit");
+		var oBtnReset=document.getElementById("reset");
+		var arr=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+		oBtnSubmit.onclick=function(){
+			var iYear=parseInt(oYear.value);
+			var iMonth=parseInt(oMonth.value-1);
+			var iDate=parseInt(oDate.value);
+			var now=new Date(iYear,iMonth,iDate);
+			
+			oDay.value=arr[now.getDay()];
+		};
+		oBtnReset.onclick=function(){
+			oYear.value="";
+			oMonth.value="";
+			oDate.value="";
+			oDay.value="";
+		};
+	};
+</script>
+</head>
+<body>
+<div id="ch">
+<h2>计算某天是星期几</h2>
+	<div class="shuru">
+	<p><span>请输入年：</span><input type="text" id="year"></p>
+	<p><span>请输入月：</span><input type="text" id="month"></p>
+	<p><span>请输入日：</span><input type="text" id="date"></p>
+	<p><span>输出星期几：</span><input type="text" id="day"></p>
+	</div>
+	<div class="anniu">
+	<input type="button" id="submit" value="查询">
+	<input type="button" id="reset" value="清空">
+	</div>
+</div>
+</body>
+</html>

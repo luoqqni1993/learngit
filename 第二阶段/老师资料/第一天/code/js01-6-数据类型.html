@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	
+	</head>
+	<body>
+		<script>
+		    //js中的变量分为多种类型
+			//typeof  xx 可以检测变量xx的类型，
+			/*
+			//<1> number 数值类型  var a = 100; var b = 3.14;
+			var a = 100;
+			var b = 3.14;
+			alert(typeof a); //number
+			alert(typeof b);  //number
+			//<2>boolean 布尔类型 
+			var res = a>b; //res = true;
+			alert(typeof res);//boolean
+			alert(typeof true);//boolean
+			*/
+			//<3>undefined，未定义的类型；这个变量声明了，但是没有赋值
+			// 没有值
+			/*
+			var c ;
+			alert(c);  //undefined,没有值
+			alert(typeof c); //undefined，没有定义这种类型
+			*/
+			//<4>string类型，一系列的字符构成,通过引号包裹
+			//  "abcdefg" "hello,world,"
+			//字符串中可以包含，中文，英文，数字，其他符号等各种符号。
+			var username = "老王baobao";
+			var news = "上了头条3000000"
+			alert(username);
+			alert(news);
+			//<5>字符串的拼接
+			// 使用加号，可以将 字符串和 字符串/其他变量，连成一个新的字符串
+			//练习： 把两个字符串拼接到一起
+			//字符串类型再使用+号时会采用字符串连接，会拼串
+			var toutiao = username + news;
+			alert(toutiao);
+			//字符串和其他类型的连接，拼接为一个新的字符串。
+			//练习： 输出   :          a的值是 100 
+			var a = 100;
+			var str = "a的值是" + a; // "a的值是100"
+			
+		    
+		</script>
+	</body>
+</html>

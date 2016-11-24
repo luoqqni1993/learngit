@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	function check(s,t,b){
+		return s-t-b;
+	}
+	
+	function run(){
+		b=Number(prompt("请输入转账金额"));
+		s=Number(prompt("请输入存储金额"));
+		t=Number(prompt("请输入取款金额"));
+		result(s,t,b);
+	}
+	function result(s,t,b){
+		var res=check(s,t,b);
+		alert("您的金额为"+res);
+	}
+	
+</script>
+</head>
+<body>
+<input type="button" id="btn1" value="查询" onclick="run()">
+
+</body>
+</html>

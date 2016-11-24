@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ajax.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = document.getElementById("btn");
+				oBtn.onclick = function(){
+					ajax("data.txt",function(str){
+						//服务器上获取到的数据都是字符串，所以str = "[1,2,3,4,5]"
+						//eval:将字符串的引号去掉。
+						var arr = eval(str);
+						alert(arr);
+					})
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>请求服务器，访问服务器中的一个数组文件</p>
+		<input type="button" name="btn" id="btn" value="读取数组文件" />
+	</body>
+</html>

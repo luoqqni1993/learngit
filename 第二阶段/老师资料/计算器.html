@@ -1,0 +1,82 @@
+﻿<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.box{
+		width:200px;
+		margin:20px auto;
+	}
+	.input{
+		border:solid 3px #03ccbb;
+		position:relative;
+		height:40px;
+	}
+	.input input{
+		width:100%;
+		height:100%;
+		position:absolute;
+		left:0px;
+		top:0px;
+		text-align:right;
+		border:none;
+		outline:none;
+	}
+	.buttons{
+		overflow:hidden;
+		margin-right:-6px;
+		padding-top:3px;
+	}
+	.buttons button{
+		width:40px;
+		height:40px;
+		border:2px solid #03ccbb;
+		color:#FFF;
+		box-sizing:content-box;
+		margin:3px;
+		float:left;
+		outline:none;
+		cursor:pointer;
+		line-height:40px;
+		font-size:16px;
+		background:#F90;
+	}
+	.buttons button:active{
+		line-height:44px;
+	}
+</style>
+<body>
+	<div class="box">
+		<div class="input"><input type="text" value="" placeholder="0" id="ipt"/></div>
+		<div class="buttons">
+			<button onclick="fnClear()">C</button>
+			<button onclick="addText('1')">1</button>
+			<button onclick="addText('2')">2</button>
+			<button onclick="addText('3')">3</button>
+			<button onclick="addText('4')">4</button>
+			<button onclick="addText('5')">5</button>
+			<button onclick="addText('6')">6</button>
+			<button onclick="addText('7')">7</button>
+			<button onclick="addText('8')">8</button>
+			<button onclick="addText('9')">9</button>
+			<button onclick="addText('0')">0</button>
+			<button onclick="calc()">=</button>
+			<button onclick="addText('+')">+</button>
+			<button onclick="addText('-')">-</button>
+			<button onclick="addText('*')">*</button>
+			<button onclick="addText('/')">/</button>
+		</div>
+	</div>
+</body>
+<script>
+function addText(str){
+	ipt.value += str;
+}
+function calc(){
+	ipt.value = eval(ipt.value);
+	
+}
+function fnClear(){
+	ipt.value = "";
+}
+</script>

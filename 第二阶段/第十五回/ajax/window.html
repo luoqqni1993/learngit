@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			div{height:300px;
+			width:300px;
+			background:#ccc;
+			border:1px solid red;
+			}
+		</style>
+		<script src="fun.js"></script>
+	</head>
+	<body>
+		<p>查询是否访问到服务器</p>
+		<input type="button" value="访问" id="btn">
+		<input type="button" value="访问2" id="btn1">
+		<input type="button" value="访问3" id="btn2">
+		<div id="div"></div>
+	</body>
+</html>	
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementsByTagName("input");
+		var oDiv=document.getElementById("div");
+		for(var i=0;i<oBtn.length;i++){
+			oBtn[i].index=i;
+			oBtn[i].onclick=function(){
+				ajax(this.index+1+".txt",function(str){
+					oDiv.innerHTML=str;
+				});
+			};
+		}
+	};
+</script>

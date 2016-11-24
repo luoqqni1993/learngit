@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	var oWord = document.getElementById("text1");
+	var oResult = document.getElementById("text2");
+	var oBtn = document.getElementById("btn1");
+	var myStr = " abcdefghijklmnopqrstuvwxyz";
+
+	oBtn.onclick = function(){
+		var str = oWord.value;
+		var sum = 0;
+		var youStr = "";
+		for(var i = 0; i < str.length; i++){
+			for(var j = 0; j < myStr.length; j++){
+				if(str.charAt(i) == myStr.charAt(j)){
+					youStr += '+' + j ;
+					sum += j ;
+				}
+			}
+		}
+		console.log(youStr);
+		oResult.value = youStr.substring(1) + '=' + sum;
+	};
+};
+</script>
+</head>
+<body>
+ 请输入一个单词：<input type="text" id="text1"><br/>
+ 结果：<input type="text" id="text2"><input type="button" value="提交" id="btn1">
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			body,p{padding:0px;margin:0px;}
+			#box{width:100px;height:400px;background:green;position:absolute;left:-100px;}
+			#menu{background:red;}
+			#box1{width:300px;height:400px;background:yellow;position:absolute;left:-300px;}
+			#box2{width:300px;height:400px;background:yellow;position:absolute;left:-300px;}
+			#box3{width:300px;height:400px;background:yellow;position:absolute;left:-300px;}
+		</style>
+			<script>
+			window.onload=function(){
+			var oMenu=document.getElementById("menu");
+			var oDiv=document.getElementById("box");
+			var oDiv1=document.getElementById("box1");
+			var oDiv2=document.getElementById("box2");
+			var oDiv3=document.getElementById("box3");
+			var oMenu1=document.getElementById("menu1");
+			var oMenu2=document.getElementById("menu2");
+			var oMenu3=document.getElementById("menu3");
+				oMenu.onmouseover=function(){
+					oDiv.style.left=0+'px';
+				};
+				oMenu1.onmouseover=function(){
+					oDiv1.style.left=100+'px';
+					oDiv2.style.left=-300+'px';
+					oDiv3.style.left=-300+'px';
+				};
+				oMenu2.onmouseover=function(){
+					oDiv2.style.left=100+'px';
+					oDiv1.style.left=-300+'px';
+					oDiv3.style.left=-300+'px';
+				};
+				oMenu3.onmouseover=function(){
+					oDiv3.style.left=100+'px';
+					oDiv1.style.left=-300+'px';
+					oDiv2.style.left=-300+'px';
+				};
+				
+				
+			};
+			</script>
+	</head>
+	<body>
+		<p><a id="menu" href="javascript:;">商品菜单</a></p>
+		<div id="box">
+			<p><a id="menu1" href="javascript:;">一级菜单A</a></p>
+			<p><a id="menu2" href="javascript:;">一级菜单B</a></p>
+			<p><a id="menu3" href="javascript:;">一级菜单C</a></p>
+		</div>
+		<div id="box1">二级AAAA</div>
+		<div id="box2">二级BBBB</div>
+		<div id="box3">二级CCCC</div>
+	</body>
+</html>

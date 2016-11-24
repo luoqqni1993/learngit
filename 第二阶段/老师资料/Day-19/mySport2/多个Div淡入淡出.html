@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px;height: 100px;background: red;margin-top: 10px;filter:alpha(opacity=10);opacity:0.1;}
+		</style>
+		
+		<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementsByTagName("div");
+			for(var i = 0; i < oDiv.length ; i ++){
+				oDiv[i].alpha = 10;
+				oDiv[i].onmouseover = function(){
+					startMove(this,100);
+				}
+				oDiv[i].onmouseout = function(){
+					startMove(this,10);
+				}
+			}
+		}
+			//var alpha = 10;
+			function startMove(obj, target) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+				
+					var speed = (target - obj.alpha) / 8;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+					if(obj.alpha == target) {
+						clearInterval(obj.timer);
+					} else {
+						obj.alpha += speed;
+						obj.style.filter = "alpha(opacity=" + obj.alpha + ")";
+						obj.style.opacity = obj.alpha /100;
+					}
+				}, 30);
+			}
+			
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					return getComputedStyle(obj, false)[attr];
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

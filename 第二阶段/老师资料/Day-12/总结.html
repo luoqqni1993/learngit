@@ -1,0 +1,30 @@
+﻿总结：
+1.总结出了各种事件
+	1》鼠标事件
+	2》键盘事件
+	3》页面事件
+2.事件对象：
+3.如何获取事件对象？
+	1》早期IE和谷歌：
+	2》标准：
+	3》兼容写法
+4.event.button :鼠标编码（兼容）
+4.事件冒泡：由子节点向父节点传递的过程
+  事件捕获：由父节点向子节点延伸的过程
+  如何阻止事件冒泡？
+  event.stopPropagation() : 标准
+  event.cancelBubble = true IE
+  如何兼容？
+5.鼠标位置
+	相对位置
+	1》event.offsetX/event.offsetY 
+	2》event.clientX/event/clientY 
+	3》event.screenX/event/screenY
+	绝对位置
+	可视区位置 + 滚动距离
+6.onkeyup/onkeydown与onkeypress的区别？
+7.event.keyCode : 获取键盘按键编码
+8.组合键
+	1.ctrlKey
+	2.shiftKey
+	3.altKey

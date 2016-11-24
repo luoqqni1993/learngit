@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+/*
+	//相对距离
+	event.offsetX||event.offsetY:获取鼠标点击的位置相对于所点位置的对象的坐标。
+	event.clientX||event.clientY:获取鼠标点击的位置相对于浏览器的可视区的坐标。
+	event.screenX||event.screenY:获取鼠标点击的位置相对于屏幕的坐标。
+	
+	//求鼠标的绝对距离
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+	
+	//鼠标在页面的绝对距离 = 鼠标在页面的可视区距离 + 滚动距离
+	var LeftX = event.clientX + scrollLeft + "px";
+	var TopY = event.clientY + scrollTop + "px";
+	
+	
+	//扩展：
+	对象.offsetLeft :获取对象相对于父级的left值
+	对象.offsetTop  ：获取对象相对于父级的top值
+	对象.offsetWidth ：获取对象的相对宽度
+	对象.offsetHeight ：获取对象的相对高度
+*/
+	document.onclick = function(evt){
+		var e = evt || window.event;
+		console.log(e.offsetX + ":" + e.offsetY);
+		console.log(e.clientX + ":" + e.clientY);
+		console.log(e.screenX + ":" + e.screenY);
+	};
+};
+</script>
+</head>
+<body>
+    <div id="box" style="width:100px;height:100px;position:absolute;left:100px;top:100px;background:red;"></div>
+</body>
+</html>

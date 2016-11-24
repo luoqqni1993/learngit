@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<input type="text">
+<input type="button" value="跨二阶剩一阶"><br>
+<input type="text">
+<input type="button" value="跨三阶剩二阶"><br>
+<input type="text">
+<input type="button" value="跨四阶剩三阶"><br>
+<input type="text">
+<input type="button" value="跨五阶剩四阶"><br>
+<input type="text">
+<input type="button" value="跨七阶剩零阶"><br>
+</body>
+</html>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementsByTagName("input");
+		oInp[1].onclick=function(){
+			var num=0;
+			for(var i=1000;i<=5000;i++){
+				if(i%2==1){
+					num++;
+				}
+			}
+			oInp[0].value=num;
+		};
+		oInp[3].onclick=function(){
+			var num=0;
+			for(var i=1000;i<=5000;i++){
+				if(i%3==2){
+					num++;
+				}
+			}
+			oInp[2].value=num;
+		};
+		oInp[5].onclick=function(){
+			var num=0;
+			for(var i=1000;i<=5000;i++){
+				if(i%4==3){
+					num++;
+				}
+			}
+			oInp[4].value=num;
+		};
+		oInp[7].onclick=function(){
+			var num=0;
+			for(var i=1000;i<=5000;i++){
+				if(i%5==4){
+					num++;
+				}
+			}
+			oInp[6].value=num;
+		};
+		oInp[9].onclick=function(){
+			var num=0;
+			for(var i=1000;i<=5000;i++){
+				if(i%7==0){
+					num++;
+				}
+			}
+			oInp[8].value=num;
+		};
+	};
+</script>

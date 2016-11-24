@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+值类型
+引用类型
+*/
+/*
+var a = 5;
+var b = a;
+a = 6;
+alert(b);
+
+var arr = [1,2,3,4,5];
+var list = arr;
+list[0] = 6;
+alert(arr[0]);
+
+var arr = [1,2,3,4,5];
+var list = [];
+list[0] = arr[0];
+list[0] = 1;
+for(var i in arr){
+	list[i] = arr[i];
+}
+list[0] = 6;
+alert(arr[0]);*/
+
+var obj = {"user":"zhangsan","age":18};
+var ooo = obj;
+ooo.user = "lisi";
+alert(obj.user);
+
+//简单数据类型都属于值类型，当将一个变量的值赋值给另一个变量，其中一个变量的值发生变化，不会影响另一个变量的值
+//复合数据类型都属于引用类型，它们指向的是同一个内存地址，所以，其中一个发生变化，都会影响到另一个的值。
+
+
+var a = [1,2,3,4,5];
+
+function fn(b){
+	var t= b[0]; 
+	b[0] = b[1];
+	b[1] = t;
+}
+fn(a);
+alert(a[0] + ":" + a[1]);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

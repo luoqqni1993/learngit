@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		递归调用：自己调用自己的过程，就叫做递归调用。
+		功能：实现了循环的功能。
+		循环：初值、终值、步长。
+	*/
+	
+	//求1+2+3+……+100的和。
+	function mySum(n){  //100作为初值   0或1作为终值  +1
+		if(n == 1){   //结束条件
+			return 1;
+		}else{
+			return n + mySum(n - 1);  //5 + 4 + 3 + 2 + 1 + 0
+																//0 + 1 + 2 + 3 + 4 + 5
+		}
+	}
+	
+	//求5！
+	//输出10个helloworld(用递归）
+	function sh(n){
+		if(n == 0){
+			
+			return;
+		}else{
+			document.write(" helloworld " + n);
+			return sh(n - 1);
+		}
+	}
+	sh(10);
+	//for(var i = 5; i >= 0; i--);
+	alert(mySum(5));
+	/*
+	function print(){
+		document.write("hello");
+		print();
+	}
+	print();
+	*/
+</script>
+</head>
+<body>
+    
+</body>
+</html>

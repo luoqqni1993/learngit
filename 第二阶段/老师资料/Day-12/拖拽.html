@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<style>
+	#box{width:100px;height:100px;background:red;position:absolute;}
+	#box1{width:100px;height:100px;background:green;position:absolute;left:200px;top:200px;}
+</style>
+<script src = "Drag.js"></script>
+<script>
+	/*
+		拖拽原理：
+		一、onmousedown
+			1.获取到鼠标相对于点击的对象的坐标值
+			2.onmousemove
+				1>改变div的坐标值（鼠标的可视距离 - 鼠标的相对于点击对象的距离）
+			3.onmouseup
+				1>取消onmousemove事件（将这个事件的值设置为null)
+	*/
+	window.onload = function(){
+		var oDiv = document.getElementById("box");
+		var oDiv1 = document.getElementById("box1");
+		drag(oDiv);
+		drag(oDiv1);
+		
+	};
+</script>
+</head>
+<body>
+  <div id="box"></div> 
+	<div id="box1"></div>    
+</body>
+</html>

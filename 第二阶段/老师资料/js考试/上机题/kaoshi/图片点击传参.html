@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 390px;
+			height: 480px;
+			margin: 50px 150px 0 50px ;
+			float: left;
+			position: relative;
+		}
+		div img{
+			width: 390px;
+			height: 480px;
+		}
+		div p,div h3{
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			background: rgba(0,0,0,0.5);
+			text-align: center;
+			color: #fff;
+			font-weight: bold;
+		};
+		div p{
+			top: 0;
+		}
+		div h3{
+			bottom: 0;
+		}
+		ul{
+			position: absolute;
+			top: 50px;
+		}
+		.ul1{
+			left:450px;
+		}
+		.ul2{
+			left:1050px;
+		}
+		ul li{
+			list-style: none;
+			background: red;
+			margin-bottom: 10px;
+		}
+		ul li a{
+			display: block;
+			width: 70px;
+			height: 70px;
+			}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var aDiv=document.getElementsByTagName("div");
+			var aUl=document.getElementsByTagName("ul");
+			
+			//建立一个数组 用于存图片
+			var arrImg=["img/1.png","img/2.png","img/3.png","img/4.png","img/2.png","img/3.png"];
+			//建立一个图片说明的数组
+			var arrText=["老鹰","图片二","图片三","图片四","图片五","图片六"];
+			
+			for(var i=0;i<aDiv.length;i++){
+				fn(i);
+			};
+			function fn(m){
+				var aP=aDiv[m].getElementsByTagName("p");
+				var aImg=aDiv[m].getElementsByTagName("img");
+				var aH3=aDiv[m].getElementsByTagName("h3");
+				
+				//根据数组长度，生成相应数量的li
+				var str="";
+				for(var i=0;i<arrImg.length;i++){
+					str+="<li><a href='javascript:;'></a></li>"
+				};
+				aUl[m].innerHTML=str;
+				
+				//生成完之后，从页面中获取
+				var aLi=aUl[m].getElementsByTagName("li");
+				
+				//做一个初始化
+				aP[0].innerHTML=1+"/"+arrImg.length;
+				aImg[0].src=arrImg[0];
+				aH3[0].innerHTML=arrText[0];
+				
+				
+				
+				for(var i=0;i<aLi.length;i++){
+					//让每一个li的背景加上相应的背景，并且调整大小
+					aLi[i].style.background="url("+arrImg[i] +")";
+					aLi[i].style.backgroundSize="cover";
+					//给每一个li都添加一个单击事件
+					//建立索引
+					aLi[i].index=i;
+					
+					aLi[i].onclick=function(){
+						aP[0].innerHTML=(this.index+1)+"/"+arrImg.length;
+						aImg[0].src=arrImg[this.index];
+						aH3[0].innerHTML=arrText[this.index];
+					}
+				};
+			}
+			
+			
+		};
+	</script>
+</head>
+<body>
+	<div>
+		<p>数量正在计算……</p>
+		<img src=""  />
+		<h3>图片说明……</h3>
+	</div>
+	<ul class="ul1">
+		
+	</ul>
+	<div>
+		<p>数量正在计算……</p>
+		<img src=""  />
+		<h3>图片说明……</h3>
+	</div>
+	<ul class="ul2">
+	
+	</ul>
+</body>
+</html>

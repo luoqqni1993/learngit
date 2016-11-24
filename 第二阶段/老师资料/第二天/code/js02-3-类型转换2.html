@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			//类型转换
+			//1.把其他类型转换为数值类型
+			//Number() : 转换失败会返回NaN
+			/*
+			var str = "199";
+			alert(typeof str); //string
+			var num = Number(str); //把str转换为数值num
+			alert(typeof num);  //number
+			num++; //199+1
+			alert(num); //200
+			*/
+			//特殊情况
+			//空串：  ''     "" 都是空串，没有任何字符
+			//空串转换为0
+			//alert(Number("abc123")); //NaN
+			//alert(Number("123abc")); //NaN，注意：Number和parseInt有区别
+			//alert(Number(''));  //0
+			//alert(Number("   	"));//空格，也是0???
+			//alert(Number("abc"));//转换失败，返回NaN
+			//alert(Number(true));//1
+			//alert(Number(25));//25
+			//alert(Number(undefined));//NaN
+			//空对象null会转换为0
+			//alert(Number(null));//0
+			//alert(parseInt(''));//NaN,parseInt是截取数字
+			 
+			//2.String() 把括号中的值转换为字符串类型
+			/*
+			var num2 = 100;
+			var str2 = String(num2);
+				alert(typeof str2); //string
+			*/	
+			//3.Boolean() 把括号中的值转换为布尔类型，肯定
+			//会转换成功，不是true就是false
+			//规则总结： 非0非空即为真,true
+			//alert(Boolean('abc123'));//true
+			//alert(Boolean('')); //false ,空串转换之后是false  
+			//alert(Boolean(0)); //false
+			//alert(Boolean(-1)); //true
+			//alert(Boolean(undefined)); //false
+			//alert(Boolean(null)); //false
+			var d;
+			alert(Boolean(d));//false,d的值是 undefined
+			
+		</script>
+	</body>
+</html>

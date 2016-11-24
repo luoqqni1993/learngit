@@ -1,0 +1,85 @@
+<!doctype>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<input type="text" id="text1"><input type="button" id="btn" value="搜索">
+</body>
+</html>
+<script>
+window.onload=function(){
+	var oText=document.getElementById("text1");
+	var oBtn=document.getElementById("btn");
+	//var re=new RegExp("金山","g");
+	/*var re=/法轮功/g;
+	oBtn.onclick=function(){
+		var str=oText.value;
+			if(re.test(str)){
+				window.close();
+			}
+	};
+	var re=/e/;
+	var str="how do you do";
+	var arr=re.exec(str);
+	alert(arr);*/
+	/*var re=/o/g;
+	var str="how do you do";
+	var arr=str.match(re);
+	alert(arr);*/
+	//var re=/o/g;
+	//var str="how do you do";
+	//var num=str.search(re);
+	//alert(num);
+	//var re=/o/g;
+	//var str="how do you do";
+	//var arr=str.replace(re,'r');
+	//alert(arr);
+	//var re=/o/;
+	//var str="how do you do";
+	//var arr=str.split(re);
+	//alert(arr);
+	/*var re=/o{3}/;
+	var str="hooow do you do";
+	var num=re.test(str);
+	alert(num);*/
+	/*var re=/1[a-zA-Z0-9]{1,}2/;
+	var str="01bsssssssssss20";
+	alert(re.test(str));*/
+	/*oBtn.onclick=function(){
+		var str=oText.value;
+		var re=/^[\u4e00-\u9FA5]{1,}$/;
+		if(!re.test(str)){
+			alert("您输入的账户不符合规则!");
+		}
+	};*/
+	/*var re=/e(do){3}e/g;
+	var str="afaedododoefcxcvzczv";
+	//alert(re.test(str));
+	var arr=re.exec(str);
+	var list=str.match(re);
+	alert(arr);
+	alert(list);*/
+	/*var re=/1o*2/
+	var str="1ooooooooooooooooooooo2";
+	alert(re.test(str));*/
+	/*var re=/^[a-z ]+$/;
+	var str="how are you";
+	alert(re.test(str));*/
+	/*var re=/.o./g;
+	var str ="how do you do";
+	alert(str.match(re));*/
+	
+	/*var re=/a.{3}b/g;
+	var str="aasdvaasfdsavsdb";
+	alert(str.match(re));*/
+	
+	/*var re=/^男|女$/
+	var str="男女";
+	alert(re.test(str));*/
+	
+	var re=/^[1-9]\d{0,2}\.\d\.\d\.\d$/;
+	var str="10.0.0.1";
+	alert(re.test(str));
+};
+</script>

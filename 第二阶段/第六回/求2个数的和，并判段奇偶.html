@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script>
+	function sum(a,b){
+	return a+b;
+	}
+	function nEven(a,b){
+	var num=sum(a,b);
+	alert(num%2 ? "奇数" : "偶数");
+	}
+	function run(){
+	var a=parseInt(prompt("请输入a"));
+	var b=parseInt(prompt("请输入b"));
+	nEven(a,b);
+	}
+	</script>
+</head>
+<body>
+<input type="button" onclick="run()" value="判断奇偶">
+</body>
+</html>

@@ -1,0 +1,428 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+			<script type="text/javascript">
+				/*
+					if(){}   单分支选择语句
+					
+					if(){}else{}  双分支选择语句（多分支选择语句）
+					格式：
+					if(表达式){
+						语句组A;
+					}else{
+						语句组B;
+					}
+					
+					逻辑关系：当程序执行到if时，先计算表达式的值，值为
+					true时：执行后面语句组A；值为false时，执行else后的
+					语句组B。
+					注：能用三元解决问题的，优先使用三元，否则使用if
+					
+					求两个数中的最大值？
+					var numOne = Number(prompt("请输入第一个数："));
+					var numTwo = Number(prompt("请输入第二个数："));
+					if(numOne > numTwo){
+						alert(numOne);
+					}else{
+						alert(numTwo);
+					}
+					
+					1》求两个数的最大值
+					2》求三个数的最大值
+					var numOne = Number(prompt("请输入第一个数："));
+					var numTwo = Number(prompt("请输入第二个数："));
+					var numThree = Number(prompt("请输入第三个数："));
+					var myMax = 0;
+					if (numOne > numTwo){
+						myMax = numOne;
+					}else{
+						myMax = numTwo;
+					}
+					if(numThree > myMax){
+						alert(numThree);
+					}else{
+						alert(myMax);
+					}
+					3》输入一个成绩，判断是升班还是重修
+					var score = Number(prompt("请输入一个成绩:"));
+					if (score >= 60){
+						alert("你可以升班了！");
+					}else{
+						alert("咱们下个班见！");
+					}
+					
+					if(){}else if(){} ……else if(){}else{}  多分支选择语句
+					
+					格式：
+					if(表达式1){
+						语句组1;
+					}else if(表达式2){
+						语句组2;
+					} ……
+					else if(表达式n){
+						语句组n;
+					}[else {
+						语句组n+1;
+					}]
+					
+					注：写中括号的地方是可以省略的语句
+					
+					逻辑关系：当程序执行到if时，先计算表达式1的值，值为
+					true时，执行语句组1；值为false时，再计算表达式2的值，
+					值为true时，执行语句组2；值为false时，再计算表达式3
+					的值，依此类推，直到计算表达式n的值，值为true时，执行
+					语句组n,值为false时，执行语句组n+1;
+					
+					如：任意输入一个数字，判断是星期几？
+					var iNum = parseInt(prompt("请输入一个整数："));
+					if (iNum == 1){
+						alert("星期一");
+					}else if (iNum == 2){
+						alert("星期二");
+					}else if (iNum == 3){
+						alert("星期三");
+					}else if (iNum == 4){
+						alert("星期四");
+					}else if (iNum == 5){
+						alert("星期五");
+					}else if (iNum == 6){
+						alert("星期六");
+					}else if (iNum == 0){
+						alert("星期日");
+					}else {
+						alert("您输入有误！");
+					}
+					
+					判断成绩优(90-100)良(80-89)中(70-79)差(60-69)不及格(<60)
+					var score = Number(prompt("请输入一个成绩："));
+					//先将不合法的成绩排除
+					if (score >100 || score < 0){
+						alert("您输入的成绩有误！");
+					}else {
+						//如果成绩合法，则继续判断
+						if ( score >= 90){
+							alert("优");
+						} else if (score >= 80){
+							alert("良");
+						}else if (score >= 70){
+							alert("中");
+						}else if (score >=60){
+							alert("差");
+						}else {
+							alert("不及格");
+						}
+					}
+					/*
+					if (score <= 100 && score >= 0){
+					//如果成绩合法，则继续判断
+						if ( score >= 90){
+							alert("优");
+						} else if (score >= 80){
+							alert("良");
+						}else if (score >= 70){
+							alert("中");
+						}else if (score >=60){
+							alert("差");
+						}else {
+							alert("不及格");
+						}
+						
+					}else {
+						alert("您输入的成绩有误！");
+					}
+					
+					设计一个具有+、-、*、/、%的简单计算器
+					1+1
+					var one = Number(prompt("请输入第一个数字："));
+					var ch = prompt("请输入一个运算符：如（+、-、*、/、%）");
+					var two = Number(prompt("请输入第二个数字:"));
+					
+					if (isNaN(one) || isNaN(two)){
+						alert("您输入的数字是非法的！");
+					}else{
+						if( ch == '+'){
+							alert(one + "+" + two + "=" + (one + two));
+						}else if (ch == '-'){
+							alert(one + "-" + two + '=' + (one - two));
+						}else if (ch == '*'){
+							alert(one + "*" + two + '=' + one * two);
+						}else if (ch == '/'){
+							alert(two == 0?"除数不能为零！":(one + "/" + two + '=' + one / two));
+						}else if (ch == '%'){
+							alert(two == 0?"除数不能为零！":(one + '%' + two + '=' + one % two));
+						}	else {
+							alert("您输入的运算符有误！");
+						}
+					}
+					
+					
+					switch开关、多分支选择语句
+					格式：
+					
+					switch(表达式){
+						case 常量表达式1 : 语句组1;[break;]
+						case 常量表达式2 : 语句组2;[break;]
+							……
+						case 常量表达式n : 语句组n;[break;]
+						[default : 语句组n+1;[break;]]
+					}
+					
+					switch:开关
+					case : 案子、例子
+					default :缺省（xing）、默认
+					break:终止、终断
+					
+					[注]:
+					1.加上break时，default与case 的顺序可以随意
+					2.break与default可以省略
+					3.不允许出现相同的case值
+					
+					
+					逻辑关系：当程序执行到switch时，先计算表达式的值，
+					如果该值与下面某一个case后的常量表达式的值一致时，
+					执行该case后的语句组；如果语句组后有break语句时，则
+					终止switch语句，退出switch语句；如果语句组后没有
+					break语句时，则继续执行其后的所有语句组，直到遇到break
+					或右大括号为止。
+					
+					如：任意输入一个数字，判断是星期几？
+					var iNum = parseInt(prompt("请输入一个0-6的任意一个整数："));
+					switch (iNum){
+						case 0: alert("星期日");break;
+						case 1: alert("星期一");break;
+						case 2: alert("星期二");break;
+						default : alert("您输入有误！");break;
+						case 3: alert("星期三");break;
+						case 4: alert("星期四");break;
+						case 5: alert("星期五");break;
+						case 6: alert("星期六");break;
+						
+					}
+					
+					输入一个0-6的整数，判断哪一天是工作日，哪一天是休息日？
+					var iNum = parseInt(prompt("请输入一个0-6的任意一个整数："));
+					switch (iNum){
+						case 1:
+						case 2:
+						case 3:
+						case 4:
+						case 5: alert("工作日");break;
+						case 6:
+						case 0: alert("休息日");break;
+						default : alert("您输入有误！");
+					}
+					
+					1》输入一个月份，输出这个月有多少天？
+					月份
+					1、3、5、7、、8、10、12   31天
+					4、6、9、11   30天
+					2   28或29天
+					var iMon = parseInt(prompt("请输入一个月份:"));
+					switch (iMon){
+						case 1:
+						case 3:
+						case 5:
+						case 7:
+						case 8:
+						case 10:
+						case 12: alert("31天");break;
+						case 4:
+						case 6:
+						case 9:
+						case 11: alert("30天");break;
+						case 2: var iYear = parseInt(prompt("请输入一个年份："));
+							alert(!(iYear%4)&&iYear%100||!(iYear%400)?"29天":"28天");break;
+						default : alert("您输入的月份有误！");
+					}
+					
+					
+					循环：满足一定条件，（重复）执行一段相同代码块。
+					循环思想：
+					1.从哪里开始
+					2.到哪里结束
+					3.步长（步进）（每次递增或递减多少）
+					
+					
+					实现循环的语句：
+					while(当型循环）
+					格式：
+					表达式1;
+					while(表达式2){
+						语句组;
+						表达式3;
+					}
+					
+					表达式1：从哪里开始，循环初值
+					表达式2：到哪里结束，循环终值
+					表达式3：步长（步进）（递增或递减）
+					语句组：要执行的语句
+					
+					逻辑关系：先执行表达式1，再计算表达式2的值，值为true时，进入循环体，执行循环体中的语句组和表达式3，执行完循环体后再次计算表达式2的值，如果值为true，继续执行循环体，直到表达式2的值为false时，退出循环体。
+					
+					//输出10个Helloworld
+					1.var i = 1;
+					2.  i<=10
+					3.  i++
+					var i = 1;  //循环初值
+					while(i <= 10){ //循环终值
+						console.log("hello world");  //执行语句
+						//i++; //步长 
+					}
+					
+					
+					
+					1》输出1-100的整数
+					var i = 1;
+					i<101
+					i++
+					输出i
+					var i = 1;
+					while(i<101){
+						document.write(i + " ");
+						i++;
+					}
+					2》输出m-n的整数
+					m,n
+					if(m<n)else
+					var i = m
+					i<=n;
+					i++
+					
+					var i = m;
+					i>=n
+					i--
+					var m = parseInt(prompt("请输入一个整数："));
+					var n = parseInt(prompt("请输入一个整数："));
+					if(m < n){
+						var i = m;
+						while(i <= n){
+							document.write(i + " ");
+							i++;
+						}
+					}else {
+						var i = m;
+						while(i >= n){
+							document.write(i + " ");
+							i--;
+						}
+					}
+					3》求5！（5的阶乘：1*2*3*4*5）
+					阶乘：从1乘到它本身
+					1.var i = 1;
+					2. i<=5
+					3. i++
+					var fac = 1;
+					fac = fac * i;
+					fac *= i;
+					
+					var i = 1,fac = 1;
+					while (i < 6){
+						fac *= i;
+						i++;
+					}
+					alert(fac);
+					
+					
+					do while(直到型循环）先斩后奏
+					格式：
+					表达式1;
+					do{
+						语句组;
+						表达式3;
+					}while(表达式2);
+					
+					逻辑关系：先执行表达式1，执行循环体，然后再计算表达式2 的值，值为true时，再执行循环体，直到值为false时，退出循环体。
+					
+					输出10个Helloworld？
+					var i = 1;  //循环初值
+					do{ //循环终值
+						console.log("hello world");  //执行语句
+						i++; //步长 
+					}while(i <= 10);
+					
+					死循环（无限循环）while(1){}
+					
+					
+					while与do while的区别：
+					1.while先判断条件，后执行语句
+						dowhile 先执行语句，后判断条件
+					2.dowhile后必须加分号
+					3.当第一次条件真假时，dowhile至少要执行一次，while一次都不执行。
+					
+					var i = 3;
+					while (i == 4){
+						i++;
+					}
+					alert(i);
+					
+					var i = 3;
+					do{
+						i++;
+					}while (i == 4);
+					alert(i);
+					
+					
+					for(多功能循环语句）
+					
+					格式：
+					for(表达式1;表达式2;表达式3){
+						语句组;
+					}
+					逻辑关系：同当型循环逻辑
+					
+					表达式1;
+					for(;表达式2;表达式3){
+						语句组;
+					}
+					
+					表达式1;
+					for(;表达式2;){
+						语句组;
+						表达式3;
+					}
+					
+					for(;1;){
+						语句组;
+						
+					}
+					
+					
+					解决猴子吃桃的问题（有一只猴子，还有一堆桃子，第一天的时候，
+					吃了一堆桃子中的一半，没忍住，又多吃了一个；
+					第二天的时候，又吃了剩下桃子中的一半，没忍住，又多吃了一个，
+					以后每天如此，直到第10天的时候，只剩下了一个桃子，问第一天的
+					时候有多少个桃子）
+					var sum = 1;
+					for(var day = 9;day >= 1;day--){
+						sum = (sum + 1) * 2;
+					}
+					alert(sum);
+					
+					
+					作业：
+					1》求1+2+3+……+100的和 （*）
+					2》输出1-100中(7的倍数和带7的数除外）的数。（*）
+					3》输出m至n的自然数中的偶数和与奇数和
+					并统计偶数与奇数的个数分别是多少？
+					4》输入一个数，判断是正数还是负数
+					6》输入一个数，判断是偶数还是奇数。
+					7》输入一个数，输出这个数的绝对值（*）
+					8》输入一个数，判断这个数能否同时被3和5整除，可以输出yes不可以输出no（*）
+					*/
+					
+					
+					
+					
+					
+					
+			
+				
+				
+			</script>
+    </head>
+    <body>
+    
+    </body>
+</html>

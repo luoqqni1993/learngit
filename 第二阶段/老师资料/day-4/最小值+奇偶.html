@@ -1,0 +1,40 @@
+﻿
+				
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+    </head>
+    <body>
+			请输入第一个数：<input type="text" id="text1" /><br/>
+			请输入第二个数：<input type="text" id="text2" />
+			<input type="button" value="调用函数" onclick="run()" />
+			</br>结果：<input type="text" id="result"/>
+			<input type="button" value="清空" onclick="cls()"/>
+    </body>
+		<script>
+				//求两个数中的最小值（用有参函数实现），再判断返回的最小值是奇数还是偶数。
+			
+				//求最小值
+				function min(a,b){
+					return a<b?a:b;
+				}
+				function run(){
+					var numOne = Number(document.getElementById("text1").value);
+					var numTwo = Number(document.getElementById("text2").value);
+					var result = document.getElementById("result");
+					if(isNaN(numOne) || isNaN(numTwo)){
+						result.value = "您输入的数字不合法！";
+					}else{
+						var myMin = min(numOne,numTwo);
+						result.value = myMin % 2?myMin + "是奇数":myMin + "是偶数";
+					}
+				}
+				function cls(){
+					document.getElementById("text1").value = "";
+					document.getElementById("text2").value = "";
+					document.getElementById("result").value = "";
+				}
+		</script>
+</html>

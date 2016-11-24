@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script>
+	function mySum(n){//100作为初值 0或1作为终值
+		if(n==0){
+		return 0;//结束条件
+		}else{
+		return n + mySum(n-1);
+		}
+	}
+	alert(mySum(100));
+	</script>
+</head>
+<body>
+</body>
+</html>

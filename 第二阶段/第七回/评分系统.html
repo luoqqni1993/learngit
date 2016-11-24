@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	var arr=[];
+	arr[0]=Number(prompt("第一位评委"));
+	arr[1]=Number(prompt("第二位评委"));
+	arr[2]=Number(prompt("第三位评委"));
+	arr[3]=Number(prompt("第四位评委"));
+	arr[4]=Number(prompt("第五位评委"));
+	arr[5]=Number(prompt("第六位评委"));
+	arr[6]=Number(prompt("第七位评委"));
+	arr[7]=Number(prompt("第八位评委"));
+	arr[8]=Number(prompt("第九位评委"));
+	arr[9]=Number(prompt("第十位评委"));
+	for(var i=1;i<arr.length;i++){
+		for(var j=arr.length-1;j>=i;j--){
+			if(arr[j]<arr[j-1]){
+				var t=arr[j];
+				arr[j]=arr[j-1];
+				arr[j-1]=t;
+			} 
+		}
+	}
+	arr.shift();
+	arr.pop();
+	console.log(arr);
+	var sum=0;
+	for(var k=0;k<8;k++){
+		sum+=arr[k];
+	}
+	console.log(sum/8);
+	
+</script>
+</head>
+<body></body>
+</html>

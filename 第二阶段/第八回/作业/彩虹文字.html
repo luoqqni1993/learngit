@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<style>
+	#div1{height:300px;
+	width:400px;
+	border:1px solid red;
+
+	}
+</style>
+<script>
+	window.onload=function(){
+		var oText=document.getElementById("text");
+		var oBtn=document.getElementById("btn");
+		var oDiv=document.getElementById("div1");
+		oBtn.onclick=function(){
+			var str=oText.value;
+			var str1="";
+			var arr=["red","yellow","#a2af54","#b26e2c","#4b8cd5","#93a4bd"]
+			for(var i=0;i<str.length;i++){
+				str1+='<span style="background:'+arr[i%arr.length]+';">'+str.charAt(i)+'</span>';
+			}
+			oDiv.innerHTML=str1;
+		};
+	};
+</script>
+<body>
+<div id="div1"></div>
+<input type="text" id="text">
+<input type="button" id="btn" value="确认">
+</body>
+</html>

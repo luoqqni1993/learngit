@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+7.已知字符串“aabccd”编程实现以下功能。(13K)
+   统计每个字符出现的次数，结果显示 a2b1c2d1
+  去掉重复的字符，使结果显示 abcd
+*/
+window.onload = function(){
+	var oInp = document.getElementsByTagName("input");
+	var oDiv = document.getElementById("box");
+	oInp[1].onclick = function(){
+		oDiv.innerHTML = zip(oInp[0].value);
+		oDiv.innerHTML += "<br/>" + repeat(oInp[0].value);
+	};
+	function zip(str){   //aaabcc
+		var myStr = "";
+		//遍历接收到的字符串
+		for(var i = 0; i < str.length;){
+			var count = 1; //统计遍历出来的连续相同字母的个数，从1开始
+			//从上面取出的字母后面开始遍历
+			for(var j = i + 1; j < str.length; j ++){
+				if(str.charAt(i) != str.charAt(j)){ //比较相邻的两个字母是否相等
+					break; //不相等，退出本层循环
+				}else{
+					count ++; //相等，统计出个数
+				}
+			}
+			//将统计出的字母与数量存入一个字符串中
+			myStr += str.charAt(i) + count;
+			i = j; //外层循环的步进，每次循环都是从下一个不相同的字母开始
+		}
+		
+		return myStr;
+	}
+	function repeat(str){
+			//先将接收到的字符串转成数组并进行sort排序，然后再转回字符串
+			var myStr = str.split("").sort().join("");
+			str = ""; //将str清空
+			//遍历新的字符串
+			for(var i = 0; i < myStr.length; i++){
+				if(myStr.charAt(i) != myStr.charAt(i+1)){ //将不相等的字符串重新组成一个新的字符串
+					str += myStr.charAt(i);
+				}
+			}
+			return str;
+			
+		}
+};
+</script>
+</head>
+<body>
+  <input type="text" ><input type="button" value="提交">
+  <br/><div id="box"></div>
+</body>
+</html>

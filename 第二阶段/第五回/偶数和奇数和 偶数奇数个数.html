@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+	<script>
+	var a=parseInt(prompt("请输入a"));
+	var b=parseInt(prompt("请输入b"));
+	var c=0;
+	var d=0;
+	var f=0;
+	var g=0;
+	if(a<=b){
+		do{
+		if(a%2==0){
+		c+=a;
+		a++;
+		f++;
+		}
+		else{
+		d+=a;
+		a++;
+		g++;
+		}
+		}
+		while(a<=b);
+	}
+	else{
+		do{
+		if(b%2==0){
+		c+=b;
+		b++;
+		f++;
+		}
+		else{
+		d+=b;
+		b++;
+		g++;
+		}
+		}while(a>=b);
+	}
+	alert(c);
+	alert(d);
+	alert(f);
+	alert(g);
+	</script>
+</body>
+</html>

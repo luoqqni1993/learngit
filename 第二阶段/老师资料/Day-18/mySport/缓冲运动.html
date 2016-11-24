@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 100px;height: 100px;background: red;position: absolute;left: 0px;top: 50px;}
+		</style>
+		<script type="text/javascript">
+			var timer = null; 
+			window.onload = function(){
+				var oBtn = document.getElementById("btn");
+				oBtn.onclick = function(){
+					startMove(300);
+				}
+			}
+			function startMove(target){
+				var oDiv = document.getElementById("box");
+				clearInterval(timer);
+				timer = setInterval(function(){
+					//缓冲运动
+					var speed = (target - oDiv.offsetLeft) / 8;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+					//匀速运动
+//					var speed = (target - oDiv.offsetLeft);
+//					speed = speed > 0 ? 2 : -2;
+					
+					if(oDiv.offsetLeft == target){
+						clearInterval(timer);
+					}else{
+						oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+					}
+//					console.log(speed);
+//					document.title = oDiv.offsetLeft + ":" + target + ":" + speed;
+				},30);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="开始飞" />
+		<div id="box">
+			
+		</div>
+		<span style="display: block;width: 1px;height: 400px;background: black;position:absolute;left: 300px;top: 0;"></span>
+	</body>
+</html>

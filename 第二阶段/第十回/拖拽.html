@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById("box");
+			oDiv.onmousedown=function(evt){
+				var e=evt||window.event;
+				var x=e.offsetX;
+				var y=e.offsetY;
+				document.onmousemove=function(evt){
+					var e=evt||window.event;
+					var a=e.clientX;
+					var b=e.clientY;
+					oDiv.style.left=a-x+"px";
+					oDiv.style.top=b-y+"px";
+				}
+				document.onmouseup=function(){
+					document.onmousemove=null;
+				}
+				
+			}
+	}
+</script>
+<style>
+div{width:100px;height:100px;background:red;position:absolute;}
+</style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

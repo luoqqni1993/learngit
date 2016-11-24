@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{height:100px;width:100px;background:red;position:absolute;right:0px;}
+		</style>
+		<script>
+		window.onload=function(){
+			var oDiv=document.getElementById("box");
+			 document.onscroll=function(){
+			 	var scroll=document.documentElement.scrollTop||document.body.scrollTop;
+			 	alert(document.documentElement.scrollHeight);
+			 	var h=(document.documentElement.clientHeight-oDiv.offsetHeight)/2+scroll;
+			 	startMove(h);
+			 }
+		};
+		var timer=null;
+		function startMove(target){
+			var oDiv=document.getElementById("box");
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var speed=(target-oDiv.offsetTop)/5;
+				speed=speed>0 ? Math.ceil(speed) : Math.floor(speed);
+				if(oDiv.offsetTop==target){
+					clearInterval(timer);
+				}else{
+					oDiv.style.top=oDiv.offsetTop+speed+'px';
+					document.title=oDiv.offsetTop+":"+target+":"+speed;
+				}
+			},30)
+		}
+		</script>
+	</head>
+	<body style="height:5000px;">
+		<div id="box"></div>
+	</body>
+</html>

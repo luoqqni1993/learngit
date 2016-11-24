@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+	1.创建cookie的完整格式
+	document.cookie = '属性=值[;expires=日期对象;path="url地址";domain="域名";secure;]'
+	2.expires:cookie的有效期
+	注：设置好有效期后，通过修改系统时间到过期时间，这个cookie会被删除，但是再次将时间调到正常时间，这个cookie又会恢复，所以这种删除叫做假删除（伪删除）
+*/
+var date = new Date();
+date.setDate(date.getDate() + 7);
+document.cookie = "name=" + encodeURIComponent("张志林") + ';expires=' + date;
+document.cookie = "url=1000phone.com;expires=" + date;
+document.cookie = "email=zhangzhilin@1000phone.com;expires=" + date;
+//alert(decodeURIComponent(document.cookie));
+//alert(typeof document.cookie);
+alert(document.cookie);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

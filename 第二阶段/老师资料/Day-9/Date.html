@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		一、创建日期对象
+		二、方法
+		获取年：getFullYear()
+		获取月：getMonth()  国际月份：从0月开始，到11月。表示中国的1月到12月
+		获取日：getDate()
+		获取星期：getDay()  星期日是0
+		获取小时：getHours()
+		获取分钟：getMinutes()
+		获取秒钟：getSeconds()
+		获取毫秒：getMilliseconds()
+		获取时间戳：getTime() 
+		时间戳：从1970年1月1日0时整到指定日期的毫秒数。
+		
+		扩展：
+		设置年份：setFullYear()
+		设置月份：setMonth()
+		设置日：setDate()
+		
+		//计算自己生活了多少天、多少小时、多少分钟、多少秒、多少毫秒
+	*/
+	var now = new Date();
+	now.setDate(now.getDate() + 7);
+	document.write(now.toLocaleString()+"<br/>");
+	document.write(now);
+	var later = new Date(1994,6-1,14);
+	document.write("<br/>" + later);
+	var cha = now - later;
+	//alert(cha);
+	document.write("<br/>" + later.getYear());
+	document.write("<br/>" + now.getFullYear());
+	document.write("<br/>" + now.getMonth());
+	document.write("<br/>" + later.getMonth());
+	document.write("<br/>" + now.getDate());
+	document.write("<br/>" + now.getDay());
+	document.write("<br/>" + now.getHours());
+	document.write("<br/>" + now.getMinutes());
+	document.write("<br/>" + now.getSeconds());
+	document.write("<br/>" + now.getMilliseconds());
+	document.write("<br/>" + now.getTime());
+	
+	alert(new Date(0));
+</script>
+</head>
+<body>
+    
+</body>
+</html>

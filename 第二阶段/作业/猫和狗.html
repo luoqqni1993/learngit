@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Cat(name,action){
+				this.name=name;
+				this.action=action;
+				this.showName=function(){
+					return this.name;
+				}
+				this.showAction=function(){
+					return this.action;
+				}
+			}
+			var cat1=new Cat("小喵1","猫洗脸");
+			var cat2=new Cat("小喵2","猫洗脸");
+			var cat3=new Cat("小喵3","猫洗脸");
+			function Dog(name,action){
+				this.name=name;
+				this.action=action;
+				this.showName=function(){
+					return this.name;
+				}
+				this.showAction=function(){
+					return this.action;
+				}
+			}
+			var dog1=new Dog("小狗1","汪汪");
+			var dog2=new Dog("小狗2","汪汪");
+			var dog3=new Dog("小狗3","汪汪");
+			var arr=[cat1,cat3,dog1,cat2,dog3,dog2];
+			for(var i=0;i<arr.length;i++){
+				alert(arr[i].action);
+			}
+	
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

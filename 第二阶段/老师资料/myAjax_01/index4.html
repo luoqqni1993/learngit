@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="ajax.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oBtn = document.getElementById("btn");
+				oBtn.onclick = function(){
+					ajax("data1.json",function(str){
+						
+						var arr = eval(str); 
+						alert(arr[0].aa);
+					});
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>请求服务器，访问服务器中的data.json文件</p>
+		<input type="button" name="btn" id="btn" value="读取文件" />
+	</body>
+</html>

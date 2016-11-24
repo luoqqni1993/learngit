@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	
+	</head>
+	<body>
+		<script>
+		    //字符串的拼接说明
+			/*
+			var a  = "100";
+			var b = "200";
+			var c = 300;
+			var d = 400;
+			alert(a+b); //"100200" ,alert在弹出的时候不会显示引号
+			alert(a+b+c);//"100200300" 
+			alert(a+c+d);//"100300"+400 = "100300400"
+			alert(c+d+a);//"700100" ,从左到右的顺序。
+			//字符串转换为数值类型
+			//计算a+b的值之和
+			a = parseInt(a);// 把a转换为整数类型，然后覆盖掉之前的
+			b = parseInt(b);
+			alert(a+b); //300
+			*/
+			/*
+			//parseInt的特性：
+			//截取字符串中前面的数字，
+			//需求在之前的高度基础上加20
+			var height = "100px";
+			var h1 = parseInt(height);
+			alert(h1); //100
+			//有的情况无法将字符串转换为整数
+			//注意： 当不能转换为数字时会转换为 NaN
+			var username1 = "baobao123";
+			var n = parseInt(username1);
+			alert(n);
+			//parseFloat类似parseInt
+			*/
+            //自动类型转换：符号两端数据类型不一致，会自动把其中的一个
+			//转换成另外一种类型
+			/*
+			var a = 3; 
+			var b = "10"; 
+			var c = true;   
+			 alert(a-b); //b被强制转换为一个整数
+			 alert(a+b); //"310"
+			 alert(b+c); //"10true"
+			 alert(a+c); //true和一个数相加会被转换为1,false 0
+			 alert(1+false);//1
+			 */
+			//比较的特殊情况 
+			/*
+			 alert(NaN==NaN);//false
+			 alert(NaN+100);//NaN
+			 //==类型不一致时会发生类型转换
+			 alert("400"==400);//true
+			 //===全等，不会发生类型转换;类型等，值相等
+			 alert("400"===400);
+			*/
+			//变量命名规范:
+			//构成： 只能包含，数字，字母下划线,$
+			//数字不能开头 var  123abc ;
+			//驼峰命名法:第一个单词首字母小写
+			//userName   hisCar  getHisName
+			//不能是关键字和保留字()
+			//关键字：js语法规则中正在使用的单词
+			//保留：js保留到以后可能会用的一些单词
+			
+			//代码书写规范
+			//注意缩进,四个空格。tab
+			//=号，加号等符号两端有空格。
+		</script>
+	</body>
+</html>

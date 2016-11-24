@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	window.onload = function(){  // 页面加载事件，当页面加载完成后，再调用该函数
+			//获取页面中所有的元素
+			var oNum1 = document.getElementById("text1");
+			var oNum2 = document.getElementById("text2");
+			var oNum3 = document.getElementById("text3");
+			var oMax = document.getElementById("text4");
+			var oBtn = document.getElementById("btn1");
+			var oCls = document.getElementById("btn2");
+			
+			//给按钮添加事件
+			oBtn.onclick = function(){
+				var one = Number(oNum1.value);
+				var two = Number(oNum2.value);
+				var three = Number(oNum3.value);
+				oMax.value = myMax(one,two,three);
+			};
+			oCls.onclick = function(){
+				oNum1.value = "";
+				oNum2.value = "";
+				oNum3.value = "";
+				oMax.value = "";
+			};
+			//实现三个数中求最大值
+			function myMax(a,b,c){
+				var max = 0;
+				max = a > b? a : b;
+				if ( c > max){
+					max = c;
+				}
+				return max;
+			}
+	};
+</script>
+</head>
+<body>
+    <p>请输入第一个数：<input type="text" id="text1"></p>
+		<p>请输入第二个数：<input type="text" id="text2"></p>
+		<p>请输入第三个数：<input type="text" id="text3"></p>
+		<p>最大值：<input type="text" id="text4"></p>
+		<input type="button" value ="计算" id="btn1"/><input type="button" value="清空"id="btn2"/>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script>
+	function calculate(a,b,c,d,e,f){
+		var s=0;
+		if(a=="长方形"){
+			s=b*c;
+		}
+		if(a=="三角形"){
+			s=(d*e)/2;
+		}
+		if(a=="圆形"){
+			s=f*f*Math.PI;
+		}
+		return s;
+		
+	}
+	function result(a,b,c,d,e,f){
+		var res=calculate(a,b,c,d,e,f);
+		alert(res);
+	}
+	function run(){
+		var a=prompt("请输入形状");
+		if(a=="长方形"){
+			var b=Number(prompt("请输入长"));
+			var c=Number(prompt("请输入宽"));
+		}
+		if(a=="三角形"){
+			var d=Number(prompt("请输入底"));
+			var e=Number(prompt("请输入高"));
+		}
+		if(a=="圆形"){
+			var f=Number(prompt("请输入半径"));
+		}
+		result(a,b,c,d,e,f);
+	}
+	run();
+	</script>
+</head>
+<body>
+</body>
+</html>

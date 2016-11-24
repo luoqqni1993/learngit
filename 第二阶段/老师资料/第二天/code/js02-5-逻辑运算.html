@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			//&&与运算，多个条件同时满足才返回true,只要
+			//有一个不满足则返回false
+			//有变量a,b； 判断a,b是否都大于0。
+			//短路原则： 当前面的表达式能确定最终结果
+			//，则不会继续判断后面的内容
+			//招聘要求： 技术能力,表达能力好
+			//练习1:
+			/*
+			var a = -10;
+			var b = 20;
+			//同时满足返回true,只要有一个不满足返回false
+			//a>0不满足的时候，&& 不用再判断后面的表达式
+			var c = a>0 && b>0; 
+			//alert(c);//true
+			//练习2：判断a,b中是否有大于0的数。
+			//||，或运算，只要有一个满足条件即可
+			//如果a>0可以确定最终结果，则不会再判断后面的表达式
+			var d = a>0 || b>0;
+			//alert(d);
+			*/
+			//总结：
+			//与运算 && ,只有当两个都满足条件时才返回true
+			//     表达式1       表达式2        运算         结果
+			//      true          true           &&           true
+			//      false         true           &&           false
+			//      true          false          &&           false
+			//      false         false          &&           false
+			
+			
+			//或运算 || ,只要满足一个条件就返回true
+			//     表达式1       表达式2        运算         结果
+			//      true          true           ||           true
+			//      false         true           ||           true
+			//      true          false          ||           true
+			//      false         false          ||           false
+			
+			
+			//非运算
+			//首先要把！后面的转换为布尔值，然后取反
+			/*
+			var a = -10;
+			alert(!a); //false,a转换为布尔值是 true,取反就是false
+			var b = ""; //
+			alert(!b); //true,b转换为布尔值是 false,取反就是true
+			alert(!undefined);//true
+			alert(!null);//true
+			alert(!0);//true
+			*/
+			
+			//拓展： 当&&符号和 ||符号两端的表达式的值不是布尔值值时
+			//返回的结果不一定是 布尔值
+			//规律：首先把表达式转换为布尔值，当前面的表达式
+			//不能判断最终结果时，直接返回后面的表达式;
+			//如果当前的表达式可以确定最终则直接返回该表达式的值
+			//
+			/*
+			alert(null && 1 && 2);//null
+			alert(1 && undefined && 2);//undefined
+			alert(1 && 2);  //2,  true  && xx
+			alert(1 && 0 && 2);  //0,
+			alert(1 && 2 && 3); //3,true  && true && xx
+			*/
+			/*
+			alert(undefined || null);//null
+			alert(false || 2 || null); //2
+			alert(true || null);//true
+			alert(null || false);//false
+			alert(true && null);//null
+			*/
+			alert(Number(" "));//0
+			
+		</script>
+	</body>
+</html>

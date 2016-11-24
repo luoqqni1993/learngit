@@ -1,0 +1,84 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+/*
+	4e00    9fa5
+	19968   40869     20902(回文数）   习主席  李总理
+	GB2312
+	GBK
+	GB18030 简体中文
+	BIG5  大五码：繁体中文
+	
+	一、定义字符串
+	1.创建对象的方式
+	2.字面量的方式
+	二、属性——length(表示字符串的长度）
+	三、方法
+	charAt()
+	charCodeAt()
+*/
+/*
+var str = new String("hello");  //对象方式
+var str1 = "howareyou";   //字面量方式
+var str2 = "中华人民共和国";
+alert(str.length);
+alert(str2.length);
+
+
+
+var str = "charAt()：根据下标获取指定的字符串，返回指定位置的字符串。";
+//alert(str.charAt(4)); 
+//遍历字符串
+/*
+for(var i = 0; i < str.length; i++){
+	document.write(str.charAt(i)+"<br/>");
+}
+
+//快速枚举（遍历）法
+for(i in str){
+	document.write(str.charAt(i)+"<br/>");
+}
+
+var str = "charCodeAt():根据下标获取指定字符的编码.";
+for(var i = 0;i < str.length; i++){
+	document.write(str.charCodeAt(i)+"<br/>");
+}
+*/
+/*
+for(var i = 0; i < 40869;i ++){
+	document.write(String.fromCharCode(i) + " ");
+}
+*/
+window.onload = function(){
+	var oText = document.getElementById("text1");
+	var oBtn = document.getElementById("btn");
+	var oDiv = document.getElementById("div1");
+	var oBtn1 = document.getElementById("btn1");
+	oBtn.onclick = function(){
+		var str = oText.value;
+		
+		oDiv.innerHTML = cur(str);
+		oText.value = "";
+	};
+	oBtn1.onclick = function(){
+		
+		oDiv.innerHTML = "";
+	};
+	function cur(str){
+		var str1 = "";
+		for(var i = 0; i < str.length; i++){
+			str1 += String.fromCharCode(str.charCodeAt(i) + 1) + " ";
+		}
+		return str1;
+	}
+};
+</script>
+</head>
+<body>
+ <input type="text" id="text1" ><input type="button" value="加密" id="btn"><input type="button" value="清空" id="btn1">
+<div id="div1"></div> 
+</body>
+</html>

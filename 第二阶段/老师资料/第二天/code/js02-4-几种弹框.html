@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+			//1.确认弹框
+			//confirm("你确定要退出吗 ？")
+			//返回结果是true和false
+			//点击确定返回true,点击取消返回false
+			//点击 X 号，关闭按钮也是false
+			/*
+			var res = confirm("你确定要退出吗?");
+			alert(res);
+			*/
+			//2.输入弹框
+			//返回输入的内容，是String类型
+			//点击确定之后才会把输入的值赋值给text
+			//点击取消，返回的值是null是object类型
+			/*
+			var text = prompt("请输入用户名:");
+			var text2 = prompt("再次输入:");
+			alert(typeof text);
+			alert("你输入的是"+text);
+			*/
+			//练习： 输入两个变量值a,b;计算他们之和
+			//点击取消，值是null
+			var a = prompt("请输入一个数:");
+			var b = prompt("请输入一个数:");
+			//因为输入的值默认是 string类型
+				a = Number(a);//把a的类型转换为number类型
+				b = Number(b); //
+			alert(a+b);
+			
+		</script>
+	</body>
+</html>

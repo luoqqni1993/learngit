@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box1{width:100px;height:100px;background:red;filter:alpha(opacity=10);opacity:0.1;}
+			#box2{width:100px;height:100px;background:green;filter:alpha(opacity=10);opacity:0.1;}
+			#box3{width:100px;height:100px;background:blue;filter:alpha(opacity=10);opacity:0.1;}
+			#box4{width:100px;height:100px;background:yellow;filter:alpha(opacity=10);opacity:0.1;}
+		</style>
+		<script src="js/move1.js"></script>
+		<script>
+		window.onload=function(){
+			var oDiv=document.getElementsByTagName("div");
+			for(var i=0;i<oDiv.length;i++){
+				oDiv[i].onmouseover=function(){
+					startMove(this,"opacity",100);
+				};
+				oDiv[i].onmouseout=function(){
+					startMove(this,"opacity",10);
+				};
+			}
+		};
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		<div id="box4"></div>
+	</body>
+</html>

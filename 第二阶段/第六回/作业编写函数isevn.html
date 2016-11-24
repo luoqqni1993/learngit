@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script>
+	window.onload=function(){
+	var oNum=document.getElementById("txt1");
+	var oResult=document.getElementById("txt2");
+	var oBtn=document.getElementById("btn1");
+	var oCls=document.getElementById("btn2");
+	
+		onBtn.onclick=function(){
+			var num=Number(oNum.value);
+			if
+		};
+		
+		oCls.onclick=function(){
+			oNum.value="";
+			oResult.value="";
+		};
+		
+		function judge(a){
+			return a%2 ? 0 : 1;
+		}
+		
+	};
+	</script>
+</head>
+<body>
+<p>请输入一个数：<input type="text" id="txt1"></p>
+<p>判断结果：<input type="text" id="txt2"></p>
+<input type="button" id="btn1" value="判断">
+<input type="button" id="btn2" value="清空">
+</body>
+</html>

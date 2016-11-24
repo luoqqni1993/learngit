@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8' /> 
+	</head>
+	<body>
+		<script>
+              //各种数据类型转换
+			  //一. Number() :把其他类型转换为数值类型,转换失败后会返回NaN
+			  //1.如果可以转换为数值,则直接返回该数值
+			/*
+			var a = "100";
+			  var num1 = Number(a);
+			  alert(num1); //100
+			  alert("转换之后num1类型是"+typeof num1);
+			  alert("转换之后原来的数a的类型是"+typeof a);
+			  */
+			  /*
+			//2.如果转换失败会返回NaN,并且它与parseInt有不同
+			// parseInt("123abc");会得到  123,它可以截取前面的数字
+			var b = "1234abc";
+			alert(Number(b));  //NaN,Number没有parseInt的截取功能
+			
+			//3.特殊情况
+			//null : 一个空对象
+			alert(Number(true));        //1
+			alert(Number(false));       //0
+			alert(Number(undefined));  //NaN
+			alert(Number(null));       //0 
+			*/
+			/*
+			//二.转换为string类型
+			//方法1.使用+号连接一个空串
+			var  num1 = 100;
+			     num1 = num1 + ""; //此时num1是字符串类型
+				 alert(typeof num1); //string类型
+			
+			//方法2.使用 String() 函数
+			var num2 = 998;
+                num2 = String(num2);
+                alert(typeof num2);				
+			*/
+			//三.把其他类型转换为布尔类型
+			//Boolean(),结果只可能是true和false
+			//真: 非零,非空即为真
+			/*
+			alert(Boolean(-1));        //true   
+			alert(Boolean(undefined)); //false
+			alert(Boolean(""));        //false   
+			alert(Boolean(" "));        //true,只要不是空串都是true
+			alert(Boolean(null));       //false
+			*/
+			alert(Boolean("false"));     //true
+			alert(Boolean(false));        //
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

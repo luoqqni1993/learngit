@@ -1,0 +1,40 @@
+<!dovtype>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<div id="box">
+	<p>测试1</p>
+	<p>测试2</p>
+	<p>测试3</p>
+</div>
+</body>
+</html>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById("box");
+	removeSpace(oDiv);
+	var oDivChilds=oDiv.childNodes;
+	alert(oDivChilds.length);
+	function removeSpace(node){
+		var childs=node.childNodes;
+		for(var i=0;i<childs.length;i++){
+			if(childs[i].nodeType==3&&/^\s+$/.test(childs[i].nodeValue)){
+			childs[i].parentNode.removeChild(childs[i]);
+			}
+		}
+		
+		return node;
+	}
+	//var oP=document.createElement("p");
+	//var oText=document.createTextNode("测试4");
+	//oP.innerHTML="<b>测试5</b>";
+	//oP.appendChild(oText);
+	//oDiv.appendChild(oP);
+	//oP=document.createElement("p");
+	//oP.innerHTML="<b>测试5</b>";
+	//oDiv.inersertBefore(oP,oDiv,firstChild);
+	//var clP
+};
+</script>

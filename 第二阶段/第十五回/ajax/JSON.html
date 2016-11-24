@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="fun.js"></script>
+		<script>
+			window.onload=function(){
+				var oBtn=document.getElementById("btn");
+				oBtn.onclick=function(){
+					ajax("date.json",function(str){
+						var arr=eval(str);
+						alert(arr[0].aa);
+					})
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<p>检测服务器中的JSON数据</p>
+		<input type="button" id="btn" value="检测">
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+table{border-collapse:collapse;}
+td{border:1px solid;}
+</style>
+	<script>
+		window.onload=function(){
+			var arr=document.cookie.split('; ');
+			var index=1;
+			for(var i=0;i<arr.length;i++){
+				var val=arr[i].split('=');
+				if(val[0].indexOf("product_")==0){
+					var product=eval('('+val[1]+')');
+					var _tr=document.getElementById("tab").insertRow();
+					var _td=_tr.insertCell();//序号
+					_td.innerHTML=index++;
+					_td=_tr.insertCell();//商品名称
+					_td.innerHTML=product.name;
+					_td=_tr.insertCell();//单价
+					_td.innerHTML=product.price;
+					_td=_tr.insertCell();//数量
+					_td.innerHTML="1";
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<table id="tab">
+		<tr><td>序号</td><td>商品名称</td><td>商品单价</td><td>数量</td></tr>
+	</table>
+</body>
+</html>

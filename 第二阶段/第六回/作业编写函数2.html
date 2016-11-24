@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script>
+		function run(){
+			var a=Number(prompt("请输入数字"));
+			result(a);
+		}
+		
+		function judge(a){
+			return a%2 ? 0 : 1;
+		}
+		function result(a){
+			var res=judge(a);
+			res ? alert("even") : alert("odd");
+		}
+	</script>
+</head>
+<body>
+<input type="button" value="判断" onclick="run()">
+</body>
+</html>

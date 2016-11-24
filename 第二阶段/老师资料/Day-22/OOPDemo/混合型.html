@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//将属性放在构造函数内（实例属性），将方法放在原型里（原型方法）
+			function Person(name,age){
+				//实例属性
+				this.name = name;
+				this.age = age;
+			}
+			Person.prototype.showName = function (){
+				return this.name;
+			}
+			Person.prototype.showAge = function(){
+				return this.age;
+			}
+			
+			function Dog(name,age){
+				//实例属性
+				//this.name = name;
+				this.age = age;
+				
+			}
+			Dog.prototype.name = "smallBlack";  //原型属性
+			Dog.prototype.showName=function(){
+				return this.name;
+			}
+			Dog.prototype.showAge = function(){
+				return this.age;
+			}
+			var ps = new Person('xm',18);
+			var dog = new Dog("bigYellow",5);
+			//dog.name = "hh";
+			
+			alert(dog.hasOwnProperty('name'));
+			alert('name' in dog);
+//			alert(dog.name);
+//			delete dog.name;  //删除实例属性
+//			alert(dog.name);
+			//alert(dog.name);
+//			alert(ps.prototype);
+//			alert(ps.__proto__);
+//			alert(Person.prototype.isPrototypeOf(ps));
+//			alert(Person.prototype.isPrototypeOf(dog));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

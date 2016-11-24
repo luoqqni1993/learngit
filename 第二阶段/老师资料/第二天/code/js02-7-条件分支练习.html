@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+		<script>
+		//3个数  a,b,c中, 输出最大数的值
+		//例如 a = 100,b=200,c=300 ,打印出最大的值是 300
+		//三目运算符
+		// a>b ? a : b   
+		//  1 ? a:b;  //返回的值是 a,因为1被转换为true
+		//如果a>b成立，取？号后面的值，否则取冒号后面的值
+		//三目运算符可以嵌套
+		var a = 100;
+		var b = 200;
+		var c = 300;
+		var max = ( a>b ? a : b );  //if(a>b) {max=a;} else {max=b;}
+		alert(max); //a,b中的最大值
+		
+		var max2 = (a>b?a:b)>c ? (a>b?a:b) : c;
+		alert("最大值是:"+max2);
+			
+		</script>
+	</body>
+</html>

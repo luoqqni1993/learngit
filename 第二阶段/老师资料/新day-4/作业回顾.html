@@ -1,0 +1,191 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+		
+				<script>
+					/*
+						运算符优先级：（高——低）
+						！、++、--
+						*、/、%
+						+、-
+						>、<、>=、<=
+						==、!=、===、!==
+						&&
+						||
+						？：
+						=、+=、-=、*=、/=、%=
+						
+						typeof ！、算术运算符（++、--、*、/、%、+、-）、
+						关系运算符（>、<、>=、<=、==、!=、===、!==)、
+						逻辑运算符(&&、||）、
+						三元（？：）、
+						赋值（=、+=、-=、*=、/=、%=）
+						
+						
+					
+					
+					
+					4》输入一个数，判断是正数还是负数
+					6》输入一个数，判断是偶数还是奇数。
+					7》输入一个数，输出这个数的绝对值（*）
+					8》输入一个数，判断这个数能否同时被3和5整除，可以输出yes不可以输出no（*）
+					*/
+					/*
+					1》求1+2+3+……+100的和 （*）
+					var i = 1,sum = 0;
+					while(i<101){
+						sum += i;
+						i++;
+					}
+					
+					
+					var i = 1,sum = 0;
+					do{
+						sum += i;
+						i++;
+					}while(i < 101);
+					
+					var sum = 0;
+					for ( var i = 1; i < 101; i++){
+						sum += i;
+					}
+					alert(sum);
+					*/
+					/*
+					2》输出1-100中(7的倍数和带7的数除外）的数。（*）
+					【注】：如果条件<4个时，建议使用if else if
+									否则 建议使用switch      
+									(原因：效率问题）
+					for ( var i = 1; i < 101 ; i++){
+						/*
+						if (!(i % 7 == 0||i%10 == 7||parseInt(i / 10)==7)){
+							document.write(i + " ");
+						}
+						
+						switch ( !(i % 7 == 0||i%10 == 7||parseInt(i / 10)==7)){
+							case true : document.write(i + ' ');
+						}
+					}
+					*/
+					
+					/*
+					3》输出m至n的自然数中的偶数和与奇数和
+					并统计偶数与奇数的个数分别是多少？
+					
+					
+					var m = parseInt(prompt("请输入一个整数"));
+					var n = parseInt(prompt("请输入一个整数："));
+					//交换两数：确保第一个数<第二个数，方便使用循环
+					if ( m > n){
+						var t = m;
+						m = n;
+						n = t;
+					}
+					var evenSum = 0,oddSum = 0,evenCount = 0,oddCount = 0;
+					for (var i = m ; i <= n; i++){
+						if (i % 2){
+							oddSum += i; //奇数和  oddSum = oddSum + i;
+							oddCount ++; //奇数数量
+						}else {
+							evenSum += i; //偶数和
+							evenCount ++; //统计偶数个数
+						}
+					}
+					document.write("偶数和：" + evenSum + "<br/>" + "偶数个数：" + evenCount + "<br/>" + "奇数和: " + oddSum + "<br/>" + "奇数个数：" + oddCount);
+					
+					
+					
+					
+					
+					
+					for in:只能（遍历）数组和对象
+					遍历：一个一个的读取或写入
+					格式：
+					for(变量 in 集合){  // 集合：数组名或对象名
+						语句组;
+					}
+					for(var i in document){
+						document.write(i + "<br/>");
+					}
+					
+					
+					break:
+					1.用于switch语句，终止switch语句的执行
+					2.用于循环语句，终止一层循环
+					for(var i = 1; i < 10 ; i++){
+						if ( i == 3 ){
+							break;
+						}else {
+							document.write(i + " "); //1 2
+						}
+					}
+					for (var i = 1; i < 6 ; i++){
+						for(var j = 1; j < 6; j++){
+							if(j == 3){
+								break;
+							}else{
+								document.write(i + " ");
+								//1122334455
+							}
+						}
+					}
+					var i = 1;
+					while(i<5){
+						var j = 1;
+						do{
+							document.write(j + ' ');
+							j++;
+						}while (j<5);
+						if(i == 3){
+							break;
+						}
+						i++;
+					}
+					
+					
+					continue:继续
+					1.用于循环语句，终止（一次）循环，继续执行下一次循环。
+					for(var i = 1; i<6;i++){
+						if(i == 2 || i == 4){
+							continue;
+						}else{
+							document.write(i +' ');
+						}
+					}
+					//作业：
+					将?:/if/switch/while/do while/for语句的逻辑关系默抄5遍。
+					
+					练习：设计一个按钮，当点击按钮，执行一个功能：判断一个数是素数还是合数？
+					素数（质数）：只能被1和它本身整除的数。
+					13  2  3  4  5  6 7 8 9 10 11 12 13
+					14  2  break;
+					*/
+					var iNum = parseInt(prompt("请输入一个整数："));
+					if(isNaN(iNum)){
+						alert("您输入的是非法数字！");
+					}else {
+						if ( iNum == 0 || iNum == 1){
+							alert(iNum + "是非素非合的数字！");
+						}else {
+							for(var i = 2; i <= iNum; i++){
+								if(iNum % i == 0){
+									break;
+								}
+							}
+							if (iNum == i){
+								alert(iNum + "是素数！");
+							}else{
+								alert(iNum + "是合数！");
+							}
+						}
+					}
+					
+					
+				</script>
+    </head>
+    <body>
+    
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{height: 100px;background: red;border: 1px solid black;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oDiv = document.getElementById("box");
+				alert(oDiv.offsetWidth);
+				setInterval(function(){
+					
+					oDiv.style.width = parseInt(oDiv.style.width) - 1 + 'px';
+				},30);
+			}
+			//通过style属性只能获取或修改行内样式，无法获取内部或外部样式。
+		</script>
+	</head>
+	<body>
+		<div id="box" style="width:100px;"></div>
+	</body>
+</html>

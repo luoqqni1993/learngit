@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+window.onload = function(){
+	var oText = document.getElementById('text1');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var num = parseInt(oText.value);
+		var now = new Date();
+		console.log(now.toLocaleString());
+		now.setDate(now.getDate() + num);
+		console.log(now.toLocaleString());
+		oText.value = now.getFullYear() + "-" + (now.getMonth() + 1) + '-' + now.getDate();
+	};
+};
+</script>
+</head>
+<body>
+   <input type="text" id="text1"><input type="button" id="btn" value="提交"> 
+</body>
+</html>

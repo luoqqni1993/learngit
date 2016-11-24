@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-family:"微软雅黑";
+}
+#box{
+	width:682px;
+	height:700px;
+	background-color:#ffbd66;
+	margin:20px auto;
+	border-radius: 12px;
+	overflow:hidden;
+}
+#box ul.th{
+	background:#fee684;
+	border-radius:12px 12px 0px 0px;
+	overflow:hidden;
+	width:595px;
+	margin:20px auto 4px;
+}
+#box ul.th li{
+	height:60px;
+	line-height:60px;
+	font-size:18px;
+	color:#a75a0c;
+	float:left;
+	width:85px;
+	text-align:center;
+}
+#box ul.day{
+	overflow:hidden;
+	width:595px;
+	margin:0 auto;
+}
+#box ul.day li{
+	width:84px;
+	height:84px;
+	background:#fefff1 no-repeat center center;
+	border-radius:10px;
+	float:left;
+	margin:0 1px 1px 0;
+	font-family:Impact;
+	font-size:30px;
+	color:#ad570e;
+	text-align:center;
+	line-height:84px;
+	cursor:pointer;
+}
+#box ul.day li.active{
+	background-image:url(circle.png);
+}
+#box ul.day li.passed{
+	color:#bdbdbd;
+}
+#box .bt{height:100px;line-height:100px;text-align:center;color:#0f0;font-size:30px;}
+
+</style>
+</head>
+
+<body>
+<div id="box">
+	
+	<ul class="th">
+    	<li>周日</li>
+    	<li>周一</li>
+    	<li>周二</li>
+    	<li>周三</li>
+    	<li>周四</li>
+    	<li>周五</li>
+    	<li>周六</li>
+    </ul>
+    <ul id="days" class="day">
+    </ul>
+</div>
+<script>
+	var dDate=new Date();//获取时间
+	
+	var sDate=fnFull(dDate);
+	box.innerHTML+="<p class='bt'>"+sDate+"</p>";	
+function fnDate(date){
+	var nHour=date.getHours();
+	var nMinute=date.getMinutes();
+	var nSecond=date.getSeconds();
+	return nHour+"时"+nMinute+"分"+nSecond+"秒";
+}
+function fnTime(date){
+	var nYear=date.getFullYear();//获取年
+	var nMonth=date.getMonth()+1;//获取月
+	var nDate=date.getDate();//获取日
+    return nYear+"年"+nMonth+"月"+nDate+"日";
+}
+function fnDay(date){
+	var nDay=date.getDay();
+	switch(nDay){
+		case 0:
+		nDay="星期日";
+		break;
+		case 1:
+		nDay="星期一"
+		break;
+		case 2:
+		nDay="星期二";
+		break;
+		case 3:
+		nDay="星期三";
+		break;
+		case 4:
+		nDay="星期四";
+		break;
+		case 5:
+		nDay="星期五";
+		break;
+		case 6:
+		nDay="星期六";
+		break;
+	}
+	return nDay;
+}
+function fnFull(date){
+	var result="";
+	result+=fnTime(date);
+	result+=" ";
+	result+=fnDay(date);
+	result+=" ";
+	result+=fnDate(date);
+	return result;
+}
+	
+	
+	var nDate=dDate.getDate();//今天是几号
+	dDate.setDate(1);//设置本月1号
+	var nDay=dDate.getDay();//1号是周几
+	var nSeconds1=dDate.getTime();//获取本月1号毫秒数
+	dDate.setMonth(dDate.getMonth()+1)//设置下月1号
+	var nSeconds2=dDate.getTime();//获取下月1号毫秒数
+	var nDays=(nSeconds2-nSeconds1)/1000/60/60/24;//获取本月天数	
+	var nHao=1;
+	for(var i=0;i<42;i++){
+		if(i>=nDay && nHao<=nDays){
+			if(nHao<nDate){
+				days.innerHTML+="<li class='passed'>"+nHao+"</li>";
+			}else if(nHao==nDate){
+				days.innerHTML+="<li class='active'>"+nHao+"</li>";
+			}else{
+				days.innerHTML+="<li>"+nHao+"</li>";
+			}		
+			nHao++;
+		}
+		else{
+			days.innerHTML+="<li></li>";
+		}
+	}
+	
+</script>

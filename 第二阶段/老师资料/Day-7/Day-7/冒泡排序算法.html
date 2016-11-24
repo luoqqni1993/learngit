@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		冒泡排序（相邻的元素进行比较，交换位置）(向上冒）
+		9   2
+		6   9    4
+		15  6    9    6
+		4   15   6    9   9
+		2   4   15   15   15
+		
+		
+		第一次遍历：从最后一个元素开始，到下标为1的元素结束
+		1.用一个循环控制比较的次数
+		2.用另一个循环遍历数组中每一个元素进行比较
+		3.比较条件成立，交换两个数据
+		var arr = [9,6,15,4,2];
+		for(var i = 1; i < arr.length; i ++){ //控制比较的次数
+			for(var j = arr.length - 1; j >= i; j --){ // 遍历数组
+				//比较，交换 
+				if(arr[j] > arr[j - 1]){
+					var t = arr[j];
+					arr[j] = arr[j - 1];
+					arr[j - 1] = t;
+				}
+			}
+		}
+		alert(arr);
+	*/
+	/*
+		冒泡排序（相邻的元素进行比较，交换位置）（向下沉）
+		9   6   6   4   2
+		6   9   4   2   4
+		15  4   2   6
+		4   2   9
+		2   15
+		
+	*/
+	var arr = [9,6,15,4,2];
+	for(var i = 1; i < arr.length; i++){
+		for(var j = 0; j < arr.length - i; j++){
+			if(arr[j] > arr[j + 1]){
+				var t = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = t;
+			}
+		}
+	}
+	alert(arr);
+		
+</script>
+</head>
+<body>
+    
+</body>
+</html>

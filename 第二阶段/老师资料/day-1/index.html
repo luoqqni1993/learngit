@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <title>JavaScript</title>
+    </head>
+    <body>
+    <input type="button" value="按钮" >
+	<!--
+		鼠标事件：
+		onclick: 单击鼠标事件
+		
+		alert():带有一个确定按钮的警告框
+		1.如果括号中是数字就不须要加引号
+		2.如果是其它非数字数据要加引号（不区分单引号或双引号），在JS中只
+		要加上引号就叫做字符串。引号嵌套时要注意不能交叉使用引号 '""'   "''"
+		JS语言中，所有的标点符号都是英文半角状态
+		
+		document.write():在页面中输出内容
+		console.log():在控制台输出，是程序员最常用的排错工具
+		
+		注释：
+		//注释内容 （单行注释）
+		/*
+		注释内容
+		*/ (块注释、段落注释)
+		作用：1.解释代码
+					2.注销代码
+					
+		转义字符（扩展）：\转义符号 ，将一些具体特殊含义的符号转义成普通字符
+		\n:表示换行
+		\t:表示横向跳格(8个空格)
+		  
+		
+		JavaScript使用方法：
+		1》内联脚本（不推荐使用）（了解）
+		2》内部引用JS脚本 <script type = "text/javascript"></script>
+		3》外部引用JS脚本文件
+			注：（1）必须是双标签
+					（2）从外部引入JS文件时，script标签中不允许写入任何内容，
+					系统不会执行标签中的任何内容
+		<script type="text/javascript" src="js文件路径"></script>
+		
+		标识符的命名规则：
+		1.名字中只能包含 字母、数字、下划线、$、（中文）
+		2.不能以数字开头
+		3.不能是关键字或保留字
+		4.具有相关含义
+		5.驼峰命名法
+			小驼峰：zhongHuaRenMinGongHeGuo
+			大驼峰：ZhongHuaRenMinGongHeGuo
+		6.匈牙利命名法：
+			iNum  intager:整数
+			fNum  float:浮点数（小数）
+			sStr  string:字符串
+			bBoo  boolear:布尔
+			oObj  object:对象
+			
+			如： _34   a-4  $4   中国   4_ab   Var  var
+			
+	
+	
+		变量的声明：
+		1.显示声明：
+		var 变量名;  (推荐）
+		var 变量名1，变量名2，……，变量n;
+		2.隐式声明：（不推荐）
+		变量名 = 值；
+		
+		
+		
+		变量的赋值：
+		1.变量的初始化：定义变量的同时就给变量赋值
+		2.先声明后赋值
+		
+		松散类型（弱类型）：声明变量不须要确定是什么类型的变量。
+		强类型：C语言    int num;
+		数据类型：
+		1.基本数据类型
+			Number：数字类型 3  -3.3   64位浮点数形式存储（相当于C语言中的Double）
+			String:字符串类型  "ab" 'bc' 只要加引号的就是字符串
+			Boolean:布尔类型  true(真) false(假) 
+		2.特殊数据类型
+			null:表示空，它的类型是Object（对象）
+			undefined:未定义 它的类型是Undefined类型
+		3.复杂数据类型
+			Array：数组 它的类型是Object(对象）
+			Object：对象
+			
+			官方类型标准：
+			简单类型：Number/String/Boolean/null/undefined
+			复杂类型：Object
+			
+			
+		表达式：是由变量、常量和运算符组合成的式子。如1+1
+						单独的一个变量或常量也是表达式。  如3
+		语句（扩展）：表达式后加上分号，就叫做语句
+		如：var a = 3;
+		
+		算术运算符：
+		++：递增（每次加1）  //常用在循环语句中。
+		--：递减（每次减1）
+		运算逻辑：
+		1》i++:（后缀自增）先取出变量i中的值参与运算，再将i的值加1
+		2》++i:(前缀自增）先将i的值回1，再取i的值参与运算
+		i--与--i同上
+		
+		* : 乘 1 * 1   4 * 5    3 * 7
+					 4 * '4'
+		1.数字类型相乘，正常相乘
+		2.数字(字符串）类型乘以字符串（数字）类型，先将字符串自动转换为数字，如果可以转换，则正常相乘，
+		如果转换不了数字，结果是NaN
+		3.乘以布尔值时，先将true转为1 false转为0 再计算
+		4.乘以null时，先将null转为0 ，再计算
+		5.乘以undefined时，先将undefined转为数字，不能转，所以转成了NaN，结果就是NaN
+		//console.log(4*'4'); //16
+		//console.log(4*'a'); //NaN:Not a Number  类型是：Number
+		//console.log('4'*'4a');
+		//console.log(4 * true); //4
+		//console.log(4 * false); //0
+		//console.log(4 * null); //0
+		//console.log(4 * undefined); //NaN
+		
+		/:除
+		规则同*
+		console.log(0/4);
+		console.log(4/0); //Infinity无穷
+		console.log(0/0); //NaN
+		
+		%:模（取余）
+		规则同*
+		console.log(4%3); //1
+		console.log(4%2); //0
+		console.log(4%5); //4
+		console.log(4%6); //4
+		console.log(4%3.3);
+		
+		-:减
+		规则同*
+		console.log(8 - '4');
+		console.log(8 - '4a');
+		console.log(8 - true);
+		console.log(8 - false);
+		console.log(8 - null);
+		console.log(8 - undefined);
+		
+		+:加
+		1.如果加号两边有一个是字符串，就进行连接作用
+		2.数字（不包含NaN） 加上 true (1) 、false(0) 、null(0) 
+		3.数字（包含NaN）加上undefined、NaN，结果都是NaN	
+		document.write(3 + "3");
+		document.write("<br/>");
+		document.write(3 + true + false + null);
+		document.write("<br/>");
+		document.write(3 + NaN);
+		document.write("<br/>");
+		document.write(3 + undefined);
+		//document.write(3 + true + "false");
+		document.write("4" + 4 + 8 + null + undefined);
+		
+		关系运算符：（结果是布尔值：true、false)
+		> : 大于  
+		1.数字类型比较：正常比较
+		2.数字类型也字符串类型比较：将字符串转成数字，如果可以正常转成数字，正常比较，
+		如果不能转成数字，则转成NaN，结果为false
+		3.字符串类型比较，依次比较
+		4.一律不能正常比较的，结果都是false
+		
+		<: 小于
+		规则同大于
+		>=: 大于或等于
+		规则同大于
+		<=: 小于或等于
+		
+		==：等于
+		!=:不等于 //只比较转换后的结果
+		===：恒等于（全等于）
+		!==:不恒等（不全等） //先比较类型，再比较结果
+		
+		NaN不等于任何数，包含它自己
+		/*
+		alert(4 > 3);
+		alert(4 > '3');
+		alert(4 > "100");
+		
+		alert(4 > 'a');
+		alert(98 > 'a');
+		
+		alert("2" > "100");
+		alert("我">"你");*/
+		alert(4 > true)
+		alert(4 > undefined);
+		alert(4 > NaN);
+		alert( 3 >= 3);
+		alert(3 == '3');
+		alert(3 === '3');
+		//alert(false == null);
+		alert(NaN == NaN);
+		alert(NaN === NaN); 
+		
+		赋值运算符：
+		简单赋值：= 将赋值号右边表达式的值存入左边变量
+		复合算术赋值：
+		+= -= *= /= %=
+		运算逻辑：取运算符左边变量中的值与运算符右边表
+		达式的值进行相应的算术运算，运算后的结果再次赋值给左边的变量。
+		var a = 5;
+		a *= 4 + 1;  // a =  a * (4 + 1);
+		//a = 5 * (4+1)		
+		var a = 3;
+		a %= 4;
+		
+		特殊数据类型：
+		typeof ： 检测简单数据类型		
+		console.log(typeof -4);  //Number  返回值”number"
+		console.log(typeof "");  //String  返回值"string"
+		console.log(typeof false); //Boolean 返回值"boolean"
+		console.log(typeof null);  //Object 返回值 "object"
+		console.log(typeof undefined); //Undefined 返回值：'undefined'
+		console.log(typeof typeof 3); //String "string"
+		//typeof 3 "number"
+		//typeof "number"  string
+		
+		
+		强制类型转换：
+		isNaN();判断括号中的表达式的值是否是NaN
+		//console.log(isNaN("love"));
+		//console.log(isNaN("888 666"));
+		console.log(isNaN("3"+undefined));
+		
+		parseInt():将字符串强制转换成整数（必须以有效数字开头才会转
+		成数字，否则转成NaN）
+		console.log(parseInt("23.45abc"));
+		console.log(parseInt("abc123"));
+		
+		parseFloat():将字符串强制转换成小数（必须以有效数字开头才会转成小数，
+		否则转成NaN）
+		console.log(parseFloat("34.45.56.abc"));
+		console.log(parseFloat("sa33"));
+		
+		Number():将字符串强制转换成数字（整个字符串必须是有效的数字才可以转，
+		否则转成NaN）
+		console.log(Number("34.23"));
+		console.log(Number("23 34"));
+		console.log(Number("2.3.4"));
+		
+		eval():将字符串强制转换成表达式并返回表达式的值
+		console.log(eval("3+4"));
+		console.log(eval("3+undefined"));
+		<script type="text/javascript" src="js/js.js">
+			alert("how are you?"); // 不会被执行到
+		</script>
+		-->
+		<script type="text/javascript"> 
+			
+		//alert('how are you');
+		//var i = 5;
+		//i++;
+		//++i;
+		//alert(i++); //5  6
+		//alert(++i); //6
+		//alert(i);  //6
+		//var a = i++ + ++i - --i + i++;  //i = 7;
+		 //     5   +   7 -  6  +  6 
+		 
+		//var a = ++i + i++ + i++ + ++i;
+		//       6  +  6   + 7  + 9
+		//console.log(a);  //28
+		//console.log(i);  //9
+		/*
+			var iNum = 3; //初始化变量
+			var fNum; //定义变量，没有给变量赋值，里面默认是undefined(未定义）
+			fNum = 3.3;
+			fNum = 4.3;
+			fNum = 5.3;
+			fNum = 6.3;
+			var iOne = iTwo = iThree = 4;
+			console.log(iOne);
+			console.log(iTwo);
+			console.log(iThree);
+		*/
+		//iNum;  //ReferenceError: iNum is not defined  变量没有定义，也没有数据
+		//iNum = 3;
+		
+		//alert(iNum);
+		//var num 3;
+		//num = "3";
+		
+		//var oObj = null;  //表示类型是对象且为空的变量
+		
+		//new:运算符，作用创建对象
+		//了解
+		/*
+		var obj = new Object();
+		obj.name = "张三";
+		alert(obj.name);
+		*/
+		//输出  我爱"中国"
+		/*
+		alert('我爱"中国"\\');
+		alert("欢迎大\t家学习\nJavascript");
+		
+		
+		作业：
+		1.今天课堂所有的例子代码，照敲两遍
+2.入职薪水10K，每年涨幅5%，50年后工资多少？
+3.为抵抗洪水，战士连续作战89小时， 编程计算共多少天零多少小时？
+4.小明要到美国旅游，可是那里的温度 是以华氏度为单位记录的，它需要一个 程序将华氏温度（80度）转换为摄氏度， 并以华氏度和摄氏度为单位分别显示该温度。 提示：摄氏度与华氏度的转换公式为：摄氏度 = 5/9.0*(华氏度-32)
+5.var k = -2; alert(++k + k++ + ++k + k);
+6. 编写程序，由用户输入一个三位正整数并求它的各位 数字之和，如：用户输入123，输入123的各位之和是6.
+  i. 提示：用户输入的方法prompt() 如：var num=prompt("请输入数字！"); alert(num);
+7. 计算：
+  var i=5; var a=3; a+=++i + ++i - i++ + i++; var b=a++ + i++ + ++a + a++ + "a++"; 求：i、a、b的值分别是多少？
+		
+		
+		
+		document.write("欢迎大家学习<br/>Javascript");
+		console.log("欢迎大家学习<br/>Javascript");
+		*/
+		var num;
+		num = parseInt(prompt("请输入一个整数："));
+		alert(typeof num);
+		</script>
+    </body>
+</html>

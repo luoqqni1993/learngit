@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+	/*
+		计时器（控制时间）
+		var timer = setInterval(函数，毫秒数）   每隔一定的毫秒数，就调用一次函数（循环）间歇性计时器
+		clearInterval(timer) 停止计时器
+		
+		
+		定时器（控制时间）
+		var timer = setTimeout(函数，毫秒数） 当到达所设定的毫秒数后，调用一次函数。
+	*/
+	window.onload = function(){
+		var oBtn = document.getElementById("btn");
+		var oBtn1 = document.getElementById("btn1");
+		var i = 1;
+		var timer = null;
+		oBtn1.onclick = function(){
+			timer = setTimeout(you,5000);
+			
+		};
+		
+		function you(){
+			document.title = i;
+			i++;
+			timer = setTimeout(you,30);
+		}
+		oBtn.onclick = function(){
+			clearTimeout(timer);
+		};
+	};
+	/*
+	var i = 0;
+	var timer = setInterval(me,20);
+	//alert(timer);
+	
+	//alert(me);
+	function me(){
+		document.title = i;
+		i ++;
+		if(i > 200){
+			clearInterval(timer);
+		}
+	}
+	*/
+</script>
+</head>
+
+<body>
+	<input type="button" value="死亡倒计时" id="btn1">  
+  <input type="button" value="紧急停止" id="btn">  
+</body>
+</html>

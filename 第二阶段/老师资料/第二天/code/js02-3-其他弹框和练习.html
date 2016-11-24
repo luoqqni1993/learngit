@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8' /> 
+	</head>
+	<body>
+		<script>
+			//练习1.输入一个年份,判断是否是闰年
+			//点击取消,返回的值是null
+			/*
+			var year = prompt("请输入一个年份!");
+			if(year%400==0 || (year%4==0 && year%100!=0)) {
+				alert("是闰年");
+			}
+			else {
+				alert("不是闰年!");
+			}
+			*/
+			/*
+			//思考: 如果输入为空或者点击取消的情况如何处理?
+			var year = prompt("请输入年份");
+			//alert(year);
+			//判断是否为空,null
+			//花括号代表一个代码块
+			if(year=="" || year==null) {
+				alert("输入不对,拜拜了,刷新再来...");
+			}
+			else {
+				//if/else中可以嵌套
+				if(year%400==0 || (year%4==0&&year%100!=0)) {
+					alert("是闰年!");
+				}
+				else {
+					alert("不是闰年");
+				}
+			}
+			*/
+			
+			/*
+			//注意,字符串的比较和数字的比较不同
+			alert("998">"12345"); //true
+			alert(998>12345);     //false
+			*/
+			/*
+			//输入3个数  a,b,c中, 输出最大数的值
+			var num1 = parseInt(prompt("请输入第一个数"));
+			var num2 = parseInt(prompt("请输入第二个数"));
+			var num3 = parseInt(prompt("请输入第三个数"));
+			//方法1.用于 max变量来保存最大值
+			var max = num1;
+			if(num2>max) {
+			   max = num2;//找到了前两个数的最大值
+			}
+			if(num3>max) {
+				max = num3;//找到更大的,替换掉当前的max
+			}
+			alert("最大的值是"+max);
+			*/
+			
+			//三目运算符
+			//表达式1 ? 表达式2: 表达式3
+			//求a,b中的最大值
+			//三目运算符也可以嵌套
+			/*
+			var a = 100;
+			var b = 200;
+			var max1 = a>b?a:b;
+			alert(max1);
+			*/
+			/*
+			//练习:有3个数a,b,c使用三目运算符求最大的值
+			var a = parseInt(prompt("请输入第一个数"));
+			var b = parseInt(prompt("请输入第二个数"));
+			var c = parseInt(prompt("请输入第三个数"));
+			var d = (a>b?a:b)>c ? (a>b?a:b) : c;
+			alert("最大值是"+d);
+			*/
+			//确认弹框 confirm()弹框
+			//返回值是true(点击确定)和false(点击取消)
+			/*
+			var con = confirm("你确定要...吗?");
+			if(con==true) { 
+				console.log("退出系统");
+			}
+			else {
+				console.log("取消退出");
+			}
+			*/
+			//
+			//练习: 简单描述一周的生活
+			// == 只会比较数值是否相等,可能发生类型转换
+			/*
+			var day = prompt("请输入一个整数,范围是1~7");
+			if(day>=1 && day<=5) {
+			   alert("我们一直在学习");
+			}
+			else if(day==6) {
+				alert("拖着疲惫的身躯在学习");
+			}
+			else if(day==7) {
+				alert("周天了,终于可以Lol了");
+			}
+			else {
+				alert("输入错误...");
+			}
+			*/
+			
+			//使用switch case输出一周学习情况
+			var day = parseInt(prompt("请输入一个正整数1~7"));
+			/*
+			switch(day) {
+				case 1: alert("正常上课");break;
+				case 2: alert("正常上课");break;
+				case 3: alert("正常上课");break;
+				case 4: alert("正常上课");break;
+				case 5: alert("正常上课");break;
+				case 6: alert("继续战斗");break;
+				case 7: alert("休息嘻嘻");break;
+				default:alert("输入不正确");break;
+			}
+			*/
+			
+			/*贯穿的应用,当多种情况执行的代码一样时,可以不写break;*/
+			//default: 除了case匹配的其他情况
+			//break: 结束当前的switch语句
+			switch(day) {
+				case 1: 
+				case 2: 
+				case 3: 
+				case 4: 
+				case 5: alert("正常上课");break;
+				case 6: alert("继续战斗");break;
+				case 7: alert("休息嘻嘻");break;
+				default:alert("输入不正确");break;
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

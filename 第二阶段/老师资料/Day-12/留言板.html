@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript</title>
+<script>
+//加载页面
+window.onload = function(){
+	//获取页面元素
+	var oText = document.getElementById("text1");
+	var oBtn = document.getElementById("btn");
+	var oUl = document.getElementById("ul1");
+	
+	//给按钮添加点击事件
+	oBtn.onclick = add;
+	function add(){
+		//获取到文本框中的字符串
+		var str = oText.value;
+		//创建文本节点
+		var oT = document.createTextNode(str);
+		//创建li元素
+		var oLi = document.createElement("li");
+		//将文本节点追加到li的子节点列表后面
+		oLi.appendChild(oT);
+		//创建一个a元素节点
+		var oA = document.createElement('a');
+		oA.href = "javascript:;"; //给a元素设置href属性
+		oA.innerHTML = "删除"; //给a标签中添加内容
+		oLi.appendChild(oA); //将a元素节点追加到li节点列表后面
+		
+		//判断是否是第一个子节点，如果有，则将新的li节点插入到第一个子节点前面，如果没有，则将新的li节点追加到ul子节点列表末尾
+		if(oUl.firstChild){
+			oUl.insertBefore(oLi,oUl.firstChild);
+		}else{
+			oUl.appendChild(oLi);
+		}
+		//给a元素添加点击事件
+		oA.onclick = function(){
+			//通过ul节点删除当前a节点的父节点li
+			this.parentNode.parentNode.removeChild(this.parentNode);
+		};
+		
+	};
+	document.onkeyup = function(evt){
+			var e = evt || window.event;
+			if(e.keyCode == 13 && e.ctrlKey && e.altKey){
+				
+				add();
+			}
+		};
+};
+</script>
+</head>
+<body>
+<input type="text" id="text1"><input type="button" id="btn"value="请留言">
+<br/><ul id="ul1"></ul>    
+</body>
+</html>

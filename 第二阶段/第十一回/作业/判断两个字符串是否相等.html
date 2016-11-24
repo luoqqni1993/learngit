@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body></body>
+</html>
+<script>
+	window.onload=function(){
+		oBody=document.getElementsByTagName("body")[0];
+		removeSpace(oBody);
+		var oInput1=document.createElement("input");
+		var oInput2=document.createElement("input");
+		var oInput3=document.createElement("input");
+		var oInput4=document.createElement("input");
+		var oInput5=document.createElement("input");
+		oInput1.type="text";
+		oInput2.type="text";
+		oInput3.type="text";
+		oInput4.type="button";
+		oInput4.value="比较";
+		oInput5.type="button";
+		oInput5.value="清空";
+		oBody.appendChild(oInput1);
+		oBody.appendChild(oInput2);
+		oBody.appendChild(oInput3);
+		oBody.appendChild(oInput4);
+		oBody.appendChild(oInput5);
+		var oText1=document.createTextNode("请输入第一个字符串：");
+		var oText2=document.createTextNode("请输入第二个字符串：");
+		var oText3=document.createTextNode("输出结果");
+		oBody.insertBefore(oText1,oBody.firstChild);
+		oBody.insertBefore(oText2,oBody.firstChild.nextSibling.nextSibling.nextSibling);
+		oBody.insertBefore(oText3,oBody.lastChild.previousSibling.previousSibling);
+		var oInp=document.getElementsByTagName("input");
+		oInp[3].onclick=function(){
+		var iStr1=oInp[0].value;
+		var iStr2=oInp[1].value;
+			if(iStr1==iStr2){
+				oInp[2].value=iStr1[0];
+			}else{
+				oInp[2].value=iStr1[1];
+			}
+		};
+		oInp[4].onclick=function(){
+			for(var i=0;i<3;i++){
+				oInp[i].value="";
+			}
+		};
+		
+	};
+	function removeSpace(node){
+		var childs=node.childNodes;
+		for(var i=0;i<childs.length;i++){
+			if(childs[i].nodeType==3&&/^\s+$/.test(childs[i].nodeValue)){
+				childs[i].parentNode.removeChild(childs[i]);
+			}
+		}
+		return node;
+	}
+</script>

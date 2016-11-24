@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{width:100px;height:100px;background:red;position:absolute;}
+		</style>
+		<script>
+		window.onload=function(){
+			var oBtn=document.getElementById("btn");
+			oBtn.onclick=function(){
+				startMove(300);
+			};
+		};
+		var timer=null;
+		function startMove(target){
+			var oDiv=document.getElementById("box");
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var speed=target-oDiv.offsetLeft;
+				speed=speed>0 ? 7 : -7;
+				if(Math.abs(target-oDiv.offsetLeft)<7){
+					clearInterval(timer);
+					oDiv.style.left=target+'px';
+				}else{
+					oDiv.style.left=oDiv.offsetLeft+speed+'px';
+				}
+			},30)
+		}
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn" value="开始运动"/>
+		<div id="box">
+			
+		</div>
+		<span style="display:block;width:1px;height:400px;background:black;position:absolute;
+			left:300px;top:0px;"></span>
+	</body>
+</html>

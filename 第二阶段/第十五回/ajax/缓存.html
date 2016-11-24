@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="fun.js"></script>
+	</head>
+	<body>
+		<p>解决缓存</p>
+		<input type="button" id="btn" value="有缓存么">
+	</body>
+</html>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById("btn");
+		oBtn.onclick=function(){
+			ajax("abc.txt?t="+new Date().getTime(),function(str){
+				alert(str);//问号对文件名没有影响。
+			})
+		};
+	};
+</script>

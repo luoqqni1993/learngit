@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#img1{filter: alpha(opacity=30);opacity: 0.3;}
+		</style>
+		<script type="text/javascript">
+			var timer = null;
+			var alpha = 30;  //因为不支持offsetOpacity，所以用 一个变量代替
+			window.onload = function(){
+				var oImg = document.getElementById("img1");
+				oImg.onmouseover = function(){
+					startMove(100);
+				}
+				oImg.onmouseout = function(){
+					startMove(30);
+				}
+			}
+			function startMove(target){
+				//获取元素
+				var oImg = document.getElementById("img1");
+				clearInterval(timer); //取消计时器
+				//设置新的计时器
+				timer = setInterval(function(){
+					//设置速度（通过目标值）
+					var speed = alpha < target ? 1 : -1;
+					if(alpha == target){ //到达目标
+						clearInterval(timer); //取消计时器
+					}else{
+						alpha += speed; //改变变量的值
+						//改变透明度的值
+						oImg.style.filter = "alpha(opacity=" + alpha + ")";
+						oImg.style.opacity = alpha / 100;
+					}
+					//document.title = alpha + ":"+oImg.style.opacity; //测试
+				},30);
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/4.jpg" id="img1" title="淡入淡出"/>
+	</body>
+</html>
